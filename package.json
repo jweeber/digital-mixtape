@@ -41,6 +41,7 @@
     "ember-resolver": "^2.0.3",
     "ember-simple-auth": "1.1.0",
     "ember-welcome-page": "^1.0.1",
+    "emberfire": "2.0.1",
     "loader.js": "^4.0.1",
     "torii": "^0.8.0",
     "torii-spotify": "0.0.1"

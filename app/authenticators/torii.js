@@ -1,13 +1,9 @@
 import Ember from 'ember';
 import ToriiAuthenticator from 'ember-simple-auth/authenticators/torii';
-import ENV from "../config/environment";
-
-// export default ToriiAuthenticator.extend({ torii: Ember.inject.service() })
 
 const { inject: { service } } = Ember;
 
 export default ToriiAuthenticator.extend({
-
 
   torii: service(),
   ajax: service(),
@@ -20,8 +16,12 @@ export default ToriiAuthenticator.extend({
         headers: {
           Authorization: 'Bearer ' + data.authorizationToken.access_token  
         },
+        data: {
+          scope: 'playlist-read-private playlist-modify-private playlist-modify-public'
+        }
       }).then((response) => {
-          console.log(response)
+        // need to save user data here
+          console.log(response.display_name, response.id, response.images[0].url, response.external_urls.spotify)
         return {
           access_token: response.access_token,
           provider: data.provider

@@ -7,10 +7,7 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
+      FEATURES: {}
     },
 
     torii: {
@@ -24,10 +21,20 @@ module.exports = function(environment) {
       }
     },
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
+    firebase: {
+      apiKey: process.env.FIREBASE_KEY,
+      authDomain: process.env.FIREBASE_DOMAIN,
+      databaseURL: process.env.FIREBASE_DB,
+      storageBucket: process.env.FIREBASE_STORAGE
+    },
+
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
+    APP: {}
   };
 
   if (environment === 'development') {
