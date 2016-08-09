@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   actions: {
     login () {
       this.get('session').authenticate('authenticator:torii', 'spotify-oauth2-bearer').then(() => {
-        // console.log(this.get('session.data.authenticated.authorizationToken.access_token'));
+        console.log(this.get('session'))
       });
     },
 

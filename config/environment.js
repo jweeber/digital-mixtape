@@ -21,18 +21,19 @@ module.exports = function(environment) {
       }
     },
 
-    firebase: {
-      apiKey: process.env.FIREBASE_KEY,
-      authDomain: process.env.FIREBASE_DOMAIN,
-      databaseURL: process.env.FIREBASE_DB,
-      storageBucket: process.env.FIREBASE_STORAGE
-    },
-
     contentSecurityPolicy: {
-      'script-src': "'self' 'unsafe-eval' apis.google.com",
-      'frame-src': "'self' https://*.firebaseapp.com",
+      // 'script-src': "'self' 'unsafe-eval' apis.google.com",
+      // 'frame-src': "'self' https://*.firebaseapp.com",
       'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
     },
+
+    firebase: {
+      apiKey: process.env.FIREBASE_KEY,
+      authDomain: 'digital-mixtape-635ce.firebaseapp.com',
+      databaseURL: 'https://digital-mixtape-635ce.firebaseio.com',
+      storageBucket: 'digital-mixtape-635ce.appspot.com'
+    },
+
 
     APP: {}
   };

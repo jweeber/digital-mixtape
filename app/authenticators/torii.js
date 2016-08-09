@@ -7,6 +7,8 @@ export default ToriiAuthenticator.extend({
 
   torii: service(),
   ajax: service(),
+  store: service(),
+  // user: Ember.inject('model', 'user', 'store:user'),
 
   authenticate() {
     const ajax = this.get('ajax');
@@ -21,7 +23,15 @@ export default ToriiAuthenticator.extend({
         }
       }).then((response) => {
         // need to save user data here
-          console.log(response.display_name, response.id, response.images[0].url, response.external_urls.spotify)
+        var userModel = this.get('store')
+        var newUser = userModel.createRecord('user', {
+          name: response.display_name,
+          spotify_id: response.id,
+          image_url: response.images[0].url,
+          profile_url: response.external_urls.spotify
+        });
+        newUser.save();
+        console.log(response.display_name, response.id, response.images[0].url, response.external_urls.spotify)
         return {
           access_token: response.access_token,
           provider: data.provider
