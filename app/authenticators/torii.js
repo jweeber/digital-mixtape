@@ -1,15 +1,15 @@
 import Ember from 'ember';
 import ToriiAuthenticator from 'ember-simple-auth/authenticators/torii';
-// import Firebase from 'firebase';
-// import FirebaseAdapter from 'emberfire/adapters/firebase';
 
-const { inject: { service } } = Ember;
+const services = Ember.inject.service();
 
 export default ToriiAuthenticator.extend({
 
-  torii: service(),
-  ajax: service(),
-  store: service(),
+  torii: services,
+  ajax: services,
+  store: services,
+  // session: Ember.inject.service('session'),
+  // currentUser: Ember.inject.service('current-user'),
 
   authenticate: function () {
     const ajax = this.get('ajax');
@@ -24,19 +24,19 @@ export default ToriiAuthenticator.extend({
         }
       })
       .then((response) => {
-          var store = this.get('store');
-          var images = response.images.length === 0 ? "not provided" : response.images[0].url
-          store.query('user', {orderBy: 'id', equalTo: response.id })
-          .then( (records) =>{
-            if (records.get('length') === 0) {
-                var newUser = store.createRecord('user', {
-                  id: response.id,
-                  name: response.display_name || "not provided",
-                  image_url: images,
-                  profile_url: response.external_urls.spotify || "not provided"
-                });
-                newUser.save()
-            }
+        var store = this.get('store');
+        var images = response.images.length === 0 ? "not provided" : response.images[0].url
+        store.query('user', { equalTo: response.id })
+        .then( (records) =>{
+          if (records.get('length') === 0) {
+            var newUser = store.createRecord('user', {
+              id: response.id,
+              name: response.display_name || "not provided",
+              image_url: images,
+              profile_url: response.external_urls.spotify || "not provided"
+            })
+            return newUser.save()
+          }
           }).catch( (error) => {});
 
         return {

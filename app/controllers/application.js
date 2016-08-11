@@ -1,21 +1,21 @@
 import Ember from 'ember';
 
+const { inject: { service } } = Ember;
+
 export default Ember.Controller.extend({
-  session: Ember.inject.service('session'),
-  // read about injecting services
-  // can i inject the user store?
+  session:     service(),
+  currentUser: service(),
 
   actions: {
     login () {
-      this.get('session').authenticate('authenticator:torii', 'spotify-oauth2-bearer').then(() => {
-        // console.log(this.store.findAll('user'))
+      this.get('session').authenticate('authenticator:torii', 'spotify-oauth2-bearer').then( (data) => {
+        // console.log(this.get('session.data.authenticated.id'))
       });
     },
 
-    logout () { this.get('session').invalidate(); },
-
-    //p
-    // getCurrentUser() { this.get('session.currentUser')}
+    logout () { 
+      this.get('session').invalidate(); 
+    },
   } 
 
 });
