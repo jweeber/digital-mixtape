@@ -8,7 +8,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   currentUser: services,
   session: services,
 
-  model: function() {
+  model: function(user) {
+    return this.store.findRecord('user', user.id)
   }
 
 });
