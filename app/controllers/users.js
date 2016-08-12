@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
 
   actions: {
     new: function () {
-      this.transitionTo('mixtapes.new')
+      // this.transitionTo('mixtapes.new')
     }
   }
 

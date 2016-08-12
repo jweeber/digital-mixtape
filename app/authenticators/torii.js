@@ -23,20 +23,16 @@ export default ToriiAuthenticator.extend({
         }
       })
       .then((response) => {
-        // var session = this.get('session')
-        // console.log(session.data.authenticated.user_id)
-        console.log(this.get('session.data'))
         var store = this.get('store')
         var images = response.images.length === 0 ? "not provided" : response.images[0].url
         store.query('user', { equalTo: response.id })
-        .then( (records) =>{
+        .then( (records) => {
           if (records.get('length') === 0) {
             var newUser = store.createRecord('user', {
               id: response.id,
               name: response.display_name || "not provided",
               image_url: images,
-              profile_url: response.external_urls.spotify || "not provided",
-
+              profile_url: response.external_urls.spotify || "not provided"
             })
             return newUser.save()
           }

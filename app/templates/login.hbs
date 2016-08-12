@@ -1,7 +1,7 @@
+<h2>Log in to make some awesome mixtapes!</h2>
+
 {{#if session.isAuthenticated}}
   <button {{action 'logout'}}>Logout</button>
 {{else}}
   <button {{action 'login'}}>Login</button>
 {{/if}}
-
-{{outlet}}
