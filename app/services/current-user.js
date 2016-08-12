@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
-const { inject: { service }, isEmpty } = Ember;
+const services = Ember.inject.service();
 
 export default Ember.Service.extend({
-  session: service('session'),
-  store: service(),
+  session: services,
+  store: services,
 
   load: function () {
     return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ export default Ember.Service.extend({
       let userId = this.get('session.data.authenticated.user_id');
       // authenticated contains access token, authentication id, etc.
       console.log(userId)
-      if (!isEmpty(userId)) {
+      if (!Ember.isEmpty(userId)) {
         return this.get('store').query('user', { equalTo: userId }).then((user) => {
           // console.log(user)
           this.set('currentUser', user);

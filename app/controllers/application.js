@@ -1,10 +1,10 @@
 import Ember from 'ember'
 
-const { inject: { service } } = Ember
+const services = Ember.inject.service()
 
 export default Ember.Controller.extend({
-  session:     service(),
-  currentUser: service(),
+  session:     services,
+  currentUser: services,
 
   actions: {
     login () {
