@@ -7,8 +7,8 @@ export default Ember.Controller.extend({
   currentUser: service(),
 
   actions: {
-    newMixtape: function () {
-      
+    new: function () {
+      this.transitionTo('mixtapes.new')
     }
   }
 

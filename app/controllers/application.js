@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
-const { inject: { service } } = Ember;
+const { inject: { service } } = Ember
 
 export default Ember.Controller.extend({
   session:     service(),
@@ -9,13 +9,12 @@ export default Ember.Controller.extend({
   actions: {
     login () {
       this.get('session').authenticate('authenticator:torii', 'spotify-oauth2-bearer').then( (data) => {
-        // console.log(this.get('session.data.authenticated.id'))
-      });
+    })
     },
 
     logout () { 
-      this.get('session').invalidate(); 
+      this.get('session').invalidate() 
     },
   } 
 
-});
+})

@@ -8,8 +8,16 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('users', function () {
-    this.route('user', { path: '/:id' })
+    this.route('user', { path: '/:id' }, function () {
+      this.resource('mixtapes', function () {
+        this.route('new') 
+      })
+    })
   });
+
+  // this.resource('mixtapes', function () {
+  //   this.route('new')
+  // })
 });
 
 export default Router;
