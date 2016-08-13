@@ -6,6 +6,6 @@ export default DS.Model.extend({
   message: DS.attr('string'),
   font_style: DS.attr('string'),
   font_color: DS.attr('string'),
-  link: DS.attr('string'),
+  url: DS.attr('string'),
   mixtapes: DS.belongsTo('user')
 });
