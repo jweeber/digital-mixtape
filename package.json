@@ -44,12 +44,12 @@
     "ember-welcome-page": "^1.0.1",
     "emberfire": "2.0.1",
     "loader.js": "^4.0.1",
-    "spotify-web-api-js": "^0.19.3",
+    "spotify-web-api-node": "^2.3.5",
     "torii": "^0.8.0",
     "torii-spotify": "0.0.1"
   },
   "dependencies": {
     "ember-inflector": "^1.9.6",
-    "spotify-web-api-js": "^0.19.3"
+    "spotify-web-api-node": "^2.3.5"
   }
 }

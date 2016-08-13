@@ -10,7 +10,7 @@ Router.map(function() {
   // this.route('users')
   this.route('user', { path: '/user/:id' }, function () {
   })
-  this.route('mixtapes', function () {
+  this.route('mixtape', function () {
     this.route('new') 
   })
   this.route('login');
