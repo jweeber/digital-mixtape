@@ -12,20 +12,23 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
     
     createMixtape: function (title) {
-      var user = this.get("session.data.authenticated.user_id")
-      var token = this.get('session.data.authenticated.access_token')
-      var store = this.get('store')
-      var spotifyApi = new SpotifyWebApi()
+      let user = this.get("session.data.authenticated.user_id")
+      let token = this.get('session.data.authenticated.access_token')
+      let store = this.get('store')
+      let spotifyApi = new SpotifyWebApi()
       spotifyApi.setAccessToken(token)
 
-      spotifyApi.createPlaylist(user, title, { 'public': true }).then(function (playlist) {
-        var newMixtape = store.createRecord('mixtape', {
+      spotifyApi.createPlaylist(user, title, { 'public': true })
+        .then(function (playlist) {
+          let currentUser = store.peekRecord('user', user);
+          let newMixtape = store.createRecord('mixtape', {
             id: playlist.body.id,
-            title: playlist.body.name
-        })
-        return newMixtape.save()
-        }, function(err) {
-          console.error(err);
+            title: playlist.body.name,
+            user: currentUser
+          });
+          return newMixtape.save();
+        }).catch(function (err) {
+            console.error(err);
       });
     }
   }

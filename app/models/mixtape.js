@@ -7,5 +7,5 @@ export default DS.Model.extend({
   font_style: DS.attr('string'),
   font_color: DS.attr('string'),
   url: DS.attr('string'),
-  mixtapes: DS.belongsTo('user')
+  user: DS.belongsTo('user')
 });
