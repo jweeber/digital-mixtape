@@ -11,28 +11,21 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   tracks: [],
 
   queryParams: {
-    search: {
+    query: {
       refreshModel: true
     }
   },
   
-  model: function(params) {
-    return this.store.find('add-music', params);
+  model: function(query) {
+    let spotifyApi = new SpotifyWebApi()
+    spotifyApi.searchTracks(query, { limit: 5 })
+      .then( (data) => {
+        return this.store.query('add-music', query);
+        console.error(err);
+    })
   },
 
   actions: {
-    search: function (queryTerm) {
-      let spotifyApi = new SpotifyWebApi()
-      spotifyApi.searchTracks(queryTerm, { limit: 5 })
-        .then( (data) => {
-          for (let track of data.body.tracks.items) {
-            this.get('tracks').pushObject(track)
-          }
-          return this.get('tracks')
-        }).catch (function (err) {
-          console.error(err);
-      })
-    }
   },
 
 });
