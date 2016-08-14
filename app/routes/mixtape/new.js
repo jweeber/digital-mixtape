@@ -9,10 +9,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   store: services,
   session: services,
 
-  // afterModel: function () {
-
-  // },
-
   actions: {
     
     createMixtape: function (title) {
