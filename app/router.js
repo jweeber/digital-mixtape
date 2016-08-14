@@ -7,12 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  // this.route('users')
-  this.route('user', { path: '/user/:id' }, function () {
-  })
+  this.route('user', { path: '/user/:id' })
   this.route('mixtape', function () {
     this.route('new')
-    this.route('add-music');
+    this.route('add', { path: '/mixtape/add/:id'});
   })
   this.route('login');
 });

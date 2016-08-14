@@ -18,19 +18,19 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       let spotifyApi = new SpotifyWebApi()
       spotifyApi.setAccessToken(token)
 
-      spotifyApi.createPlaylist(user, title, { 'public': true })
-        .then(function (playlist) {
+      return spotifyApi.createPlaylist(user, title, { 'public': true })
+        .then( (playlist) => {
           let currentUser = store.peekRecord('user', user);
           let newMixtape = store.createRecord('mixtape', {
             id: playlist.body.id,
             title: playlist.body.name,
             user: currentUser
           });
-          return newMixtape.save();
+          newMixtape.save();
+        return this.transitionTo('mixtape.add', playlist.body.id)
         }).catch(function (err) {
             console.error(err);
       });
-      this.transitionTo('mixtape.add-music')
     }
   }
 });
