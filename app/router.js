@@ -11,7 +11,8 @@ Router.map(function() {
   this.route('user', { path: '/user/:id' }, function () {
   })
   this.route('mixtape', function () {
-    this.route('new') 
+    this.route('new')
+    this.route('add-music');
   })
   this.route('login');
 });

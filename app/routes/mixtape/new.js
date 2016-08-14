@@ -9,6 +9,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   store: services,
   session: services,
 
+  // afterModel: function () {
+
+  // },
+
   actions: {
     
     createMixtape: function (title) {
@@ -30,6 +34,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         }).catch(function (err) {
             console.error(err);
       });
+      this.transitionTo('mixtape.add-music')
     }
   }
 });
