@@ -1,0 +1,8 @@
+{{outlet}}
+
+<div class="container">
+  <h2>Search for Tracks on Spotify</h2>
+  <p>After searching, click on the track to play a 30 second preview.</p>
+ {{input type="text" value=search placeholder="search for tracks, artists, or albums" class="search"}}
+ <button {{action "search" query}}>Search</button>
+</div>

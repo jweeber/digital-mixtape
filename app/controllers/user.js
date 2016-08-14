@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
 
   actions: {
     newMixtape: function () {
-      this.transitionToRoute('mixtape')
+      this.transitionToRoute('mixtape.new')
     }
   }
 
