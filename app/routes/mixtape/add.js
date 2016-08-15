@@ -6,7 +6,6 @@ const services = Ember.inject.service()
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
-  store: services,
   session: services,
   playlistId: null,
   playlist: [],
@@ -58,7 +57,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
 
     finished: function () {
-      this.transitionTo('mixtape.edit', this.get('playlistId'))
+      return this.transitionTo('mixtape.edit', this.get('playlistId'))
     }
   },
 
