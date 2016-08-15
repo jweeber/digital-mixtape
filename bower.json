@@ -5,6 +5,8 @@
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
     "firebase": "^3.0.0",
-    "spotify-web-api-js": "^0.19.3"
+    "spotify-web-api-js": "^0.19.3",
+    "bourbon": "4.2.6",
+    "neat": "~1.7.2"
   }
 }

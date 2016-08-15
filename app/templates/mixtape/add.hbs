@@ -3,11 +3,14 @@
  {{input type="text" value=query placeholder="search for tracks, artists, or albums" class="search"}}
 </div>
 
-
-{{#each model as |track|}}
-  <p>{{track.name}}
-  {{track.artists.0.name}}
-  <iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe>
-  <button {{action "addToPlaylist" track.uri}}>add to mixtape</button>
+  {{#each model as |track|}}
+<div class="tracks-container">
+   <p> <div class="player"><iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="250" height="80" frameborder="0" allowtransparency="true"></iframe></div>
+    <div class="track-info">
+      {{track.name}}<br>
+      {{track.artists.0.name}}<br>
+      <button {{action "addToPlaylist" track.uri}}>add to mixtape</button>
+    </div>
   </p>
+</div>
   {{/each}}

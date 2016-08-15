@@ -19,12 +19,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function (params) {
     this.set('playlistId', params.id)
     let spotifyApi = new SpotifyWebApi()
-    return spotifyApi.searchTracks(params.query, { limit: 5 })
-      .then( (data) => {
-        return data.body.tracks.items;
-      }).catch (function (err) {
-        console.error(err);
-    })
+    if ((params.query === undefined) || (params.query.length >= 3)) {
+      return spotifyApi.searchTracks(params.query, { limit: 5 })
+        .then( (data) => {
+          return data.body.tracks.items;
+        }).catch (function (err) {
+          
+      })
+    } else { return null }
   },
 
   actions: {

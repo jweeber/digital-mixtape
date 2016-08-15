@@ -1,0 +1,24 @@
+@import "bourbon";
+@import "neat";
+
+.tracks-container {
+  @include outer-container;
+  @include row();
+    $mobile: new-breakpoint(max-width 900px 4);
+
+  .player {
+    @include span-columns(4);
+
+      @include media($mobile) {
+        @include span-columns(3);
+      }
+  }
+
+  .track-info {
+    @include span-columns(8);
+
+      @include media($mobile) {
+        @include span-columns(3);
+      }
+    }
+}
