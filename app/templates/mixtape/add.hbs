@@ -1,30 +1,30 @@
 <div class="container">
-  <h2>Search for Tracks, Artists, and Albums on Spotify</h2>
- {{input type="text" value=query placeholder="search for tracks, artists, or albums" class="search"}}
-</div>
-
-<button class="finished-adding" {{action "finished"}}>done adding tracks</button>
-
+    <h2>Search for Tracks, Artists, and Albums on Spotify</h2>
+    {{input type="text" value=query placeholder="search for tracks, artists, or albums" class="search"}}
+    <button class="finished-adding" {{action "finished"}}>done adding tracks</button>
   {{#each model as |track|}}
-<div class="tracks-container">
-   <p> 
-   <div class="player"><iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe></div>
-    <div class="track-info">
-      {{track.name}}<br>
-      {{track.artists.0.name}}<br>
-      <button {{action "addToPlaylist" track.uri track.id}}>add to mixtape</button>
+    <div class="tracks-container">
+      <p> 
+        <div class="player"><iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe></div>
+        <div class="track-info">
+          {{track.name}}<br>
+          {{track.artists.0.name}}<br>
+          <button {{action "addToPlaylist" track.uri track.id}}>add to mixtape</button>
+        </div>
+      </p>
     </div>
-  </p>
-</div>
   {{/each}}
 
-<div class="added-tracks">
-{{#each playlist as |track|}}
-  <div class="show-track">
-  <p>{{track.name}}
-  {{track.artists.0.name}}</p>
-    <a href="#" class="remove-track">
-    <img src={{track.body.album.images.0.url}} class="track-img"> <span class="remove-btn"><button>remove track</button></span></a>
-  </div>  
-{{/each}}
+  <div class="added-tracks">
+    {{#each playlist as |track|}}
+      <div class="added-img">
+        <img src={{track.album.images.0.url}} class="track-img">
+      </div>  
+      <div class="added-info">
+        <p>{{track.name}}
+        {{track.artists.0.name}}</p>
+        <button class="remove-track">remove track</button>
+      </div>
+    {{/each}}
+  </div>
 </div>
