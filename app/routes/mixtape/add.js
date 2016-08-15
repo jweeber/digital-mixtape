@@ -7,8 +7,6 @@ const services = Ember.inject.service()
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   session: services,
-  playlistId: null,
-  playlist: [],
 
   queryParams: {
     query: {
@@ -29,36 +27,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     } else { return null }
   },
 
-  actions: {
-    addToPlaylist: function (trackId) {
-      let playlist = this.get('playlistId')
-      let user = this.get('session.data.authenticated.user_id')
-      let token = this.get('session.data.authenticated.access_token')
-
-      let spotifyApi = new SpotifyWebApi()
-      spotifyApi.setAccessToken(token)
-
-      return spotifyApi.addTracksToPlaylist(user, playlist, [trackId])
-        .then( (data) => {
-          return data
-        }).catch (function (err) {
-          console.error(err);
-      })
-
-      // return spotifyApi.getPlaylistTracks(user, playlist)
-      //   .then( (data) => {
-      //     console.log(data)
-      //     this.get('playlist').pushObject(data)
-      //     console.log(this.get('playlist'))
-      //     return this.get('playlist')
-      //   }).catch( function (err) {
-      //     console.log(err)
-      // })
-    },
-
-    finished: function () {
-      return this.transitionTo('mixtape.edit', this.get('playlistId'))
-    }
-  },
-
+  setupController: function (controller, model) {
+    this._super(controller, model);
+    controller.set('playlistId', this.get('playlistId'));
+  }
 });
