@@ -9,6 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   store: services,
   session: services,
   playlistId: null,
+  playlist: [],
 
   queryParams: {
     query: {
@@ -40,11 +41,24 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
       return spotifyApi.addTracksToPlaylist(user, playlist, [trackId])
         .then( (data) => {
-          console.log(data)
-            return data
+          return data
         }).catch (function (err) {
           console.error(err);
       })
+
+      // return spotifyApi.getPlaylistTracks(user, playlist)
+      //   .then( (data) => {
+      //     console.log(data)
+      //     this.get('playlist').pushObject(data)
+      //     console.log(this.get('playlist'))
+      //     return this.get('playlist')
+      //   }).catch( function (err) {
+      //     console.log(err)
+      // })
+    },
+
+    finished: function () {
+      this.transitionTo('mixtape.edit', this.get('playlistId'))
     }
   },
 
