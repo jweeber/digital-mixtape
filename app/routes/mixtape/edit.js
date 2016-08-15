@@ -7,12 +7,8 @@ const services = Ember.inject.service()
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   session: services,
-  // playlistId: null,
-  // userId: null,
 
-
-  beforeModel: function (params) {
-    console.log(params.mixtape)
+  model: function (params) {
     let token = this.get('session.data.authenticated.access_token')
     let spotifyApi = new SpotifyWebApi()
     spotifyApi.setAccessToken(token)
@@ -20,17 +16,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.set('playlistId', params.id)
     this.set('userId', this.get('session.data.authenticated.user_id'))
 
-    console.log(this.get('playlistId'), this.get('userId'))
     return this.get('playlistId'), this.get('userId')
+  },
 
-    // return spotifyApi.getPlaylist(user, playlist)
-    //   .then( (data) => {
-    //     this.set('playlistId', data.body.uri)
-    //     // this.set('userId', user)
-    //     // this.set('userPlaylist', data.body.uri)
-    //     return this.get('playlistId')
-    //   }).catch (function (err) {
-        
-    // })
+  setupController: function(controller, model) {
+    this._super(controller, model);
+    controller.set('playlistId', this.get('playlistId'));
+    controller.set('userId', this.get('userId'));
   }
 });
