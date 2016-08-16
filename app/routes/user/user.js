@@ -7,7 +7,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   currentUser: services,
   session: services,
-  // store: services,
 
   model: function() {
     var currentUser = this.get('session.data.authenticated.user_id')

@@ -38,13 +38,8 @@ export default Ember.Controller.extend({
 
       return spotifyApi.removeTracksFromPlaylist(user, playlist, [{ "uri": trackURI }])
         .then( (data) => {
-          this.get('playlist').forEach(function (track) {
-            console.log(track.id, trackId);
-            if (track.id === trackId) {
-              this.get('playlist').removeObject(track)
-            } 
-          });
-          return this.get('playlist')
+          removeFromCurrentTracks(trackID)
+          return data
         }).catch (function (err) {
           console.error(err);
       })
@@ -63,10 +58,27 @@ export default Ember.Controller.extend({
 
     return spotifyApi.getTrack(trackId)
       .then( (data) => {
-        this.get('playlist').pushObject(data.body)
+        console.log(data.body)
+        this.get('playlist').pushObject({ 
+          id: data.body.id,
+          track_uri: data.body.uri,
+          image: data.body.album.images[0].url, 
+          artist_name: data.body.artists[0].name,
+          track_name: data.body.name
+        })
+        console.log(this.get('playlist'))
         return this.get('playlist')
       }).catch( function (err) {
         console.log(err)
     })
   },
+
+  // removeFromCurrentTracks: function (trackId) {
+  //    this.get('playlist').forEach(function (track) {
+  //       console.log(track.id, trackId);
+  //       if (track.id === trackId) {
+  //         this.get('playlist').removeObject(track)
+  //       } 
+  //     });
+  // }
 });
