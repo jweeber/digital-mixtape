@@ -11,8 +11,8 @@
           <iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe>
         </div>
         <div class="track-info">
-          <span>Artist: {{track.name}}</span><br>
-          {{track.artists.0.name}}<br>
+          <span>Track: {{track.name}}</span><br>
+          <span>Artist: {{track.artists.0.name}}</span><br>
           <button {{action "addToPlaylist" track.uri track.id}}>add to mixtape</button>
         </div>
       </div>
@@ -26,8 +26,8 @@
           <img src={{track.image}} class="track-img">
         </div>  
         <div class="added-info">
-          {{track.track_name}}<br>
-          {{track.artist_name}}<br>
+          <span>Track: {{track.track_name}}</span><br>
+          <span> Artist: {{track.artist_name}}</span><br>
           <button class="remove-track" {{action "removeFromPlaylist" track.uri track.id}}>remove track</button>
         </div>
       </div>
