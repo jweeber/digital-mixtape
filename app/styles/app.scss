@@ -1,15 +1,20 @@
 @import "bourbon";
 @import "neat";
 
+// $mobile: new-breakpoint(max-width 500px 4);
+
 .container {
   @include outer-container;
+}
 
+.top-row {
+  @include span-columns(12);
+  margin-bottom: 2%;
 }
 
 .tracks-container {
   @include span-columns(6);
-
-    // $mobile: new-breakpoint(max-width 900px);
+      // $mobile: new-breakpoint(max-width 900px);
 
   .player {
     @include span-columns(2 of 6);
@@ -25,11 +30,12 @@
       // @include media($mobile) {
       //   @include span-columns(3);
       // }
-    }
+  }
 }
 
+
 .added-tracks {
-    @include span-columns(6);
+  @include span-columns(6);
 
     // $mobile: new-breakpoint(max-width 900px 4);
 
@@ -48,28 +54,22 @@
       //   @include span-columns(3);
       // }
     }
-
-  .remove-track {
-    // padding: 10px 20px;
-    // // width: 100px;
-    // // font-size: 15px;
-    // font-weight: normal;
-    // border: none;
-    // border-radius: 25px;
-    // background-color: purple;
-    // color: white;   
-  }
-
-    .track-img {
-      height: 100px;
-      width: 100px;
-      padding: 5px;
-
-    }
 }
 
-// .show-track {
-//   display: inline-flex;
-//   margin-left: 6%;
+.remove-track {
+  // padding: 10px 20px;
+  // // width: 100px;
+  // // font-size: 15px;
+  // font-weight: normal;
+  // border: none;
+  // border-radius: 25px;
+  // background-color: purple;
+  // color: white;   
+}
 
-// }
+.track-img {
+  height: 80px;
+  width: 80px;
+  // padding: 5px;
+}
+

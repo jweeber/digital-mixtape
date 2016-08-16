@@ -17,18 +17,41 @@ export default Ember.Controller.extend({
       let spotifyApi = new SpotifyWebApi()
       spotifyApi.setAccessToken(token)
 
-      this.addToCurrentTracks(trackId)
 
       return spotifyApi.addTracksToPlaylist(user, playlist, [trackURI])
         .then( (data) => {
+          this.addToCurrentTracks(trackId)
           return data
         }).catch (function (err) {
           console.error(err);
       })
     },
 
+    removeFromPlaylist: function (trackURI, trackId) {
+      let playlist = this.get('playlistId')
+      let user = this.get('session.data.authenticated.user_id')
+      let token = this.get('session.data.authenticated.access_token')
+
+      let spotifyApi = new SpotifyWebApi()
+      spotifyApi.setAccessToken(token)
+
+
+      return spotifyApi.removeTracksFromPlaylist(user, playlist, [{ "uri": trackURI }])
+        .then( (data) => {
+          this.get('playlist').forEach(function (track) {
+            console.log(track.id, trackId);
+            if (track.id === trackId) {
+              this.get('playlist').removeObject(track)
+            } 
+          });
+          return this.get('playlist')
+        }).catch (function (err) {
+          console.error(err);
+      })
+    },
+
     finished: function () {
-      return this.transitionTo('mixtape.edit', this.get('playlistId'))
+      return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
     }
   },
 
@@ -45,5 +68,5 @@ export default Ember.Controller.extend({
       }).catch( function (err) {
         console.log(err)
     })
-  }
+  },
 });

@@ -1,7 +1,9 @@
+<div class="top-row">
+  <h2>Search for Tracks, Artists, and Albums on Spotify</h2>
+  {{input type="text" value=query placeholder="search for tracks, artists, or albums" class="search"}}
+  <button class="finished-adding" {{action "finished"}}>done adding tracks</button>
+</div>
 <div class="container">
-    <h2>Search for Tracks, Artists, and Albums on Spotify</h2>
-    {{input type="text" value=query placeholder="search for tracks, artists, or albums" class="search"}}
-    <button class="finished-adding" {{action "finished"}}>done adding tracks</button>
   {{#each model as |track|}}
     <div class="tracks-container">
       <p> 
@@ -23,7 +25,7 @@
       <div class="added-info">
         <p>{{track.name}}
         {{track.artists.0.name}}</p>
-        <button class="remove-track">remove track</button>
+        <button class="remove-track" {{action "removeFromPlaylist" track.uri track.id}}>remove track</button>
       </div>
     {{/each}}
   </div>
