@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from 'ember'
 import SpotifyWebApi from 'npm:spotify-web-api-node'
 
 const services = Ember.inject.service()
@@ -20,10 +20,9 @@ export default Ember.Controller.extend({
 
       return spotifyApi.addTracksToPlaylist(user, playlist, [trackURI])
         .then( (data) => {
-          this.addToCurrentTracks(trackId)
-          return data
+          return this.addToCurrentTracks(trackId)
         }).catch (function (err) {
-          console.error(err);
+          console.error(err)
       })
     },
 
@@ -36,12 +35,12 @@ export default Ember.Controller.extend({
       spotifyApi.setAccessToken(token)
 
 
-      return spotifyApi.removeTracksFromPlaylist(user, playlist, [{ "uri": trackURI }])
+      return spotifyApi.removeTracksFromPlaylist(user, playlist, [{"uri": trackURI}])
         .then( (data) => {
-          removeFromCurrentTracks(trackID)
-          return data
+          return this.removeFromCurrentTracks(trackId)
+          // return data
         }).catch (function (err) {
-          console.error(err);
+          console.error(err)
       })
     },
 
@@ -58,27 +57,25 @@ export default Ember.Controller.extend({
 
     return spotifyApi.getTrack(trackId)
       .then( (data) => {
-        console.log(data.body)
-        this.get('playlist').pushObject({ 
+        return this.get('playlist').pushObject({ 
           id: data.body.id,
-          track_uri: data.body.uri,
+          uri: data.body.uri,
           image: data.body.album.images[0].url, 
           artist_name: data.body.artists[0].name,
           track_name: data.body.name
         })
-        console.log(this.get('playlist'))
-        return this.get('playlist')
       }).catch( function (err) {
         console.log(err)
     })
   },
 
-  // removeFromCurrentTracks: function (trackId) {
-  //    this.get('playlist').forEach(function (track) {
-  //       console.log(track.id, trackId);
-  //       if (track.id === trackId) {
-  //         this.get('playlist').removeObject(track)
-  //       } 
-  //     });
-  // }
-});
+  removeFromCurrentTracks: function (trackId) {
+    var currentPlaylist = this.get('playlist')
+    for (let track of currentPlaylist) {
+      if (track.id === trackId) {
+        currentPlaylist.removeObject(track)
+      } 
+    }
+    return this.set('playlist', currentPlaylist)
+  }
+})
