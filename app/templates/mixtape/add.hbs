@@ -4,28 +4,32 @@
   <button class="finished-adding" {{action "finished"}}>done adding tracks</button>
 </div>
 <div class="container">
-  {{#each model as |track|}}
-    <div class="tracks-container">
-      <p> 
-        <div class="player"><iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe></div>
+  <div class="tracks-container">
+    {{#each model as |track|}}
+      <div class="inner-row">
+        <div class="player">
+          <iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe>
+        </div>
         <div class="track-info">
-          {{track.name}}<br>
+          <span>Artist: {{track.name}}</span><br>
           {{track.artists.0.name}}<br>
           <button {{action "addToPlaylist" track.uri track.id}}>add to mixtape</button>
         </div>
-      </p>
-    </div>
-  {{/each}}
+      </div>
+    {{/each}}
+  </div>
 
   <div class="added-tracks">
     {{#each playlist as |track|}}
-      <div class="added-img">
-        <img src={{track.image}} class="track-img">
-      </div>  
-      <div class="added-info">
-        <p>{{track.track_name}}
-        {{track.artist_name}}</p>
-        <button class="remove-track" {{action "removeFromPlaylist" track.uri track.id}}>remove track</button>
+      <div class="inner-row">
+        <div class="added-img">
+          <img src={{track.image}} class="track-img">
+        </div>  
+        <div class="added-info">
+          {{track.track_name}}<br>
+          {{track.artist_name}}<br>
+          <button class="remove-track" {{action "removeFromPlaylist" track.uri track.id}}>remove track</button>
+        </div>
       </div>
     {{/each}}
   </div>

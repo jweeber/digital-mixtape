@@ -38,7 +38,6 @@ export default Ember.Controller.extend({
       return spotifyApi.removeTracksFromPlaylist(user, playlist, [{"uri": trackURI}])
         .then( (data) => {
           return this.removeFromCurrentTracks(trackId)
-          // return data
         }).catch (function (err) {
           console.error(err)
       })

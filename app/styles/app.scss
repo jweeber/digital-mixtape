@@ -5,9 +5,12 @@
 
 .container {
   @include outer-container;
+  @include row();
+  display: inline;
 }
 
 .top-row {
+  @include row();
   @include span-columns(12);
   margin-bottom: 2%;
 }
@@ -15,46 +18,52 @@
 .tracks-container {
   @include span-columns(6);
       // $mobile: new-breakpoint(max-width 900px);
+}
 
-  .player {
-    @include span-columns(2 of 6);
+.inner-row {
+  @include row();
+  margin-bottom: 1%;
+}
 
-      // @include media($mobile) {
-      //   @include span-columns(3);
-      // }
-  }
+.player {
+  @include span-columns(1.5 of 6);
+    // @include media($mobile) {
+    //   @include span-columns(3);
+    // }
+}
 
-  .track-info {
-    @include span-columns(4 of 6);
+.track-info {
+  @include span-columns(4.5 of 6);
+  transform: translateY(16%);
 
-      // @include media($mobile) {
-      //   @include span-columns(3);
-      // }
-  }
+    // @include media($mobile) {
+    //   @include span-columns(3);
+    // }
 }
 
 
 .added-tracks {
   @include span-columns(6);
-
+  float: right;
+  // margin-top: 0%;
     // $mobile: new-breakpoint(max-width 900px 4);
+}
 
   .added-img {
-    @include span-columns(2 of 6);
-
+    @include span-columns(1.5 of 6);
       // @include media($mobile) {
       //   @include span-columns(3);
       // }
   }
 
   .added-info {
-    @include span-columns(4 of 6);
+    @include span-columns(4.5 of 6);
+      transform: translateY(-16%);
 
       // @include media($mobile) {
       //   @include span-columns(3);
       // }
-    }
-}
+  }
 
 .remove-track {
   // padding: 10px 20px;
@@ -73,3 +82,19 @@
   // padding: 5px;
 }
 
+
+// tried table thing
+// .track-row {
+//   @include row(table);
+// }
+
+// .track-list {
+//   @include span-columns(6);
+//   @include pad();
+// }
+
+// .added-tracks {
+//   @include span-columns(6);
+//   @include reset-display;
+//   @include pad(); 
+// }
