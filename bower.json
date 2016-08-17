@@ -7,6 +7,8 @@
     "firebase": "^3.0.0",
     "spotify-web-api-js": "^0.19.3",
     "bourbon": "4.2.6",
-    "neat": "~1.7.2"
+    "neat": "~1.7.2",
+    "semantic-ui": "^2.2.2",
+    "font-awesome": "^4.6.3"
   }
 }
