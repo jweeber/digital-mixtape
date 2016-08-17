@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     },
 
     toggleClass: function (value) {
-      $('body').css("background-color", value)
+      $('body').css('background-color', value)
     }
   }
 })

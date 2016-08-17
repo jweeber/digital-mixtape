@@ -149,7 +149,7 @@
   z-index:5;
   width:0;
   height:0;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.25s ease;
 }
 
 .menu-bar li a{
@@ -225,38 +225,63 @@
     }
 }
 
-input[type="button"]:focus { outline: 0; }
-
-.reset {
-  background-color: Transparent;
-  padding: 10px 20px;
-  margin-top: 5%;
-  margin-left: 10%;
-  width: 200px;
-  font-size: 15px;
-  font-weight: normal;
-  border: 1px solid black;
-  border-radius: 25px;
-  color: black;  
-  cursor: pointer; 
+.menu-text {
+  text-align: center;
+  font-size: 20px;
 }
 
-.red {
-  background-color: red;
-  padding: 10px 20px;
+
+@mixin button-bg($bg) {
+  background: $bg;
+  text-align: center;
   margin-top: 5%;
   margin-left: 10%;
-  width: 200px;
-  font-size: 15px;
+  width: 50px;
+  height: 50px;
   font-weight: normal;
   border: none;
   border-radius: 25px;
-  color: white;
   cursor: pointer; 
-   
+  &:hover {
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+  }
+  &:focus { outline: 0; }
 }
 
-.btn:hover {
-  opacity: 0.6;
-  transition: all 0.2s linear;
+.reset {
+  @include button-bg(Transparent);
+  border: 1px solid #000000;
+  width: 200px;
+  height: 30px;
+  font-size: 15px;
+  color: black;  
 }
+
+// .red {
+//   @include button-bg(red);
+//   color: white;
+// }
+
+.dark { @include button-bg(#463F3A); 
+   @include keyframes(fadeIn) {
+  from {
+    @include transform(scale(0));
+  }
+  to {
+    @include transform(scale(2));
+  }
+  }
+}
+
+.metallic { @include button-bg(#8A817C); }
+
+.sea-gray { @include button-bg(#808F85); }
+
+.blue {  @include button-bg(#568EA3); }
+
+.cerulean { @include button-bg(#064789); }
+
+.light-blue { @include button-bg(#68C3D4); }
+
+.bright-blue { @include button-bg(#2176FF) }

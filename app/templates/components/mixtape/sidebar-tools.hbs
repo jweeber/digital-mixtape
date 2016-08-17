@@ -14,9 +14,12 @@
     </ul>
     
     <ul class="menu-bar {{if isOpen 'open'}}">
-      <input type="button" class="reset" value="reset color" {{action "toggleClass" "white"}}><br>
-      <input type="button" class="btn red" value="red" {{action "toggleClass" "red"}}>
-{{!--     <input type="color" id="color">
- --}}
-{{!--         <li><a href="#" class="menu-button">Menu</a></li>
- --}}    </ul>
+      <p class="menu-text">color your mixtape</p>
+      <li><input type="button" class="reset" value="reset color" {{action "toggleClass" "white"}}></li><br>
+      <input type="button" class="btn dark" {{action "toggleClass" "#463F3A"}}>
+      <input type="button" class="btn metallic" {{action "toggleClass" "#8A817C"}}>
+      <input type="button" class="btn sea-gray" {{action "toggleClass" "#808F85"}}>
+      <input type="button" class="btn cerulean" {{action "toggleClass" "#064789"}}>
+      <input type="button" class="btn blue" {{action "toggleClass" "#568EA3"}}>
+      <input type="button" class="btn bright-blue" {{action "toggleClass" "#2176FF"}}>
+    </ul>
