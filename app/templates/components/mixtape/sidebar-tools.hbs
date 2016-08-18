@@ -2,18 +2,15 @@
 
 
 
- <ul class="menu">
-
-{{!--       <li title="home"><a href="#" class="menu-button home">menu</a></li>
- --}}      
-      <li title="background-color"><a href="#" class="background-color" onclick={{action "toggleOpen"}}>paint background</a></li>
-      <li title="pencil"><a href="#" class="pencil">pencil</a></li>
-      <li title="about"><a href="#" class="active about">about</a></li>
-      <li title="archive"><a href="#" class="archive">archive</a></li>
-      <li title="contact"><a href="#" class="contact">contact</a></li>
+ <ul class="menu">     
+    <li title="background-color"><a href="#" class="background-color" onclick={{action "togglePaint"}}>paint background</a></li>
+    <li title="font"><a href="#" class="font" onclick={{action "toggleText"}}>change the font</a></li>
+    <li title="about"><a href="#" class="active about">about</a></li>
+    <li title="archive"><a href="#" class="archive">archive</a></li>
+    <li title="contact"><a href="#" class="contact">contact</a></li>
     </ul>
     
-    <div class="menu-bar {{if isOpen 'open'}}">
+    <div class="color-bar {{if paintIsOpen 'open'}}">
       <p class="menu-text">color your mixtape</p>
       <input type="button" class="reset" value="reset color" {{action "toggleClass" "#FFFFFF"}}><br>
 
@@ -44,5 +41,9 @@
       <input type="button" class="btn corn" {{action "toggleClass" "#FFD046"}}>
       <input type="button" class="btn wheat" {{action "toggleClass" "#EEE1B3"}}>
       <input type="button" class="btn grey" {{action "toggleClass" "#D0CCD0"}}>
+
+    </div>
+
+    <div class="text-bar {{if textIsOpen 'open'}}">
 
     </div>

@@ -82,23 +82,21 @@ $mobile: new-breakpoint(max-width 500px 22);
   // padding: 5px;
 }
 
-
-
-.menu, .menu-bar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background: #f7f7f7;
-    z-index:10;  
-    overflow:hidden;
-    box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
+.menu, .color-bar, .text-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  z-index: 10;  
+  overflow: hidden;
+  box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
 }
 
-.menu li a{
+.menu li a {
   display: block;
   text-indent: -500em;
   height: 5em;
@@ -125,7 +123,7 @@ $mobile: new-breakpoint(max-width 500px 22);
 
 .menu li a.background-color:before { content: "\f1fc"; }
 
-.menu li a.archive:before { content: "\f187"; }
+.menu li a.font:before { content: "\f031"; }
 
 .menu li a.pencil:before { content: "\f040"; }
 
@@ -135,47 +133,48 @@ $mobile: new-breakpoint(max-width 500px 22);
 
 .menu li a.home:before { content: "\f039"; }
 
-.menu-bar a:hover,
+.color-bar a:hover,
+.text-bar a:hover,
 .menu a:hover {
   background: #267fdd;
   color: #fff;
   transition: all 0.3s ease-in-out;
 }
 
-.menu-bar {
-  overflow:hidden;
-  right:5em;
-  z-index:5;
-  width:0;
-  height:0;
+.color-bar, .text-bar {
+  overflow: hidden;
+  right: 5em;
+  z-index: 5;
+  width: 0;
+  height: 0;
   transition: all 0.25s ease;
 }
 
-.menu-bar li a {
+.color-bar li a, .text-bar li a {
   display: block;
   height: 4em;
   line-height: 4em;
-  text-align:center;
+  text-align: center;
   color: #72739f;
-  text-decoration:none;  
+  text-decoration: none;  
   position: relative;
-  font-family:verdana;
+  font-family: verdana;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.1s ease-in-out;
 }
 
-.menu-bar li:first-child a {
-    height:5em;
+.color-bar li:first-child a, .text-bar li:first-child a {
+    height: 5em;
     background: #267fdd;
     color: #fff;    
-    line-height:5
+    line-height: 5;
 }
 
 .para {
-    color:#033f72;
-    padding-left:100px;
-    font-size:3em;
-    margin-bottom:20px;
+    color: #033f72;
+    padding-left: 100px;
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
 .open {
@@ -184,29 +183,35 @@ $mobile: new-breakpoint(max-width 500px 22);
 }
 
 @media all and (max-width: 500px) {
-    .container{
+    .container {
         margin-top:100px;
     }
+
     .menu{
         height:4em;
         width:100%;
     }
+
     .menu li{
         display:inline-block;
         float:left;
     }
-    .menu-bar li a{
+
+    .color-bar li a, .text-bar li a {
         width:100%;
     }
-    .menu-bar{
+
+    .color-bar, .text-bar {
         width:100%;
         left:0;
         height:0;
     }
-    .open{
+
+    .open {
         width:100%;
         height:auto;
     }
+
     .para {
       padding-left:5px;
     }  
@@ -214,7 +219,8 @@ $mobile: new-breakpoint(max-width 500px 22);
 
 @media screen and (max-height: 34em){
   .menu li,
-  .menu-bar {
+  .color-bar,
+  .text-bar {
     font-size:70%;
   }
 }
@@ -261,7 +267,6 @@ $mobile: new-breakpoint(max-width 500px 22);
   height: 30px;
   font-size: 15px;
   color: black;  
-  margin-top: 5%;
   margin-left: 8%;
   font-weight: normal;
   cursor: pointer; 
