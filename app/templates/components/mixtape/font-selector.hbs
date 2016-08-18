@@ -1,7 +1,7 @@
 {{yield}}
 
-<p class="menu-text">change the font</p>
+ <input type="button" class="reset" value="reset font" {{action "text" "sans-serif"}}><br>
 
 {{#each fonts as |font|}}
-  <p style={{fontStyle font}}>{{font}}</p>
+  <p><a href="#" style={{fontStyle font}} class="font-link" {{action "text" font}}>{{font}}</a></p>
 {{/each}}

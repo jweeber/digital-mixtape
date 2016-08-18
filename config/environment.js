@@ -37,32 +37,19 @@ module.exports = function(environment) {
     },
 
     googleFonts: [
-      'Titillium Web',
-      'Denk One',
-      'Risque',
       'Lakki Reddy',
       'Baloo Da',
       'Indie Flower',
-      'Londrina Outline',
       'Original Surfer',
       'Orbitron',
       'Bungee Shade',
-      'Black Ops One',
-      'Ewert',
-      'Monoton',
       'Rock Salt',
-      'Bungee Inline',
       'Special Elite',
       'Homemade Apple',
-      'Gochi Hand',
-      'Cabin Sketch',
-      'Crafty Girls',
-      'Slackey',
-      'Frijole',
       'Love Ya Like A Sister',
       'Codystar',
-      'Monofett',
-      'Bonbon'
+      'Slackey',
+      'Crafty Girls'
     ],
 
 

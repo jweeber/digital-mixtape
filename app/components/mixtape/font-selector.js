@@ -7,8 +7,8 @@ export default Ember.Component.extend({
   fonts: ENV.googleFonts,
 
   actions: {
-    fontStyle: function (style) {
-      $('body').css('font-style', style)
+    text: function (style) {
+      $('.mixtape-container').css('font-family', style)
 
       var store = this.get('store')
       var playlistId = this.get('playlist')
