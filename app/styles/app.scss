@@ -96,6 +96,10 @@ $mobile: new-breakpoint(max-width 500px 22);
   box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
 }
 
+// .text-bar {
+//   top: 12%;
+// }
+
 .menu li a {
   display: block;
   text-indent: -500em;
@@ -108,6 +112,7 @@ $mobile: new-breakpoint(max-width 500px 22);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.1s ease-in-out;
 }
+
 
 .menu li a:before {
   font-family: FontAwesome;
@@ -178,8 +183,8 @@ $mobile: new-breakpoint(max-width 500px 22);
 }
 
 .open {
-    width: 15em;
-    height: 100%;
+  width: 15em;
+  height: 100%;
 }
 
 @media all and (max-width: 500px) {
@@ -187,7 +192,7 @@ $mobile: new-breakpoint(max-width 500px 22);
         margin-top:100px;
     }
 
-    .menu{
+    .menu {
         height:4em;
         width:100%;
     }

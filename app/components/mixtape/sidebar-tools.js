@@ -19,7 +19,7 @@ export default Ember.Component.extend({
       this.toggleProperty('textIsOpen')
     },
 
-    toggleClass: function (value) {
+    background: function (value) {
       $('body').css('background-color', value)
 
       var store = this.get('store')
