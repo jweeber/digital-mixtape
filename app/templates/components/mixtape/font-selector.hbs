@@ -2,4 +2,6 @@
 
 <p class="menu-text">change the font</p>
 
-
+{{#each fonts as |font|}}
+  <p style={{fontStyle font}}>{{font}}</p>
+{{/each}}

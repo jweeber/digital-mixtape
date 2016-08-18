@@ -10,9 +10,9 @@ export default Ember.Component.extend({
 
       var store = this.get('store')
       var playlistId = this.get('playlist')
-      store.findRecord('mixtape', playlistId).then( (mixtape) => {
+      return store.findRecord('mixtape', playlistId).then( (mixtape) => {
         mixtape.set('background_color', value)
-        mixtape.save()
+        return mixtape.save()
       })
     }
   }
