@@ -1,7 +1,7 @@
 @import "bourbon";
 @import "neat";
 
-$mobile: new-breakpoint(max-width 500px 22);
+$mobile: new-breakpoint(max-width 500px 20);
 
 .container {
   @include outer-container;
@@ -96,23 +96,18 @@ $mobile: new-breakpoint(max-width 500px 22);
   box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
 }
 
-// .text-bar {
-//   top: 12%;
-// }
-
 .menu li a {
   display: block;
   text-indent: -500em;
   height: 5em;
   width: 5em;
   line-height: 5em;
-  text-align:center;
+  text-align: center;
   color: #72739f;
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.1s ease-in-out;
 }
-
 
 .menu li a:before {
   font-family: FontAwesome;
@@ -130,20 +125,20 @@ $mobile: new-breakpoint(max-width 500px 22);
 
 .menu li a.font:before { content: "\f031"; }
 
-.menu li a.pencil:before { content: "\f040"; }
+.menu li a.font-color:before { content: "\f031"; color: #C73E1D; }
 
-.menu li a.contact:before { content: "\f003"; }
+.menu li a.message:before { content: "\f044"; }
 
-.menu li a.about:before { content: "\f007"; }
+.menu li a.images:before { content: "\f03e"; }
 
-.menu li a.home:before { content: "\f039"; }
+.menu li a.stickers:before { content: "\f005"; }
 
 .color-bar a:hover,
 .text-bar a:hover,
 .menu a:hover {
   background: #267fdd;
   color: #fff;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .color-bar, .text-bar {
@@ -253,7 +248,7 @@ $mobile: new-breakpoint(max-width 500px 22);
   height: 50px;
   font-weight: normal;
   border: none;
-  border-radius: 25px;
+  border-radius: 50px;
   cursor: pointer; 
   &:hover {
     opacity: 0.6;
@@ -272,6 +267,7 @@ $mobile: new-breakpoint(max-width 500px 22);
   height: 30px;
   font-size: 15px;
   color: black;  
+  margin-bottom: 5%;
   margin-left: 8%;
   font-weight: normal;
   cursor: pointer; 
@@ -279,33 +275,41 @@ $mobile: new-breakpoint(max-width 500px 22);
   &:focus { outline: 0; }
 }
 
+.dark, .blues, .pinks, .purples, .reds, .greens, .light { margin-bottom: 6%; }
+
+.licorice { @include button-bg(#191102); }
 .jet { @include button-bg(#2C363F); }
-.grey { @include button-bg(#D0CCD0); }
-.dark-brown { @include button-bg(#463F3A); }
 .metallic { @include button-bg(#8A817C); }
-.sea-gray { @include button-bg(#808F85); }
-.teal { @include button-bg(#568EA3); }
-.blue { @include button-bg(#007EA7); }
+
 .cerulean { @include button-bg(#064789); }
-.light-blue { @include button-bg(#68C3D4); }
 .bright-blue { @include button-bg(#2176FF); }
-.violet { @include button-bg(#302F4D); }
-.mauve { @include button-bg(#B98EA7); }
-.pink { @include button-bg(#EDAFB8); }
-.orchid { @include button-bg(#CC76A1); }
-.purple { @include button-bg(#593C8F); }
-.fuscia { @include button-bg(#7A306C); }
-.lavender { @include button-bg(#A390E4); }
+.blue { @include button-bg(#007EA7); }
+
 .forest-green { @include button-bg(#034C3C); }
 .green { @include button-bg(#6D9F71); }
 .aquamarine { @include button-bg(#70A9A1); }
+
 .scarlet { @include button-bg(#650D1B); }
 .crimson { @include button-bg(#960200); }
 .brick { @include button-bg(#C33C54); }
+
 .red-purple { @include button-bg(#330036); }
+.purple { @include button-bg(#593C8F); }
+.lavender { @include button-bg(#A390E4); }
+
+.fuscia { @include button-bg(#7A306C); }
+.orchid { @include button-bg(#CC76A1); }
+.mauve { @include button-bg(#B98EA7); }
+
 .carrot { @include button-bg(#F26430); }
-.lime { @include button-bg(#C1DF1F); }
 .corn { @include button-bg(#FFD046); }
-.wheat { @include button-bg(#EEE1B3); }
-.licorice { @include button-bg(#191102); }
+.grey { @include button-bg(#D0CCD0); }
+
+// .sea-gray { @include button-bg(#808F85); }
+// .teal { @include button-bg(#568EA3); }
+// .light-blue { @include button-bg(#68C3D4); }
+// .violet { @include button-bg(#302F4D); }
+// .pink { @include button-bg(#EDAFB8); }
+// .lime { @include button-bg(#C1DF1F); }
+// .wheat { @include button-bg(#EEE1B3); }
 

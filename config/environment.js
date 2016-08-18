@@ -24,7 +24,9 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'script-src': "'self' 'unsafe-eval' apis.google.com",
       'frame-src': "'self' https://*.firebaseapp.com",
-      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'style-src': "'self' fonts.googleapis.com"
     },
 
     firebase: {
@@ -33,6 +35,35 @@ module.exports = function(environment) {
       databaseURL: 'https://digital-mixtape-635ce.firebaseio.com',
       storageBucket: 'digital-mixtape-635ce.appspot.com'
     },
+
+    googleFonts: [
+      'Titillium+Web',
+      'Denk+One',
+      'Risque',
+      'Lakki+Reddy',
+      'Baloo+Da',
+      'Indie+Flower',
+      'Londrina+Outline',
+      'Original+Surfer',
+      'Orbitron',
+      'Bungee+Shade',
+      'Black+Ops+One',
+      'Ewert',
+      'Monoton',
+      'Rock+Salt',
+      'Bungee+Inline',
+      'Special+Elite',
+      'Homemade+Apple',
+      'Gochi+Hand',
+      'Cabin+Sketch',
+      'Crafty+Girls',
+      'Slackey',
+      'Frijole',
+      'Love+Ya+Like+A+Sister',
+      'Codystar',
+      'Monofett',
+      'Bonbon'
+    ],
 
 
     APP: {}

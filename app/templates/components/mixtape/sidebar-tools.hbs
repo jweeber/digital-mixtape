@@ -1,49 +1,19 @@
 {{yield}}
 
-
-
- <ul class="menu">     
+  <ul class="menu">     
     <li title="background-color"><a href="#" class="background-color" onclick={{action "togglePaint"}}>paint background</a></li>
     <li title="font"><a href="#" class="font" onclick={{action "toggleText"}}>change the font</a></li>
-    <li title="about"><a href="#" class="active about">about</a></li>
-    <li title="archive"><a href="#" class="archive">archive</a></li>
-    <li title="contact"><a href="#" class="contact">contact</a></li>
-    </ul>
+    <li title="font-color"><a href="#" class="font-color">change the font color</a></li>
+    <li title="message"><a href="#" class="message">write a message</a></li>
+    <li title="images"><a href="#" class="images">upload images</a></li>
+    <li title="stickers"><a href="#" class="stickers">add stickers</a></li>
+  </ul>
     
-    <div class="color-bar {{if paintIsOpen 'open'}}">
-      <p class="menu-text">color your mixtape</p>
-      <input type="button" class="reset" value="reset color" {{action "background" "#FFFFFF"}}><br>
+  <div class="color-bar {{if paintIsOpen 'open'}}">
+    {{mixtape.background-color playlist=playlist}}
+  </div>
 
-      <input type="button" class="btn licorice" {{action "background" "#191102"}}>
-      <input type="button" class="btn jet" {{action "background" "#2C363F"}}>
-      <input type="button" class="btn metallic" {{action "background" "#8A817C"}}>
-      <input type="button" class="btn cerulean" {{action "background" "#064789"}}>
-      <input type="button" class="btn blue" {{action "background" "#007EA7"}}>
-      <input type="button" class="btn bright-blue" {{action "background" "#2176FF"}}>
-      <input type="button" class="btn teal" {{action "background" "#568EA3"}}>
-      <input type="button" class="btn fuscia" {{action "background" "#7A306C"}}>
-      <input type="button" class="btn pink" {{action "background" "#EDAFB8"}}>
-      <input type="button" class="btn mauve" {{action "background" "#B98EA7"}}>
-      <input type="button" class="btn orchid" {{action "background" "#CC76A1"}}>
-      <input type="button" class="btn red-purple" {{action "background" "#330036"}}>
-      <input type="button" class="btn violet" {{action "background" "#302F4D"}}>
-      <input type="button" class="btn purple" {{action "background" "#593C8F"}}>
-      <input type="button" class="btn lavender" {{action "background" "#A390E4"}}>
-      <input type="button" class="btn scarlet" {{action "background" "#650D1B"}}>
-      <input type="button" class="btn crimson" {{action "background" "#960200"}}>
-      <input type="button" class="btn brick" {{action "background" "#C33C54"}}>
-      <input type="button" class="btn carrot" {{action "background" "#F26430"}}>
-      <input type="button" class="btn forest-green" {{action "background" "#034C3C"}}>
-      <input type="button" class="btn green" {{action "background" "#6D9F71"}}>
-      <input type="button" class="btn aquamarine" {{action "background" "#70A9A1"}}>
-      <input type="button" class="btn sea-gray" {{action "background" "#808F85"}}>
-      <input type="button" class="btn lime" {{action "background" "#C1DF1F"}}>
-      <input type="button" class="btn corn" {{action "background" "#FFD046"}}>
-      <input type="button" class="btn wheat" {{action "background" "#EEE1B3"}}>
-      <input type="button" class="btn grey" {{action "background" "#D0CCD0"}}>
-
-    </div>
-
-    <div class="text-bar {{if textIsOpen 'open'}}">
-
-    </div>
+  <div class="text-bar {{if textIsOpen 'open'}}">
+    {{mixtape.font-selector playlist=playlist}} 
+  </div>
+  
