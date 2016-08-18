@@ -1,7 +1,7 @@
 @import "bourbon";
 @import "neat";
 
-// $mobile: new-breakpoint(max-width 500px 4);
+$mobile: new-breakpoint(max-width 500px 22);
 
 .container {
   @include outer-container;
@@ -124,7 +124,6 @@
 }
 
 .menu li a.background-color:before { content: "\f1fc"; }
-// .menu li a.background-color:before { content: "\f1fc"; }
 
 .menu li a.archive:before { content: "\f187"; }
 
@@ -136,14 +135,14 @@
 
 .menu li a.home:before { content: "\f039"; }
 
-.menu-bar li a:hover,
-.menu li a:hover,
-.menu li:first-child a {
+.menu-bar a:hover,
+.menu a:hover {
   background: #267fdd;
   color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
-.menu-bar{
+.menu-bar {
   overflow:hidden;
   right:5em;
   z-index:5;
@@ -152,7 +151,7 @@
   transition: all 0.25s ease;
 }
 
-.menu-bar li a{
+.menu-bar li a {
   display: block;
   height: 4em;
   line-height: 4em;
@@ -189,7 +188,7 @@
         margin-top:100px;
     }
     .menu{
-        height:1em;
+        height:4em;
         width:100%;
     }
     .menu li{
@@ -208,10 +207,11 @@
         width:100%;
         height:auto;
     }
-    .para{
-    padding-left:5px;
-}  
+    .para {
+      padding-left:5px;
+    }  
 }
+
 @media screen and (max-height: 34em){
   .menu li,
   .menu-bar {
@@ -232,10 +232,12 @@
 
 
 @mixin button-bg($bg) {
-  background: $bg;
-  text-align: center;
+  @include media($mobile) {
+    @include span-columns(3);
+  }
+  background-color: $bg;
   margin-top: 5%;
-  margin-left: 10%;
+  margin-left: 8%;
   width: 50px;
   height: 50px;
   font-weight: normal;
@@ -250,38 +252,49 @@
 }
 
 .reset {
-  @include button-bg(Transparent);
+  @include media($mobile) { @include span-columns(18); }
+  background-color: Transparent;
+  text-align: center;
+  border-radius: 25px;
   border: 1px solid #000000;
   width: 200px;
   height: 30px;
   font-size: 15px;
   color: black;  
+  margin-top: 5%;
+  margin-left: 8%;
+  font-weight: normal;
+  cursor: pointer; 
+  &:hover { opacity: 0.6; transition: all 0.3s ease-in-out; }
+  &:focus { outline: 0; }
 }
 
-// .red {
-//   @include button-bg(red);
-//   color: white;
-// }
-
-.dark { @include button-bg(#463F3A); 
-   @include keyframes(fadeIn) {
-  from {
-    @include transform(scale(0));
-  }
-  to {
-    @include transform(scale(2));
-  }
-  }
-}
-
+.jet { @include button-bg(#2C363F); }
+.grey { @include button-bg(#D0CCD0); }
+.dark-brown { @include button-bg(#463F3A); }
 .metallic { @include button-bg(#8A817C); }
-
 .sea-gray { @include button-bg(#808F85); }
-
-.blue {  @include button-bg(#568EA3); }
-
+.teal { @include button-bg(#568EA3); }
+.blue { @include button-bg(#007EA7); }
 .cerulean { @include button-bg(#064789); }
-
 .light-blue { @include button-bg(#68C3D4); }
+.bright-blue { @include button-bg(#2176FF); }
+.violet { @include button-bg(#302F4D); }
+.mauve { @include button-bg(#B98EA7); }
+.pink { @include button-bg(#EDAFB8); }
+.orchid { @include button-bg(#CC76A1); }
+.purple { @include button-bg(#593C8F); }
+.fuscia { @include button-bg(#7A306C); }
+.forest-green { @include button-bg(#034C3C); }
+.green { @include button-bg(#6D9F71); }
+.aquamarine { @include button-bg(#70A9A1); }
+.scarlet { @include button-bg(#650D1B); }
+.crimson { @include button-bg(#960200); }
+.brick { @include button-bg(#C33C54); }
+.red-purple { @include button-bg(#330036); }
+.carrot { @include button-bg(#F26430); }
+.lime { @include button-bg(#C1DF1F); }
+.corn { @include button-bg(#FFD046); }
+.wheat { @include button-bg(#EEE1B3); }
+.licorice { @include button-bg(#191102); }
 
-.bright-blue { @include button-bg(#2176FF) }
