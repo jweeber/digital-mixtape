@@ -3,7 +3,7 @@
   <ul class="menu">     
     <li title="background-color"><a href="#" class="background-color" onclick={{action "togglePaint"}}>paint background</a></li>
     <li title="font"><a href="#" class="font" onclick={{action "toggleText"}}>change the font</a></li>
-    <li title="font-color"><a href="#" class="font-color">change the font color</a></li>
+    <li title="font-color"><a href="#" class="font-color" onclick={{action "toggleTextColor"}}>change the font color</a></li>
     <li title="message"><a href="#" class="message">write a message</a></li>
     <li title="images"><a href="#" class="images">upload images</a></li>
     <li title="stickers"><a href="#" class="stickers">add stickers</a></li>
@@ -15,5 +15,9 @@
 
   <div class="text-bar {{if textIsOpen 'open'}}">
     {{mixtape.font-selector playlist=playlist}} 
+  </div>
+
+  <div class="text-color-bar {{if textColorIsOpen 'open'}}">
+    {{mixtape.font-color playlist=playlist}} 
   </div>
   

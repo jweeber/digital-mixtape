@@ -82,7 +82,10 @@ $mobile: new-breakpoint(max-width 500px 20);
   // padding: 5px;
 }
 
-.menu, .color-bar, .text-bar {  
+.menu,
+.color-bar,
+.text-bar,
+.text-color-bar {  
   text-align: center;
   position: fixed;
   top: 0;
@@ -136,13 +139,14 @@ $mobile: new-breakpoint(max-width 500px 20);
 
 .color-bar a:hover,
 .text-bar a:hover,
+.text-color-bar a:hover,
 .menu a:hover {
   background: #267fdd;
   color: #fff;
   transition: all 0.3s ease;
 }
 
-.color-bar, .text-bar {
+.color-bar, .text-bar, .text-color-bar {
   overflow: hidden;
   right: 5em;
   z-index: 5;
@@ -151,7 +155,7 @@ $mobile: new-breakpoint(max-width 500px 20);
   transition: all 0.25s ease;
 }
 
-.color-bar li a, .text-bar li a {
+.color-bar li a, .text-bar li a, .text-color-bar li a {
   display: block;
   height: 4em;
   text-align: center;
@@ -163,7 +167,9 @@ $mobile: new-breakpoint(max-width 500px 20);
   transition: background 0.1s ease-in-out;
 }
 
-.color-bar li:first-child a, .text-bar li:first-child a {
+.color-bar li:first-child a,
+.text-bar li:first-child a, 
+.text-color-bar li:first-child a {
   height: 5em;
   background: #267fdd;
   color: #fff;    
@@ -197,11 +203,15 @@ $mobile: new-breakpoint(max-width 500px 20);
         float:left;
     }
 
-    .color-bar li a, .text-bar li a {
+    .color-bar li a,
+    .text-bar li a,
+    .text-color-bar li a {
         width:100%;
     }
 
-    .color-bar, .text-bar {
+    .color-bar,
+    .text-bar,
+    .text-color-bar {
         width:100%;
         left:0;
         height:0;
@@ -220,7 +230,8 @@ $mobile: new-breakpoint(max-width 500px 20);
 @media screen and (max-height: 34em){
   .menu li,
   .color-bar,
-  .text-bar {
+  .text-bar,
+  .text-color-bar {
     font-size:70%;
   }
 }
@@ -275,7 +286,7 @@ $mobile: new-breakpoint(max-width 500px 20);
   &:focus { outline: 0; }
 }
 
-.dark, .blues, .pinks, .purples, .reds, .greens, .light { margin-bottom: 6%; }
+.color-options { margin-bottom: 6%; }
 
 .licorice { @include button-bg(#191102); }
 .jet { @include button-bg(#2C363F); }
@@ -305,13 +316,14 @@ $mobile: new-breakpoint(max-width 500px 20);
 .corn { @include button-bg(#FFD046); }
 .grey { @include button-bg(#D0CCD0); }
 
-// .sea-gray { @include button-bg(#808F85); }
-// .teal { @include button-bg(#568EA3); }
-// .light-blue { @include button-bg(#68C3D4); }
-// .violet { @include button-bg(#302F4D); }
-// .pink { @include button-bg(#EDAFB8); }
-// .lime { @include button-bg(#C1DF1F); }
-// .wheat { @include button-bg(#EEE1B3); }
+
+.lime { @include button-bg(#C2E812); }
+.cream { @include button-bg(#F4F0BB); }
+.dk-pink { @include button-bg(#EA526F); }
+.neon-blue { @include button-bg(#0CAADC); }
+.slate { @include button-bg(#6F7D8C); }
+.brown { @include button-bg(#523A34); }
+.snow { @include button-bg(#FFFAFB); border: 1px solid #AAAAAA; }
 
 .mixtape-container {
   opacity: 0.8;
