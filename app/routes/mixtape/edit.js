@@ -7,6 +7,7 @@ const services = Ember.inject.service()
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   session: services,
+  store: services,
 
   model: function (params) {
     let token = this.get('session.data.authenticated.access_token')
@@ -19,8 +20,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return this.get('playlistId'), this.get('userId')
   },
 
-  setupController: function(controller) {
-    this._super(controller);
+  setupController: function (controller, model) {
+    this._super(controller, model);
+    console.log(model)
     controller.set('playlistId', this.get('playlistId'));
     controller.set('userId', this.get('userId'));
   }

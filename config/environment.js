@@ -43,7 +43,7 @@ module.exports = function(environment) {
       'Original Surfer',
       'Orbitron',
       'Bungee Shade',
-      'Rock Salt',
+      'Gloria Hallelujah',
       'Special Elite',
       'Homemade Apple',
       'Love Ya Like A Sister',
@@ -52,6 +52,7 @@ module.exports = function(environment) {
       'Crafty Girls'
     ],
 
+    filepickerKey: process.env.FILEPICKER_KEY,
 
     APP: {}
   };

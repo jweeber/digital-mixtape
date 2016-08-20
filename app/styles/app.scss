@@ -327,6 +327,12 @@ $mobile: new-breakpoint(max-width 500px 20);
 
 .mixtape-container {
   opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.mixtape-title {
+  text-align: center;
+  font-size: 30px;
 }
 
 .font-link {
@@ -339,3 +345,4 @@ $mobile: new-breakpoint(max-width 500px 20);
 .font-link:hover {
  padding: 0.5em;
 }
+

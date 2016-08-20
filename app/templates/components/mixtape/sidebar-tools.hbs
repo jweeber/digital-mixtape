@@ -5,7 +5,7 @@
     <li title="font"><a href="#" class="font" onclick={{action "toggleText"}}>change the font</a></li>
     <li title="font-color"><a href="#" class="font-color" onclick={{action "toggleTextColor"}}>change the font color</a></li>
     <li title="message"><a href="#" class="message">write a message</a></li>
-    <li title="images"><a href="#" class="images">upload images</a></li>
+    <li title="images"><a href="#" class="images" {{action "selectImages"}}>upload images</a></li>
     <li title="stickers"><a href="#" class="stickers">add stickers</a></li>
   </ul>
     
@@ -21,3 +21,8 @@
     {{mixtape.font-color playlist=playlist}} 
   </div>
   
+  {{#if imgIsOpen}}
+  <div class="img-bar">
+    {{ember-filepicker pickerOptions=pickerOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
+  </div>
+  {{/if}}
