@@ -20,9 +20,9 @@
   <div class="text-color-bar {{if textColorIsOpen 'open'}}">
     {{mixtape.font-color playlist=playlist}} 
   </div>
-  
+
   {{#if imgIsOpen}}
   <div class="img-bar">
-    {{ember-filepicker pickerOptions=pickerOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
+    {{ember-filepicker pickerOptions=pickerOptions storeOptions=storeOptions multiple=true onSelection='fileSelected' onClose='onClose' onError='onError'}}
   </div>
   {{/if}}

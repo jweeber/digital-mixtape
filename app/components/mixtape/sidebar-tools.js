@@ -35,22 +35,23 @@ export default Ember.Component.extend({
       this.set('imgIsOpen', true)
     },
 
-    fileSelected: function (file){
+    fileSelected: function (file) {
       this.get('filepicker.promise').then( () => {
         var store = this.get('store')
         var playlist = this.get('playlist')
+        let mixtape = store.peekRecord('mixtape', playlist)
 
-        let mixtape = store.peekRecord('mixtape', playlist);
-        let newImage = store.createRecord('image', {
-          id: file.id,
-          url: file.url,
-          type: file.mimetype,
-          filename: file.filename,
-          client: file.client,
-          mixtapes: mixtape
-        });
-        return newImage.save();
-      });
+        for (let image of file) {
+          let newImage = store.createRecord('image', {
+            url: image.url,
+            type: image.mimetype,
+            filename: image.filename,
+            client: image.client,
+            mixtapes: mixtape
+          })
+          newImage.save()
+        }
+      })
     }
   }
 })
