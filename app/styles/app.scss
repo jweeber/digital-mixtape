@@ -346,3 +346,16 @@ $mobile: new-breakpoint(max-width 500px 20);
  padding: 0.5em;
 }
 
+.playlist-player {
+  @include span-columns(4);
+}
+
+.unslider, .unslider-fade  {
+   @include span-columns(8);
+  overflow: visible !important;
+}
+
+ul {
+  list-style: none !important;
+}
+

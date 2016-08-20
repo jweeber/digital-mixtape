@@ -8,24 +8,30 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   session: services,
   store: services,
+  mixtapePhotos: [],
+
+  // queryParams: {
+  //   query: {
+  //     refreshModel: true
+  //   }
+  // },
 
   model: function (params) {
-
-    let store = this.get('store')
     let token = this.get('session.data.authenticated.access_token')
     let spotifyApi = new SpotifyWebApi()
 
     spotifyApi.setAccessToken(token)
-
     this.set('playlistId', params.id)
     this.set('userId', this.get('session.data.authenticated.user_id'))
 
-    return store.query('image', {
-      filter: {
-        mixtapes: this.get('playlistId')
-      }
-    }).then((images) => {
-      return this.set('mixtapePhotos', images.content)
+    return this.get('store').query('image', { 
+      orderBy: 'playlist',
+      equalTo: params.id
+    }).then( (images) => {
+        for (let photo of images.content) {
+          this.get('mixtapePhotos').pushObject(photo._data.url)
+        }
+        return this.get('mixtapePhotos')
     })
   },
 

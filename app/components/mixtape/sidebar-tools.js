@@ -10,6 +10,9 @@ export default Ember.Component.extend({
   textColorIsOpen: false,
   imgIsOpen: false,
 
+  pickerOptions: {
+    imageDim: [380, 500]
+  },
 
   actions: {
 
@@ -37,13 +40,15 @@ export default Ember.Component.extend({
 
     fileSelected: function (file) {
       this.get('filepicker.promise').then( () => {
-        var store = this.get('store')
-        var playlist = this.get('playlist')
+        let store = this.get('store')
+        let playlist = this.get('playlist')
         let mixtape = store.peekRecord('mixtape', playlist)
 
         for (let image of file) {
+          console.log(this.get('playlist'))
           let newImage = store.createRecord('image', {
             url: image.url,
+            playlist: this.get('playlist'),
             type: image.mimetype,
             filename: image.filename,
             client: image.client,
