@@ -36,13 +36,21 @@ export default Ember.Component.extend({
     },
 
     fileSelected: function (file){
-        this.get('filepicker.promise').then( (filepicker) => {
-          console.log(file, file.url)
-          return this.get('store').findRecord('mixtape', this.get('playlist')).then( (mixtape) => {
-            mixtape.set('images', [file.url])
-            return mixtape.save()
-           })
+      this.get('filepicker.promise').then( () => {
+        var store = this.get('store')
+        var playlist = this.get('playlist')
+
+        let mixtape = store.peekRecord('mixtape', playlist);
+        let newImage = store.createRecord('image', {
+          id: file.id,
+          url: file.url,
+          type: file.mimetype,
+          filename: file.filename,
+          client: file.client,
+          mixtapes: mixtape
         });
+        return newImage.save();
+      });
     }
   }
 })

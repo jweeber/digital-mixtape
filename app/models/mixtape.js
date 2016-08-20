@@ -6,7 +6,7 @@ export default DS.Model.extend({
   message: DS.attr('string'),
   font_style: DS.attr('string'),
   font_color: DS.attr('string'),
-  images: DS.attr(),
+  images: DS.hasMany('image'),
   url: DS.attr('string'),
   user: DS.belongsTo('user')
 });

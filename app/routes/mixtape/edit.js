@@ -22,7 +22,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   setupController: function (controller, model) {
     this._super(controller, model);
-    console.log(model)
     controller.set('playlistId', this.get('playlistId'));
     controller.set('userId', this.get('userId'));
   }
