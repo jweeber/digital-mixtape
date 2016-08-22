@@ -14,7 +14,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     query: { refreshModel: true }
   },
 
+  afterModel: function () {
+    // this.rerender()
+  },
+
   model: function (params) {
+    console.log('in model')
     let token = this.get('session.data.authenticated.access_token')
     let spotifyApi = new SpotifyWebApi()
 
@@ -22,15 +27,28 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.set('playlistId', params.id)
     this.set('userId', this.get('session.data.authenticated.user_id'))
 
-    // return this.get('userId'), this.get('playlistId')
-    return this.get('store').query('image', { 
+    return this.queryPhotos(params.id)
+    
+  },
+
+  queryPhotos: function (id) {
+    let currentPhotos = this.get('mixtapePhotos')
+    console.log('current photos: ', currentPhotos)
+   return this.get('store').query('image', { 
       orderBy: 'playlist',
-      equalTo: params.id
+      equalTo: id
     }).then( (images) => {
-        for (let photo of images.content) {
+      console.log('current saved images: ', images.content)
+      // why doesn't this loop go through each saved photo? If there are 3 photos,
+      // it goes through only twice. It does not hit the new photo added.
+      for (var photo of images.content) {
+        if (!this.get('mixtapePhotos').contains(photo._data.url)) {
+          console.log('photo on iteration: ', photo._data.url)
           this.get('mixtapePhotos').pushObject(photo._data.url)
         }
-        return this.get('mixtapePhotos')
+        console.log('after adding photo: ', this.get('mixtapePhotos'))
+      }
+      return this.get('mixtapePhotos')
     })
   },
 
@@ -38,15 +56,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this._super(controller, model);
     controller.set('playlistId', this.get('playlistId'));
     controller.set('userId', this.get('userId'));
-    // this.set('mixtapePhotos', this.get('mixtapePhotos'))
-    // console.log('controller', this.get('mixtapePhotos'))
+    console.log('setup controller')
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
+    console.log('after controller setup: ', this.get('mixtapePhotos'))
   },
-
-  // actions: {
-  //   refreshModel: function() {
-  //     this.refresh();
-  //   }
-  // }
-
 });

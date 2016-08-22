@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('new')
     this.route('add', { path: '/add/:id' });
     this.route('edit', { path: '/edit/:id' });
+    this.route('upload', { path: '/edit/:id/upload' });
   })
   this.route('login');
 });
