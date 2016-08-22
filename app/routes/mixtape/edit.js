@@ -10,11 +10,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   store: services,
   mixtapePhotos: [],
 
-  // queryParams: {
-  //   query: {
-  //     refreshModel: true
-  //   }
-  // },
+  queryParams: {
+    query: { refreshModel: true }
+  },
 
   model: function (params) {
     let token = this.get('session.data.authenticated.access_token')
@@ -24,6 +22,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.set('playlistId', params.id)
     this.set('userId', this.get('session.data.authenticated.user_id'))
 
+    // return this.get('userId'), this.get('playlistId')
     return this.get('store').query('image', { 
       orderBy: 'playlist',
       equalTo: params.id
@@ -39,6 +38,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this._super(controller, model);
     controller.set('playlistId', this.get('playlistId'));
     controller.set('userId', this.get('userId'));
+    // this.set('mixtapePhotos', this.get('mixtapePhotos'))
+    // console.log('controller', this.get('mixtapePhotos'))
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
-  }
+  },
+
 });
