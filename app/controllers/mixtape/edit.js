@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
 
     fileSelected: function (file) {
       console.log('current photos: ', this.get('mixtapePhotos'))
-      return this.get('filepicker.promise')
+      this.get('filepicker.promise')
         .then( () => {
           let store = this.get('store')
           let playlist = this.get('playlistId')
@@ -57,11 +57,13 @@ export default Ember.Controller.extend({
               client: image.client,
               mixtapes: mixtape
             })
+            // newPhotos.pushObject(image.url)
             newImage.save()
-            this.get('mixtapePhotos').pushObject(image.url)
           }
-        return this.get('mixtapePhotos')  
+          // return this.get('mixtapePhotos')
+        // return this.set('mixtapePhotos', newPhotos)
       })
+      return this.get('target.router').refresh()
     }
   }
 });

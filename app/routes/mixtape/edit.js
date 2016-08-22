@@ -43,4 +43,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
   },
 
+  // actions: {
+  //   refreshModel: function() {
+  //     this.refresh();
+  //   }
+  // }
+
 });
