@@ -6,7 +6,14 @@ export default Ember.Controller.extend({
   filepicker: Ember.inject.service(),
 
   pickerOptions: {
-    imageDim: [380, 500]
+    imageDim: [500, 400],
+    imageMax: [500, 400],
+    imageMin: [500, 400],
+    mimetype: 'image/*',
+    services: ['COMPUTER', 'CONVERT', 'FACEBOOK', 'INSTAGRAM', 'FLICKR'],
+    openTo: 'COMPUTER',
+    conversions: ['crop', 'rotate', 'filter'],
+    cropDim: [500, 400]
   },
 
   actions: {
@@ -17,7 +24,6 @@ export default Ember.Controller.extend({
           let playlist = this.get('playlistId')
           let mixtape = store.peekRecord('mixtape', playlist)
           for (let image of file) {
-            console.log('SAVING IMAGE')
             let newImage = store.createRecord('image', {
               url: image.url,
               playlist: this.get('playlistId'),
@@ -26,11 +32,11 @@ export default Ember.Controller.extend({
               client: image.client,
               mixtapes: mixtape
             })
-            return newImage.save().then( () => {
-              return this.transitionToRoute('mixtape.edit', this.get('playlistId'))  
-            })
+            newImage.save() 
           }
-      })
+      }).then( () => {
+        return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
+      }) 
     },
 
     onClose: function () {
