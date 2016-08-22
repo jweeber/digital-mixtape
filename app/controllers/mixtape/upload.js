@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 
   actions: {
     fileSelected: function (file) {
-      this.get('filepicker.promise')
+      return this.get('filepicker.promise')
         .then( () => {
           let store = this.get('store')
           let playlist = this.get('playlistId')
@@ -26,9 +26,10 @@ export default Ember.Controller.extend({
               client: image.client,
               mixtapes: mixtape
             })
-            newImage.save()
+            return newImage.save().then( () => {
+              return this.transitionToRoute('mixtape.edit', this.get('playlistId'))  
+            })
           }
-          return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
       })
     },
 

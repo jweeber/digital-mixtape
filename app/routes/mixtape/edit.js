@@ -41,10 +41,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       console.log('current saved images: ', images.content)
       // why doesn't this loop go through each saved photo? If there are 3 photos,
       // it goes through only twice. It does not hit the new photo added.
-      for (var photo of images.content) {
-        if (!this.get('mixtapePhotos').contains(photo._data.url)) {
-          console.log('photo on iteration: ', photo._data.url)
-          this.get('mixtapePhotos').pushObject(photo._data.url)
+      for (var i = 0; i < images.content.length; i++) {
+        console.log(i, images.content[i])
+        if (!this.get('mixtapePhotos').contains(images.content[i]._data.url)) {
+          console.log('photo on iteration: ', images.content[i]._data.url)
+          this.get('mixtapePhotos').pushObject(images.content[i]._data.url)
         }
         console.log('after adding photo: ', this.get('mixtapePhotos'))
       }
