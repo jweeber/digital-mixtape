@@ -16,8 +16,10 @@
     <li title="background-color"><a href="#" class="background-color" onclick={{action "togglePaint"}}>paint background</a></li>
     <li title="font"><a href="#" class="font" onclick={{action "toggleText"}}>change the font</a></li>
     <li title="font-color"><a href="#" class="font-color" onclick={{action "toggleTextColor"}}>change the font color</a></li>
-      <li title="message"><a href="#" class="message" onclick={{action "toggleMessage"}}>write a message</a></li>
-    <li title="images"><a href="#popup1" class="images" {{action "selectImages" playlistId}}>upload images</a></li>
+      <li title="message"><a href="#popup1" class="message" onclick={{action "toggleMessage"}}>write a message</a></li>
+    <li title="images"><a href="#" class="images" {{action "selectImages" playlistId}}>upload images</a></li>
+
+    <li title="facebook-share">{{facebook-share fb-layout='icon' url='http://localhost:4200/mixtape/{{playlistId}}'}}</li>
     </ul>
     
   <div class="color-bar {{if paintIsOpen 'open'}}">
@@ -38,7 +40,7 @@
       <h2>Leave a special message!</h2>
       <a class="close" href="#" onclick={{action "closeMessage"}}>&times;</a>
       <div class="content">
-        {{input type="textarea" value=message placeholder="leave some <3"}}<br>
+        {{input type="textarea" value=message placeholder="leave some <3" maxlength="500"}}<br>
         <button onclick={{action "saveMessage" message}}>save message</button>
       </div>
     </div>
