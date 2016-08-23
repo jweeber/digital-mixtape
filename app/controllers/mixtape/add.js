@@ -56,6 +56,7 @@ export default Ember.Controller.extend({
 
     return spotifyApi.getTrack(trackId)
       .then( (data) => {
+        console.log(data)
         return this.get('playlist').pushObject({ 
           id: data.body.id,
           uri: data.body.uri,

@@ -12,7 +12,6 @@ export default Ember.Component.extend({
 
       var store = this.get('store')
       var playlistId = this.get('playlist')
-      console.log(playlistId)
       return store.findRecord('mixtape', playlistId).then( (mixtape) => {
         mixtape.set('font_style', style)
         return mixtape.save()

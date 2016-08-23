@@ -1,9 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  needs: 'mixtape.edit',
 
   store: Ember.inject.service(),
   filepicker: Ember.inject.service(),
+  controllers: Ember.inject.controller('mixtape.edit'),
+  mixtapePhotos: [],
 
   pickerOptions: {
     imageDim: [500, 400],
@@ -32,10 +35,19 @@ export default Ember.Controller.extend({
               client: image.client,
               mixtapes: mixtape
             })
-            newImage.save() 
+            newImage.save()
+            .then ( (image) => {
+              // var editController = this.get('controllers')
+              // var photos = editController.get('mixtapePhotos')
+              // var mixtapePhotos = editController.get('mixtapePhotos')
+              // var newPhotos = this.get('mixtapePhotos').set('mixtapePhotos', mixtapePhotos)
+
+              // newPhotos.pushObject(image._internalModel._data.url)
+
+              // editController.set('mixtapePhotos', newPhotos)
+            return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
+            }) 
           }
-      }).then( () => {
-        return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
       }) 
     },
 

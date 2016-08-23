@@ -22,7 +22,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.set('playlistId', params.id)
     this.set('userId', this.get('session.data.authenticated.user_id'))
 
-    return this.queryPhotos(params.id)  
+    return this.queryPhotos(params.id)
   },
 
   queryPhotos: function (id) {
