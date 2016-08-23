@@ -3,7 +3,6 @@ import Ember from 'ember'
 const services = Ember.inject.service()
 
 export default Ember.Controller.extend({
-  attributeBindings: ["playlistId"],
 
   store: Ember.inject.service(),
 
@@ -66,8 +65,8 @@ export default Ember.Controller.extend({
       popup.style.display = "none"
     },
 
-    share: function (userId, playlistId) {
-      return this.transitionToRoute('mixtape.shared', userId, playlistId)
+    share: function (playlistId) {
+      return this.transitionToRoute('mixtape.shared', playlistId)
     }
 
   }

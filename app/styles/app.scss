@@ -327,6 +327,12 @@ $mobile: new-breakpoint(max-width 500px 20);
 
 .mixtape-container {
   opacity: 0.8;
+  left: 0;
+  padding: 1%;
+  margin: 0 auto;
+  position: fixed;
+  min-height: 680px;
+  min-width: 100%;
   letter-spacing: 1px;
 }
 
@@ -437,6 +443,11 @@ box:hover {
 }
 
 .publish {
-  @include span-columns(3.5 of 12);
-  float: right;
+  position: absolute;
+  margin-bottom: 2%;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  @include span-columns(4 of 12);
 }

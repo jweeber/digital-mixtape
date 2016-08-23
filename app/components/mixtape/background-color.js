@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
   actions: {
     background: function (value) {
-      $('body').css('background-color', value)
+      $('.mixtape-container').css('background-color', value)
 
       var store = this.get('store')
       var playlistId = this.get('playlist')
