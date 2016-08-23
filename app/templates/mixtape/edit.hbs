@@ -1,3 +1,5 @@
+  <div class="publish">Ready to share your mixtape?<button {{action "share" playlistId}}>publish it!</button></div>
+
 <div class="mixtape-container">
   <div class="title-container">
     <h2 class="mixtape-title">let's make some awesome mixtapes!</h2>
@@ -18,8 +20,6 @@
     <li title="font-color"><a href="#" class="font-color" onclick={{action "toggleTextColor"}}>change the font color</a></li>
       <li title="message"><a href="#popup1" class="message" onclick={{action "toggleMessage"}}>write a message</a></li>
     <li title="images"><a href="#" class="images" {{action "selectImages" playlistId}}>upload images</a></li>
-
-    <li title="facebook-share">{{facebook-share fb-layout='icon' url='http://localhost:4200/mixtape/{{playlistId}}'}}</li>
     </ul>
     
   <div class="color-bar {{if paintIsOpen 'open'}}">

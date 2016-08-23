@@ -3,6 +3,7 @@ import Ember from 'ember'
 const services = Ember.inject.service()
 
 export default Ember.Controller.extend({
+  attributeBindings: ["playlistId"],
 
   store: Ember.inject.service(),
 
@@ -48,7 +49,6 @@ export default Ember.Controller.extend({
     saveMessage: function (message) {
       var store = this.get('store')
       var playlistId = this.get('playlistId')
-      console.log(playlistId)
       return store.findRecord('mixtape', playlistId).then( (mixtape) => {
         mixtape.set('message', message)
         mixtape.save().then( () => { 
@@ -64,6 +64,10 @@ export default Ember.Controller.extend({
     closeMessage: function () {
       var popup = document.getElementById('popup1');
       popup.style.display = "none"
+    },
+
+    share: function (playlistId) {
+      return this.transitionToRoute('mixtape.shared', playlistId)
     }
 
   }

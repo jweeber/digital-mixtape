@@ -11,6 +11,7 @@ export default Ember.Controller.extend({
   actions: {
     createMixtape: function (title) {
       let user = this.get("session.data.authenticated.user_id")
+      console.log(user)
       let token = this.get('session.data.authenticated.access_token')
       let store = this.get('store')
       let spotifyApi = new SpotifyWebApi()

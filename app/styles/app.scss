@@ -435,3 +435,8 @@ box:hover {
   .box{ width: 70%; }
   .popup{ width: 80%; }
 }
+
+.publish {
+  @include span-columns(3.5 of 12);
+  float: right;
+}

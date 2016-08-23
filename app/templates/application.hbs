@@ -1,7 +1,9 @@
+<header>
 {{#if session.isAuthenticated}}
   <button {{action 'logout'}}>Logout</button>
 {{else}}
   <button {{action 'login'}}>Login</button>
 {{/if}}
+</header>
 
 {{outlet}}
