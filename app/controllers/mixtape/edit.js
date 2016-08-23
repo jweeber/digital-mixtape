@@ -66,8 +66,8 @@ export default Ember.Controller.extend({
       popup.style.display = "none"
     },
 
-    share: function (playlistId) {
-      return this.transitionToRoute('mixtape.shared', playlistId)
+    share: function (userId, playlistId) {
+      return this.transitionToRoute('mixtape.shared', userId, playlistId)
     }
 
   }
