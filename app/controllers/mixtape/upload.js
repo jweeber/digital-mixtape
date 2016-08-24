@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
   store: Ember.inject.service(),
   filepicker: Ember.inject.service(),
   controllers: Ember.inject.controller('mixtape.edit'),
-  mixtapePhotos: [],
 
   pickerOptions: {
     imageDim: [500, 400],

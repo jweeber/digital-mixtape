@@ -10,8 +10,6 @@ export default Ember.Controller.extend({
   textIsOpen: false,
   textColorIsOpen: false,
 
-  // imgIsOpen: false,
-
   actions: {
 
     togglePaint: function () {
@@ -52,13 +50,12 @@ export default Ember.Controller.extend({
       return store.findRecord('mixtape', playlistId).then( (mixtape) => {
         mixtape.set('message', message)
         mixtape.save().then( () => { 
+          $('#personal-message').text(message)
+          this.set('message', message)
           var popup = document.getElementById('popup1');
           popup.style.display = "none" 
-
-          $('#personal-message').text(message)
         })
       })
-
     },
 
     closeMessage: function () {
@@ -67,7 +64,13 @@ export default Ember.Controller.extend({
     },
 
     share: function (playlistId) {
-      return this.transitionToRoute('mixtape.shared', playlistId)
+      var store = this.get('store')
+      
+      return store.findRecord('mixtape', playlistId).then( (mixtape) => {
+        mixtape.set('published', true)
+        mixtape.save()
+        .then ( () => { return this.transitionToRoute('mixtape.shared', playlistId) })
+      })
     }
 
   }

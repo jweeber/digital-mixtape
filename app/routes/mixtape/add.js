@@ -16,7 +16,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   
   model: function (params) {
-    console.log(this.get('title'))
     this.set('playlistId', params.id)
 
     let spotifyApi = new SpotifyWebApi()
