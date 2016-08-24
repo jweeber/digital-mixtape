@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
   actions: {
     text: function (style) {
-      $('.mixtape-container').css('font-family', style)
+      $('.mixtape-text').css('font-family', style)
 
       var store = this.get('store')
       var playlistId = this.get('playlist')

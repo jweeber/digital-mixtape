@@ -37,14 +37,6 @@ export default Ember.Controller.extend({
             })
             newImage.save()
             .then ( (image) => {
-              // var editController = this.get('controllers')
-              // var photos = editController.get('mixtapePhotos')
-              // var mixtapePhotos = editController.get('mixtapePhotos')
-              // var newPhotos = this.get('mixtapePhotos').set('mixtapePhotos', mixtapePhotos)
-
-              // newPhotos.pushObject(image._internalModel._data.url)
-
-              // editController.set('mixtapePhotos', newPhotos)
             return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
             }) 
           }

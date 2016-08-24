@@ -7,6 +7,7 @@ const services = Ember.inject.service()
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   session: services,
+  store: services,
 
   queryParams: {
     query: {
@@ -15,7 +16,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   
   model: function (params) {
+    console.log(this.get('title'))
     this.set('playlistId', params.id)
+
     let spotifyApi = new SpotifyWebApi()
     if ((params.query === undefined) || (params.query.length >= 3)) {
       return spotifyApi.searchTracks(params.query, { limit: 5 })
@@ -25,6 +28,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           
       })
     } else { return null }
+
   },
 
   setupController: function (controller, model) {

@@ -9,7 +9,7 @@
 
 <div class="mixtape-container">
   <div class="title-container">
-    <h2 class="mixtape-title">let's make some awesome mixtapes!</h2>
+    <h2 class="mixtape-title mixtape-text">{{title}}</h2>
   </div>
   <div class="playlist-player">
     <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div id="personal-message"></div>
+  <div id="personal-message mixtape-text"></div>
   <div class="publish">Ready to share your mixtape?<button {{action "share" playlistId}}>publish it!</button></div>
 </div>
 

@@ -22,7 +22,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.set('playlistId', params.id)
     this.set('userId', this.get('session.data.authenticated.user_id'))
 
-    return this.queryPhotos(params.id)
+    let store = this.get('store')
+ 
+    this.queryPhotos(params.id)
+    return store.findRecord('mixtape', params.id).then((mixtape) => {
+      this.set('title', mixtape._internalModel._data.title)
+    })
   },
 
   queryPhotos: function (id) {
@@ -42,8 +47,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   setupController: function (controller, model) {
     this._super(controller, model);
+    controller.set('title', this.get('title'))
     controller.set('playlistId', this.get('playlistId'));
     controller.set('userId', this.get('userId'));
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
+    controller.set('title', this.get('title'))
   },
 });

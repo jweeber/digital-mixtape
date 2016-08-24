@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
   paintIsOpen: false,
   textIsOpen: false,
   textColorIsOpen: false,
+
   // imgIsOpen: false,
 
   actions: {
