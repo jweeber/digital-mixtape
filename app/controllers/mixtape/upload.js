@@ -8,14 +8,13 @@ export default Ember.Controller.extend({
   controllers: Ember.inject.controller('mixtape.edit'),
 
   pickerOptions: {
-    imageDim: [500, 400],
-    imageMax: [500, 400],
-    imageMin: [500, 400],
+    imageDim: [400, 900],
+    imageMax: [500, 900],
     mimetype: 'image/*',
     services: ['COMPUTER', 'CONVERT', 'FACEBOOK', 'INSTAGRAM', 'FLICKR'],
     openTo: 'COMPUTER',
     conversions: ['crop', 'rotate', 'filter'],
-    cropDim: [500, 400]
+    cropDim: [500, 380]
   },
 
   actions: {

@@ -42,7 +42,7 @@ module.exports = function(environment) {
       'Indie Flower',
       'Original Surfer',
       'Orbitron',
-      'Bungee Shade',
+      'Fascinate Inline',
       'Gloria Hallelujah',
       'Special Elite',
       'Homemade Apple',

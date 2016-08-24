@@ -12,7 +12,7 @@
     <h2 class="mixtape-title mixtape-text">{{title}}</h2>
   </div>
   <div class="playlist-player">
-    <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+    <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true" class="spotify-player"></iframe>
   </div>
   <div>
     {{#un-slider slides=mixtapePhotos animation='fade' nav=false autoplay=true speed=800 delay=3500 arrows=false as |slide|}}
@@ -39,7 +39,7 @@
         <h2>Leave a special message!</h2>
         <a class="close" href="#" onclick={{action "closeMessage"}}>&times;</a>
         <div class="content">
-          {{input type="textarea" value=message placeholder="leave some <3" maxlength="500"}}<br>
+          {{input type="textarea" value=message placeholder="leave some <3" maxlength="200"}}<br>
           <button onclick={{action "saveMessage" message}}>save message</button>
         </div>
       </div>

@@ -25,6 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     let store = this.get('store')
  
     this.queryPhotos(params.id)
+    this.getPersonalization(params.id)
     return store.findRecord('mixtape', params.id).then((mixtape) => {
       this.set('title', mixtape._internalModel._data.title)
     })
@@ -42,6 +43,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         }
       }
       return this.get('mixtapePhotos')
+    })
+  },
+
+  getPersonalization: function (id) {
+    let store = this.get('store')
+    return store.findRecord('mixtape', id)
+    .then( (mixtape) => {
+      console.log(mixtape._internalModel._data)
     })
   },
 
