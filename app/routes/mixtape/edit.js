@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import SpotifyWebApi from 'npm:spotify-web-api-node'
 
 const services = Ember.inject.service()
 
@@ -15,17 +14,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   model: function (params) {
-    let token = this.get('session.data.authenticated.access_token')
-    let spotifyApi = new SpotifyWebApi()
-
-    spotifyApi.setAccessToken(token)
-    this.set('playlistId', params.id)
-    this.set('userId', this.get('session.data.authenticated.user_id'))
+    this.set('playlistId', params.playlist_id)
+    this.set('userId', params.user_id)
 
     let store = this.get('store')
  
-    this.queryPhotos(params.id)
-    return store.findRecord('mixtape', params.id).then((mixtape) => {
+    this.queryPhotos(this.get('playlistId'))
+    return store.findRecord('mixtape', this.get('playlistId')).then((mixtape) => {
       this.set('backgroundColor', mixtape._internalModel._data.background_color)
       this.set('title', mixtape._internalModel._data.title)
       this.set('fontFamily', mixtape._internalModel._data.font_style)

@@ -467,7 +467,6 @@ box:hover {
 #personal-message {
   text-align: center;
   font-size: 18px;
-  font-weight: bolder;
   margin: 0 10% 4% 2%;
   left: 0;
   bottom: 0;
@@ -494,12 +493,12 @@ box:hover {
 
 .spotify-player {
   @include span-columns(10 of 12)
-  margin-left: 5%;
+  margin-left: 25%;
 }
 
 .photos {
   @include span-columns(8 of 12)
-  margin-left: 15%;
+  margin-left: 40%;
 }
 
 #generic-photo {

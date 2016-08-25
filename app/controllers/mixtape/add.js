@@ -44,7 +44,7 @@ export default Ember.Controller.extend({
     },
 
     finished: function () {
-      return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
+      return this.transitionToRoute('mixtape.edit', this.get('userId'), this.get('playlistId'))
     }
   },
 

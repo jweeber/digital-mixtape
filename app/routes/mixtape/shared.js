@@ -12,7 +12,7 @@ export default Ember.Route.extend({
     this.set('userId', params.user_id)
     let store = this.get('store')
  
-    this.queryPhotos(params.id)
+    this.queryPhotos(params.playlist_id)
     return store.findRecord('mixtape', this.get('playlistId')).then((mixtape) => {
       this.set('backgroundColor', mixtape._internalModel._data.background_color)
       this.set('title', mixtape._internalModel._data.title)

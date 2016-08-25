@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   actions: {
     fontColor: function (value) {
       $('.mixtape-text span').css('color', value)
-      $('.user-images').css('border-color', value)
+      $('.publish').css('color', value)
 
       var store = this.get('store')
       var playlistId = this.get('playlist')

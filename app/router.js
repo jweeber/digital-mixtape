@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('mixtape', function () {
     this.route('new')
     this.route('add', { path: '/:id/add' })
-    this.route('edit', { path: '/:id/edit' })
+    this.route('edit', { path: '/:user_id/:playlist_id/edit' })
     this.route('upload', { path: '/:id/edit/upload' })
     this.route('shared', { path: '/:user_id/:playlist_id' })
   })
