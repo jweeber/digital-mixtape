@@ -23,20 +23,18 @@ export default Ember.Controller.extend({
           let store = this.get('store')
           let playlist = this.get('playlistId')
           let mixtape = store.peekRecord('mixtape', playlist)
-          for (let image of file) {
             let newImage = store.createRecord('image', {
-              url: image.url,
+              url: file.url,
               playlist: this.get('playlistId'),
-              type: image.mimetype,
-              filename: image.filename,
-              client: image.client,
+              type: file.mimetype,
+              filename: file.filename,
+              client: file.client,
               mixtapes: mixtape
             })
             newImage.save()
             .then ( (image) => {
             return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
             }) 
-          }
       }) 
     },
 

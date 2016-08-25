@@ -26,7 +26,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
  
     this.queryPhotos(params.id)
     return store.findRecord('mixtape', params.id).then((mixtape) => {
-      console.log(mixtape._internalModel._data.font_style, mixtape._internalModel._data.font_color)
       this.set('backgroundColor', mixtape._internalModel._data.background_color)
       this.set('title', mixtape._internalModel._data.title)
       this.set('fontFamily', mixtape._internalModel._data.font_style)

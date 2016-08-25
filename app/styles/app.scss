@@ -85,7 +85,8 @@ $mobile: new-breakpoint(max-width 500px 20);
 .menu,
 .color-bar,
 .text-bar,
-.text-color-bar {  
+.text-color-bar,
+.image-bar {  
   text-align: center;
   position: fixed;
   top: 0;
@@ -140,13 +141,14 @@ $mobile: new-breakpoint(max-width 500px 20);
 .color-bar a:hover,
 .text-bar a:hover,
 .text-color-bar a:hover,
+.image-bar a:hover,
 .menu a:hover {
   background: #267fdd;
   color: #fff;
   transition: all 0.3s ease;
 }
 
-.color-bar, .text-bar, .text-color-bar {
+.color-bar, .text-bar, .text-color-bar, .image-bar {
   overflow: hidden;
   right: 5em;
   z-index: 10;
@@ -155,7 +157,10 @@ $mobile: new-breakpoint(max-width 500px 20);
   transition: all 0.25s ease;
 }
 
-.color-bar li a, .text-bar li a, .text-color-bar li a {
+.color-bar li a,
+.text-bar li a,
+.text-color-bar li a,
+.image-bar li a {
   display: block;
   height: 4em;
   text-align: center;
@@ -169,7 +174,8 @@ $mobile: new-breakpoint(max-width 500px 20);
 
 .color-bar li:first-child a,
 .text-bar li:first-child a, 
-.text-color-bar li:first-child a {
+.text-color-bar li:first-child a,
+.image-bar li:first-child a {
   height: 5em;
   background: #267fdd;
   color: #fff;    
@@ -205,16 +211,18 @@ $mobile: new-breakpoint(max-width 500px 20);
 
     .color-bar li a,
     .text-bar li a,
-    .text-color-bar li a {
-        width:100%;
+    .text-color-bar li a,
+    .image-bar li a {
+      width:100%;
     }
 
     .color-bar,
     .text-bar,
-    .text-color-bar {
-        width:100%;
-        left:0;
-        height:0;
+    .text-color-bar,
+    .image-bar {
+      width:100%;
+      left:0;
+      height:0;
     }
 
     .open {
@@ -231,7 +239,8 @@ $mobile: new-breakpoint(max-width 500px 20);
   .menu li,
   .color-bar,
   .text-bar,
-  .text-color-bar {
+  .text-color-bar,
+  .image-bar {
     font-size:70%;
   }
 }
@@ -458,8 +467,9 @@ box:hover {
   text-align: center;
   font-size: 18px;
   font-weight: bolder;
-  margin: 33% 10% 8% 2%;
+  margin: 0 10% 4% 2%;
   left: 0;
+  bottom: 0;
   height: 80px;
   position: absolute;
   word-wrap: break-word;  
@@ -480,6 +490,13 @@ box:hover {
   margin-left: 15%;
 }
 
+#generic-photo {
+  margin-top: 2%;
+  margin-left: 45%;
+}
+
 .user-images {
+  max-height: 380px;
+  max-width: 600px;
   border-radius: 25px;
 }
