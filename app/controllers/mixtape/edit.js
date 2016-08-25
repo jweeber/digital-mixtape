@@ -43,7 +43,7 @@ export default Ember.Controller.extend({
     },
 
     selectImages: function () {
-      return this.transitionToRoute('mixtape.upload', this.get('playlistId'))
+      return this.transitionToRoute('mixtape.upload', this.get('userId'), this.get('playlistId'))
     },
 
     toggleMessage: function () {

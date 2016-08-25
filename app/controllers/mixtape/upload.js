@@ -33,13 +33,13 @@ export default Ember.Controller.extend({
             })
             newImage.save()
             .then ( (image) => {
-            return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
+            return this.transitionToRoute('mixtape.edit', this.get('userId'), this.get('playlistId'))
             }) 
       }) 
     },
 
     onClose: function () {
-      return this.transitionToRoute('mixtape.edit', this.get('playlistId'))
+      return this.transitionToRoute('mixtape.edit', this.get('userId'), this.get('playlistId'))
     }
   }
 });

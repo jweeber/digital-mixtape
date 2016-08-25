@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 
   actions: {
     createMixtape: function (title) {
-      let user = this.get("session.data.authenticated.user_id")
+      let user = this.get('userId')
       let token = this.get('session.data.authenticated.access_token')
       let store = this.get('store')
       
@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
             user: currentUser
           });
           newMixtape.save();
-        return this.transitionToRoute('mixtape.add', playlist.body.id)
+        return this.transitionToRoute('mixtape.add', this.get('userId'), playlist.body.id)
         }).catch(function (err) {
             console.error(err);
       });

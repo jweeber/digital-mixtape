@@ -4,11 +4,13 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model: function (params) {
-    return this.set('playlistId', params.id)
+    this.set('playlistId', params.playlist_id)
+    this.set('userId', params.user_id)
   },
 
   setupController: function (controller, model) {
     this._super(controller, model);
-    controller.set('playlistId', this.get('playlistId'));
+    controller.set('playlistId', this.get('playlistId'))
+    controller.set('userId', this.get('userId'))
   }
 });

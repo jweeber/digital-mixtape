@@ -7,12 +7,12 @@ const Router = Ember.Router.extend({
 })
 
 Router.map(function() {
-  this.route('user', { path: '/user/:id' })
+  this.route('user', { path: '/user/:user_id' })
   this.route('mixtape', function () {
-    this.route('new')
-    this.route('add', { path: '/:id/add' })
+    this.route('new', { path: '/:user_id/new' })
+    this.route('add', { path: '/:user_id/:playlist_id/add' })
     this.route('edit', { path: '/:user_id/:playlist_id/edit' })
-    this.route('upload', { path: '/:id/edit/upload' })
+    this.route('upload', { path: '/:user_id/:playlist_id/edit/upload' })
     this.route('shared', { path: '/:user_id/:playlist_id' })
   })
   this.route('login')

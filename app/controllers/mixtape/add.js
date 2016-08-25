@@ -11,12 +11,11 @@ export default Ember.Controller.extend({
   actions: {
     addToPlaylist: function (trackURI, trackId) {
       let playlist = this.get('playlistId')
-      let user = this.get('session.data.authenticated.user_id')
+      let user = this.get('userId')
       let token = this.get('session.data.authenticated.access_token')
 
       let spotifyApi = new SpotifyWebApi()
       spotifyApi.setAccessToken(token)
-
 
       return spotifyApi.addTracksToPlaylist(user, playlist, [trackURI])
         .then( (data) => {
@@ -28,12 +27,11 @@ export default Ember.Controller.extend({
 
     removeFromPlaylist: function (trackURI, trackId) {
       let playlist = this.get('playlistId')
-      let user = this.get('session.data.authenticated.user_id')
+      let user = this.get('userId')
       let token = this.get('session.data.authenticated.access_token')
 
       let spotifyApi = new SpotifyWebApi()
       spotifyApi.setAccessToken(token)
-
 
       return spotifyApi.removeTracksFromPlaylist(user, playlist, [{"uri": trackURI}])
         .then( (data) => {
