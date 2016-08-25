@@ -7,16 +7,16 @@
   <li title="images"><a href="#" class="images" {{action "selectImages" playlistId}}>upload images</a></li>
 </ul>
 
-<div class="mixtape-container">
+<div class="mixtape-container" style={{background-color backgroundColor}}>
   <div class="title-container">
-    <h2 class="mixtape-title mixtape-text">{{title}}</h2>
+    <h2 class="mixtape-title mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{title}}</span></h2>
   </div>
   <div class="playlist-player">
     <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true" class="spotify-player"></iframe>
   </div>
   <div>
-    {{#un-slider slides=mixtapePhotos animation='fade' nav=false autoplay=true speed=800 delay=3500 arrows=false as |slide|}}
-      <div class="box photos"><img src={{slide}}></div>
+    {{#un-slider slides=mixtapePhotos animation='fade' nav=false autoplay=true speed=800 delay=3500 arrows=true as |slide|}}
+      <div class="box photos"><img src={{slide}} class="user-images"></div>
     {{/un-slider}}
   </div>
 
@@ -33,6 +33,10 @@
     {{mixtape.font-color playlist=playlistId}} 
   </div>
 
+  <div class="image-bar {{if imageIsOpen 'open'}}">
+    {{mixtape.upload-photos playlist=playlistId}} 
+  </div>
+
   <div class="box">
     <div id="popup1" class="overlay">
       <div class="popup">
@@ -46,7 +50,7 @@
     </div>
   </div>
 
-  <div id="personal-message" class="mixtape-text"></div>
+  <div id="personal-message" class="mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{message}}</span></div>
 
   <div class="publish">Ready to share your mixtape?<button {{action "share" playlistId}}>publish it!</button></div>
 </div>

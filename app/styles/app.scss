@@ -456,7 +456,8 @@ box:hover {
 
 #personal-message {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bolder;
   margin: 33% 10% 8% 2%;
   left: 0;
   height: 80px;
@@ -477,4 +478,8 @@ box:hover {
 .photos {
   @include span-columns(8 of 12)
   margin-left: 15%;
+}
+
+.user-images {
+  border-radius: 25px;
 }

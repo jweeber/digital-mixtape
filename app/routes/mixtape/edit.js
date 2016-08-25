@@ -25,9 +25,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     let store = this.get('store')
  
     this.queryPhotos(params.id)
-    this.getPersonalization(params.id)
     return store.findRecord('mixtape', params.id).then((mixtape) => {
+      console.log(mixtape._internalModel._data.font_style, mixtape._internalModel._data.font_color)
+      this.set('backgroundColor', mixtape._internalModel._data.background_color)
       this.set('title', mixtape._internalModel._data.title)
+      this.set('fontFamily', mixtape._internalModel._data.font_style)
+      this.set('message', mixtape._internalModel._data.message)
+      this.set('fontColor', mixtape._internalModel._data.font_color)
     })
   },
 
@@ -46,14 +50,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     })
   },
 
-  getPersonalization: function (id) {
-    let store = this.get('store')
-    return store.findRecord('mixtape', id)
-    .then( (mixtape) => {
-      console.log(mixtape._internalModel._data)
-    })
-  },
-
   setupController: function (controller, model) {
     this._super(controller, model);
     controller.set('title', this.get('title'))
@@ -61,5 +57,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('userId', this.get('userId'));
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
     controller.set('title', this.get('title'))
+    controller.set('backgroundColor', this.get('backgroundColor'))
+    controller.set('message', this.get('message'))
+    controller.set('fontFamily', this.get('fontFamily'))
+    controller.set('fontColor', this.get('fontColor'))
   },
 });
