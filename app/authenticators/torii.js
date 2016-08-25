@@ -23,7 +23,6 @@ export default ToriiAuthenticator.extend({
         }
       })
       .then((response) => {
-        console.log(response, data)
         var store = this.get('store')
         var images = response.images.length === 0 ? "not provided" : response.images[0].url
         store.query('user', { equalTo: response.id })

@@ -60,5 +60,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('message', this.get('message'))
     controller.set('fontFamily', this.get('fontFamily'))
     controller.set('fontColor', this.get('fontColor'))
-  },
+  }
 });

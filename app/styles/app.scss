@@ -346,6 +346,7 @@ $mobile: new-breakpoint(max-width 500px 20);
 }
 
 .mixtape-title {
+  margin-top: 3%;
   text-align: center;
   font-size: 30px;
 }
@@ -475,9 +476,20 @@ box:hover {
   word-wrap: break-word;  
 }
 
-.social-btns {
-  top: 0;
+.share-it {
   float: right;
+  padding-left: 5%;
+  margin-bottom: 2%;
+  margin-right: 5%;
+}
+
+.share-button {
+  height: 30px !important;
+  width: 30px !important;
+}
+
+.fb-share-button {
+  padding-left: 6px !important;
 }
 
 .spotify-player {
