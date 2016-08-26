@@ -1,16 +1,27 @@
-<h1>Welcome, {{userId}}!</h1>
+<a href={{profileURL}} target="_blank"><img src={{userImage}} class="spotify-image"></a>
+<h1>Hi, {{name}}!</h1>
 
 <button {{action 'newMixtape'}}>create a new mixtape</button>
 <div class="cards">
-  <div class="card">
-    <div class="card-header">
-      First Card
-    {{!-- <div class="card-copy">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
-    </div> --}}
-    </div>
-    <div class="card-image">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
-    </div>
-  </div>
+ {{#each mixtapes as |mixtape|}}
+    {{#if mixtape._internalModel._data.published}}
+      <div class="card">
+        <div class="card-header">
+        {{mixtape._internalModel._data.title}}
+        </div>
+        <div class="card-image">
+          <img src="/assets/images/mixtape-sketch.png" alt="">
+        </div>
+      </div>
+    {{else}}
+      <div class="card">
+        <div class="card-header">
+          {{mixtape._internalModel._data.title}}
+        </div>
+        <div class="card-image">
+          {{#link-to 'mixtape.edit' userId mixtape.id}}<img src="/assets/images/mixtape-sketch.png" alt="">{{/link-to}}
+        </div>
+      </div>
+    {{/if}}
+  {{/each}}
 </div>

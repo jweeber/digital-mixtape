@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import Ember from 'ember'
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'
 
 const services = Ember.inject.service()
 
@@ -30,7 +30,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   queryPhotos: function (id) {
-    let currentPhotos = this.get('mixtapePhotos')
     return this.get('store').query('image', { 
       orderBy: 'playlist',
       equalTo: id
@@ -45,10 +44,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   setupController: function (controller, model) {
-    this._super(controller, model);
+    this._super(controller, model)
     controller.set('title', this.get('title'))
-    controller.set('playlistId', this.get('playlistId'));
-    controller.set('userId', this.get('userId'));
+    controller.set('playlistId', this.get('playlistId'))
+    controller.set('userId', this.get('userId'))
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
     controller.set('title', this.get('title'))
     controller.set('backgroundColor', this.get('backgroundColor'))
@@ -56,4 +55,4 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('fontFamily', this.get('fontFamily'))
     controller.set('fontColor', this.get('fontColor'))
   }
-});
+})

@@ -84,6 +84,10 @@ export default Ember.Controller.extend({
         mixtape.save()
         .then ( () => { return this.transitionToRoute('mixtape.shared', userId, playlistId) })
       })
+    },
+
+    userProfile: function () {
+      return this.transitionToRoute('user', this.get('userId'))
     }
 
   }
