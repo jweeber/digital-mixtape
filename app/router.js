@@ -14,7 +14,6 @@ Router.map(function() {
     this.route('edit', { path: '/:user_id/:playlist_id/edit' })
     this.route('upload', { path: '/:user_id/:playlist_id/edit/upload' })
     this.route('shared', { path: '/:user_id/:playlist_id' })
-    this.route('photos',  {path: '/:user_id/:playlist_id/edit/photos'});
   })
   this.route('login')
 })

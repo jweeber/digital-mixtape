@@ -33,7 +33,7 @@ module.exports = function(environment) {
       apiKey: process.env.FIREBASE_KEY,
       authDomain: 'digital-mixtape-635ce.firebaseapp.com',
       databaseURL: 'https://digital-mixtape-635ce.firebaseio.com',
-      storageBucket: 'digital-mixtape-635ce.appspot.com'
+      storageBucket: ''
     },
 
     googleFonts: [

@@ -9,31 +9,32 @@ export default Ember.Route.extend({
   model(params) {
     this.set('playlistId', params.playlist_id)
     this.set('userId', params.user_id)
-    let store = this.get('store')
  
-    this.queryPhotos(params.playlist_id)
+    return this.queryPhotos()
+  },
 
-    return store.findRecord('mixtape', this.get('playlistId')).then((mixtape) => {
+  queryPhotos: function () {
+    let currentPhotos = this.get('mixtapePhotos')
+    return this.get('store').query('image', { 
+      orderBy: 'playlist',
+      equalTo: this.get('playlistId')
+    }).then( (images) => {
+      for (var photo of images.get('content')) {
+        if (!this.get('mixtapePhotos').contains(photo._data.url)) {
+          this.get('mixtapePhotos').pushObject(photo._data.url) 
+        }
+      }
+      return this.getPersonalization()
+    })
+  },
+
+  getPersonalization: function () {
+    return this.get('store').findRecord('mixtape', this.get('playlistId')).then((mixtape) => {
       this.set('backgroundColor', mixtape._internalModel._data.background_color)
       this.set('title', mixtape._internalModel._data.title)
       this.set('fontFamily', mixtape._internalModel._data.font_style)
       this.set('message', mixtape._internalModel._data.message)
       this.set('fontColor', mixtape._internalModel._data.font_color)
-    })
-  },
-
-  queryPhotos: function (id) {
-    let currentPhotos = this.get('mixtapePhotos')
-    return this.get('store').query('image', { 
-      orderBy: 'playlist',
-      equalTo: id
-    }).then( (images) => {
-      for (let photo of images.content) {
-        if (!this.get('mixtapePhotos').contains(photo._data.url)) {
-          this.get('mixtapePhotos').pushObject(photo._data.url)
-        }
-      }
-      return this.get('mixtapePhotos')
     })
   },
 

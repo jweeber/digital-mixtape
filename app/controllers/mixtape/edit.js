@@ -77,10 +77,6 @@ export default Ember.Controller.extend({
       popup.style.display = "none"
     },
 
-    openPhotos: function () {
-      return this.transitionToRoute('mixtape.photos', this.get('userId'), this.get('playlistId'))
-    },
-
     share: function (userId, playlistId) {
       var store = this.get('store')
       

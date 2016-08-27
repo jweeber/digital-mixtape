@@ -33,7 +33,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       orderBy: 'playlist',
       equalTo: this.get('playlistId')
     }).then( (images) => {
-      this.set('mixtapePhotos', images.get('content').toArray())
+      console.log(images.get('content'))
+      for (var photo of images.get('content')) {
+        if (!this.get('mixtapePhotos').contains(photo._data.url)) {
+          this.get('mixtapePhotos').pushObject(photo._data.url) 
+        }
+      }
       return this.getMixtape()
     })
   },
