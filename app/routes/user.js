@@ -4,14 +4,13 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   store: Ember.inject.service(),
-  publishedMixtapes: [],
-  inProgressMixtapes: [],
 
   model: function(params) {
     this.set('userId', params.user_id)
+    return this.getMixtapes(), this.getUserInfo() 
+  },
 
-    this.getMixtapes()
-
+  getUserInfo: function () {
     return this.store.findRecord('user', this.get('userId'))
     .then( (user) => {
       if (user._internalModel._data.image_url === "not provided") {
@@ -26,7 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.set('name', user._internalModel._data.name)
       }
 
-      return this.set('profileURL', user._internalModel._data.profile_url)
+      this.set('profileURL', user._internalModel._data.profile_url)
     })
   },
 
@@ -35,20 +34,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       orderBy: 'user',
       equalTo: this.get('userId')
     })
-    .then( (mixtapes) => {
-      return this.set('mixtapes', mixtapes.toArray())
+    .then((mixtapes) => {
+       return this.set('mixtapes', mixtapes.toArray())
     })
   },
 
   setupController: function (controller, model) {
     this._super(controller, model);
-    console.log('controller')
     controller.set('userId', this.get('userId'))
     controller.set('name', this.get('name'))
     controller.set('userImage', this.get('userImage'))
     controller.set('profileURL', this.get('profileURL'))
     controller.set('mixtapes', this.get('mixtapes'))
-    console.log(this.get('mixtapes'))
   }
 
 });

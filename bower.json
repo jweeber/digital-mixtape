@@ -12,6 +12,7 @@
     "font-awesome": "^4.6.3",
     "slick-carousel": "^1.6.0",
     "jquery.event.move": "^1.3.6",
-    "unslider": "https://github.com/idiot/unslider.git#master"
+    "unslider": "https://github.com/idiot/unslider.git#master",
+    "dragula": "^3.5.4"
   }
 }

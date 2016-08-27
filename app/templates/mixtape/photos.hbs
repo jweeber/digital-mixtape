@@ -1,0 +1,7 @@
+<div class="photos-container">
+  {{#each mixtapePhotos as |photo|}}
+    <img src={{photo._data.url}} class="review-photos"><br>
+    <button onclick={{action "deletePhoto" photo}}>remove photo</button>
+  {{/each}}
+  <button onclick={{action "closePhotos"}}>finished removing photos</button>
+</div>

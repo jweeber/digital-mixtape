@@ -3,6 +3,7 @@
 
 <button {{action 'newMixtape'}}>create a new mixtape</button>
 <div class="cards">
+
  {{#each mixtapes as |mixtape|}}
     {{#if mixtape._internalModel._data.published}}
       <div class="card">

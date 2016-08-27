@@ -5,6 +5,7 @@ const services = Ember.inject.service()
 export default Ember.Controller.extend({
 
   store: Ember.inject.service(),
+  filepicker: Ember.inject.service(),
 
   paintIsOpen: false,
   textIsOpen: false,
@@ -43,6 +44,7 @@ export default Ember.Controller.extend({
     },
 
     selectImages: function () {
+      this.set('imageIsOpen', false)
       return this.transitionToRoute('mixtape.upload', this.get('userId'), this.get('playlistId'))
     },
 
@@ -73,6 +75,10 @@ export default Ember.Controller.extend({
     closeMessage: function () {
       var popup = document.getElementById('popup1');
       popup.style.display = "none"
+    },
+
+    openPhotos: function () {
+      return this.transitionToRoute('mixtape.photos', this.get('userId'), this.get('playlistId'))
     },
 
     share: function (userId, playlistId) {
