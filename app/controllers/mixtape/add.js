@@ -5,6 +5,9 @@ const services = Ember.inject.service()
 
 export default Ember.Controller.extend({
 
+  queryParams: "query",
+  query: "",
+
   session: services,
   playlist: [],
 

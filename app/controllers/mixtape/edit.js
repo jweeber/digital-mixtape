@@ -48,6 +48,11 @@ export default Ember.Controller.extend({
       return this.transitionToRoute('mixtape.upload', this.get('userId'), this.get('playlistId'))
     },
 
+    reviewImages: function () {
+      this.set('imageIsOpen', false)
+      return this.transitionToRoute('mixtape.review', this.get('userId'), this.get('playlistId'))
+    },
+
     toggleMessage: function () {
       this.set('paintIsOpen', false)
       this.set('textIsOpen', false)

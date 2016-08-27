@@ -16,10 +16,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   
   model: function (params) {
-    console.log(params)
+    console.log(params.query)
     this.set('playlistId', params.playlist_id)
     this.set('userId', params.user_id)
-
     let spotifyApi = new SpotifyWebApi()
     if ((params.query === undefined) || (params.query.length >= 3)) {
       return spotifyApi.searchTracks(params.query, { limit: 5 })
@@ -34,6 +33,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   setupController: function (controller, model) {
     this._super(controller, model);
+    controller.set('playlist', [])
     controller.set('playlistId', this.get('playlistId'));
     controller.set('userId', this.get('userId'))
   }

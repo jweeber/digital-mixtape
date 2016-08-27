@@ -1,0 +1,6 @@
+{{#each mixtapePhotos as |photo|}}
+  <img src={{photo}} class="review-photos">
+  <button {{action "deletePhoto" photo}}>delete photo</button>
+{{/each}}
+
+<button {{action "finishedRemoving"}}>finished removing photos</button>

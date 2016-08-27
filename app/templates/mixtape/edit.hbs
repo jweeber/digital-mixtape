@@ -17,7 +17,6 @@
   <div>
     {{#if mixtapePhotos}}
     {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-    {{slide}}
       <div class="box photos"><img src={{slide}} class="user-images"></div>
     {{/un-slider}}
     {{else}}
@@ -40,6 +39,7 @@
 
   <div class="image-bar {{if imageIsOpen 'open'}}">
     <button class="reset" {{action 'selectImages'}}>upload your photos</button>
+    <button class="reset" {{action 'reviewImages'}}>review &amp; remove photos</button>
   </div>
 
   <div class="box">

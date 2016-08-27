@@ -25,8 +25,9 @@ export default Ember.Controller.extend({
             title: playlist.body.name,
             user: currentUser
           });
-          newMixtape.save();
-        return this.transitionToRoute('mixtape.add', this.get('userId'), playlist.body.id)
+          return newMixtape.save().then(() => {
+            return this.transitionToRoute('mixtape.add', this.get('userId'), playlist.body.id)
+          })
         }).catch(function (err) {
             console.error(err);
       });
