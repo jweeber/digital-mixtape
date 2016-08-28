@@ -5,10 +5,10 @@
 <div class="cards">
 
  {{#each mixtapes as |mixtape|}}
-    {{#if mixtape._internalModel._data.published}}
+    {{#if mixtape.published}}
       <div class="card">
         <div class="card-header">
-        {{mixtape._internalModel._data.title}}
+        {{mixtape.title}}
         </div>
         <div class="card-image">
           <img src="/assets/images/mixtape-sketch.png" alt="">
@@ -17,7 +17,7 @@
     {{else}}
       <div class="card">
         <div class="card-header">
-          {{mixtape._internalModel._data.title}}
+          {{mixtape.title}}
         </div>
         <div class="card-image">
           {{#link-to 'mixtape.edit' userId mixtape.id}}<img src="/assets/images/mixtape-sketch.png" alt="">{{/link-to}}

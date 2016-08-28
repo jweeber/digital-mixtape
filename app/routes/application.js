@@ -24,6 +24,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     sessionAuthenticationSucceeded: function() {
       var currentUser = this.get('session.data.authenticated.user_id')
-      this.transitionTo('user', currentUser);
+      return this.transitionTo('user', currentUser);
+    },
+
+    sessionInvalidationSucceeded: function(){
+      return this.transitionTo('application'); // or whatever route you want
     }
 })

@@ -4,10 +4,21 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   store: Ember.inject.service(),
+  session: Ember.inject.service(),
+  mixtapes: [],
+    // currentUser: Ember.inject.service(),
+
+   beforeModel: function(transition) {
+    // console.log(this.get('currentUser'))
+      // if (!this.get('currentUser')) {
+      //     return this.transitionTo('login');
+      // }
+    },
 
   model: function(params) {
+    this.set('mixtapes', [])
     this.set('userId', params.user_id)
-    return this.getMixtapes(), this.getUserInfo() 
+    return this.getMixtapes(), this.getUserInfo()
   },
 
   getUserInfo: function () {
@@ -35,7 +46,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       equalTo: this.get('userId')
     })
     .then((mixtapes) => {
-       return this.set('mixtapes', mixtapes.toArray())
+      console.log(mixtapes, mixtapes.content)
+      for (var mixtape of mixtapes.content) {
+        this.get('mixtapes').pushObject({
+          id: mixtape.id,
+          title: mixtape._data.title,
+          url: mixtape._data.url,
+          published: mixtape.published
+        })
+      }
+      return this.get('mixtapes')
     })
   },
 

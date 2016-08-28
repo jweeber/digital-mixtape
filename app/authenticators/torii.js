@@ -23,20 +23,14 @@ export default ToriiAuthenticator.extend({
         }
       })
       .then((response) => {
-        var store = this.get('store')
-        var images = response.images.length === 0 ? "not provided" : response.images[0].url
-        store.query('user', { equalTo: response.id })
-        .then( (records) => {
+        this.get('store').query('user', { equalTo: response.id })
+        .then ((records) => {
           if (records.get('length') === 0) {
-            var newUser = store.createRecord('user', {
-              id: response.id,
-              name: response.display_name || "not provided",
-              image_url: images,
-              profile_url: response.external_urls.spotify || "not provided"
-            })
-            return newUser.save()
+            return this.createUser(response)
           }
-          }).catch( (error) => {})
+        }, function (reason) {
+            return this.createUser(response)
+        })
 
         return {
           access_token: data.authorizationToken.access_token,
@@ -45,5 +39,16 @@ export default ToriiAuthenticator.extend({
         }
       })   
     })
+  },
+
+  createUser: function (response) {
+    let images = response.images.length === 0 ? "not provided" : response.images[0].url
+    let newUser = this.get('store').createRecord('user', {
+      id: response.id,
+      name: response.display_name || "not provided",
+      image_url: images,
+      profile_url: response.external_urls.spotify || "not provided"
+    })
+    return newUser.save()
   }
 })
