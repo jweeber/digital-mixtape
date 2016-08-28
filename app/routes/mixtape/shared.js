@@ -9,6 +9,8 @@ export default Ember.Route.extend({
   model(params) {
     this.set('playlistId', params.playlist_id)
     this.set('userId', params.user_id)
+    var share = 'https://www.digitalmixtape.com/mixtape/' + this.get('playlistId')
+    this.set('shareURL', share)
  
     return this.queryPhotos()
   },
@@ -52,5 +54,6 @@ export default Ember.Route.extend({
     controller.set('fontFamily', this.get('fontFamily'))
     controller.set('fontColor', this.get('fontColor'))
     controller.set('theme', this.get('theme'))
+    controller.set('shareURL', this.get('shareURL'))
   }
 });

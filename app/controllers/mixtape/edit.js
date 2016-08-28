@@ -90,7 +90,7 @@ export default Ember.Controller.extend({
       
       return store.findRecord('mixtape', playlistId).then( (mixtape) => {
         mixtape.set('published', true)
-        mixtape.set('url', 'http://localhost:4200/mixtape/' + userId + "/" + playlistId)
+        mixtape.set('url', 'https://www.digitalmixtape.com/mixtape/' + userId + "/" + playlistId)
         mixtape.save()
         .then ( () => { return this.transitionToRoute('mixtape.shared', userId, playlistId) })
       })
