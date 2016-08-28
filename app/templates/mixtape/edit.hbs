@@ -1,4 +1,13 @@
-<button class="you-profile" {{action "userProfile"}}>your profile</button>
+<body class="mixtape-container" style={{background-color backgroundColor}}>
+<button class="your-profile" {{action "userProfile"}}>your profile</button>
+{{#if mixtapePhotos}}
+  {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+    <div class="box photos"><img src={{slide}} class="user-images"></div>
+  {{/un-slider}}
+  {{else}}
+  <div id="generic-photo"><img src="/assets/images/mixtape-sketch.png"></div>
+{{/if}}
+
 <ul class="menu">     
   <li title="background-color"><a href="#" class="background-color" onclick={{action "togglePaint"}}>paint background</a></li>
   <li title="font"><a href="#" class="font" onclick={{action "toggleText"}}>change the font</a></li>
@@ -7,7 +16,8 @@
   <li title="images"><a href="#" class="images" {{action "toggleImages"}}>upload images</a></li>
 </ul>
 
-<div class="mixtape-container" style={{background-color backgroundColor}}>
+
+{{!-- <div class="mixtape-container" style={{background-color backgroundColor}}> --}}
   <div class="title-container">
     <h2 class="mixtape-title mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{title}}</span></h2>
   </div>
@@ -15,13 +25,6 @@
     <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true" class="spotify-player"></iframe>
   </div>
   <div>
-    {{#if mixtapePhotos}}
-    {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-      <div class="box photos"><img src={{slide}} class="user-images"></div>
-    {{/un-slider}}
-    {{else}}
-    <div id="generic-photo"><img src="/assets/images/mixtape-sketch.png"></div>
-    {{/if}}
   </div>
 
     
@@ -81,6 +84,8 @@
   <div class="stickers sticker6 {{theme}}"></div>
   <div class="stickers sticker7 {{theme}}"></div>
   <div class="stickers sticker8 {{theme}}"></div>
-</div>
+{{!-- </div> --}}
+
+</body>
 
 

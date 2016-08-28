@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
           let newMixtape = store.createRecord('mixtape', {
             id: playlist.body.id,
             title: playlist.body.name,
-            user: currentUser
+            user: this.get('userId')
           });
           return newMixtape.save().then(() => {
             return this.transitionToRoute('mixtape.add', this.get('userId'), playlist.body.id)

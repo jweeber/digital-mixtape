@@ -14,9 +14,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   model: function(params) {
-    this.set('mixtapes', [])
     this.set('userId', params.user_id)
-    return this.getMixtapes(), this.getUserInfo()
+    console.log('params', params)
+    return this.getMixtapes()
   },
 
   getUserInfo: function () {
@@ -52,7 +52,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           published: mixtape._data.published
         })
       }
-      return this.get('mixtapes')
+      return this.getUserInfo()
     })
   },
 
