@@ -1,18 +1,19 @@
 
 
 <body class="mixtape-container" style={{background-color backgroundColor}}>
-    {{#if mixtapePhotos}}
-      {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-      <div class="box photos"><img src={{slide}} class="user-images"></div>
-    {{/un-slider}}
-    {{else}}
-     {{#un-slider slides=genericPhoto nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-      <div id="box photos" id="generic-photo"><img src={{slide.url}} class="user-images"></div>
-    {{/un-slider}}
-    {{/if}}
+  {{#if mixtapePhotos}}
+    {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+    <div class="box photos"><img src={{slide}} class="user-images"></div>
+  {{/un-slider}}
+  {{else}}
+   {{#un-slider slides=genericPhoto nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+    <div id="box photos" id="generic-photo"><img src={{slide.url}} class="user-images"></div>
+  {{/un-slider}}
+  {{/if}}
+
   <div class="share-it" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>Share it!</span>
-    {{#fb-share-button url="https://www.digitalmixtape.com/mixtape/{{playlistId}}" title="Someone shared a mixtape with you!" text="Some description..." image='https://pbs.twimg.com/media/BcvmxibIYAAH8a3.jpg'}}{{/fb-share-button}}
-    {{#twitter-share-button url="https://www.digitalmixtape.com/mixtape/{{playlistId}}" title="Someone shared a mixtape with you!" text="Some description..." image="https://pbs.twimg.com/media/BcvmxibIYAAH8a3.jpg" hashtags="mixtape"}}{{/twitter-share-button}}
+    {{#fb-share-button title="digital mixtape: connect through music. again." text="I made and awesome mixtape!" image='/assets/images/mixtape-sketch.png'}}{{/fb-share-button}}
+    {{#twitter-share-button title="digital mixtape: connect through music. again." text="I made an awesome mixtape!" image="/assets/images/mixtape-sketch.png" hashtags="mixtape"}}{{/twitter-share-button}}
   </div><br>
 
   <div class="title-container">

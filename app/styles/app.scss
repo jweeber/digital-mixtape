@@ -505,7 +505,7 @@ box:hover {
   @include media($mobile) {
       @include span-columns(6);
     }
-    margin-top: 15%;
+    margin-top: 18%;
   margin-left: 5%;
 }
 
@@ -515,6 +515,7 @@ box:hover {
       @include span-columns(6);
     }
   margin-left: 115%;
+  margin-top: 4%;
   height: auto;
 }
 
@@ -636,10 +637,10 @@ box:hover {
   width: 50px;
 }
 
-.sticker1{ top: 10%; margin-left: 5%; }
-.sticker2 { top: 67%; margin-left: 45%; }
+.sticker1 { top: 10%; margin-left: 15%; }
+.sticker2 { top: 67%; margin-left: 42%; }
 .sticker3 { top: 70%; margin-left: 0%;}
-.sticker4 { top: 80%; margin-left: 88%;  }
+.sticker4 { top: 80%; margin-left: 92%;  }
 .sticker5 { top: 10%; margin-left: 85%;}
 .sticker6 { top: 30%; margin-left: 0%; }
 .sticker7 { top: 87%; margin-left: 15%; }
@@ -647,7 +648,7 @@ box:hover {
 .sticker9 { top: 75%; margin-left: 30%; }
 .sticker10 { top: 85%; margin-left: 70%; }
 .sticker11 { top: 65%; margin-left: 65%; }
-.sticker12 { top: 2%; margin-left: 40%; }
+.sticker12 { top: 6%; margin-left: 70%; }
 
 @mixin sticker-content($image) {
   content:url($image);
