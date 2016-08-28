@@ -2,21 +2,24 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import SpotifyWebApi from 'npm:spotify-web-api-node'
 
-const services = Ember.inject.service()
-
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
-  session: services,
-  store: services,
+  session: Ember.inject.service(),
+  store: Ember.inject.service(),
 
   queryParams: {
     query: {
       refreshModel: true
     }
   },
+
+  beforeModel: function(transition) {
+    if (!this.get('session.data.authenticated.user_id')) {
+      return this.transitionTo('login');
+    }
+  },
   
   model: function (params) {
-    console.log(params.query)
     this.set('playlistId', params.playlist_id)
     this.set('userId', params.user_id)
     let spotifyApi = new SpotifyWebApi()

@@ -4,7 +4,14 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   store: Ember.inject.service(),
+  session: Ember.inject.service(),
   mixtapePhotos: [],
+
+  beforeModel: function(transition) {
+    if (!this.get('session.data.authenticated.user_id')) {
+      return this.transitionTo('login');
+    }
+  },
 
   model(params) {
     this.set('playlistId', params.playlist_id)
