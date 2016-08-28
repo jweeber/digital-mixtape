@@ -2,9 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  store: Ember.inject.service(),
+
   actions: {
     newMixtape: function () {
-      this.transitionToRoute('mixtape.new', this.get('userId'))
+      return this.transitionToRoute('mixtape.new', this.get('userId'))
+    },
+
+    deleteMixtape: function (mixtape, id) {
+      return this.get('store').findRecord('mixtape', id)
+      .then((record) => {
+       this.get('mixtapes').removeObject(mixtape)
+        record.destroyRecord()
+        return record.save()
+      })
     }
   }
 

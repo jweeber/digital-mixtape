@@ -20,6 +20,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function (params) {
     this.set('playlistId', params.playlist_id)
     this.set('userId', params.user_id)
+
+    this.set('backgroundColor', '')
+    this.set('title', '')
+    this.set('fontFamily', '')
+    this.set('message', '')
+    this.set('fontColor', '')
+    this.set('theme', '')
  
     return this.queryPhotos()
   },
@@ -32,6 +39,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.set('fontFamily', mixtape._internalModel._data.font_style)
         this.set('message', mixtape._internalModel._data.message)
         this.set('fontColor', mixtape._internalModel._data.font_color)
+        this.set('theme', mixtape._internalModel._data.theme)
       })
   },
 
@@ -61,5 +69,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('message', this.get('message'))
     controller.set('fontFamily', this.get('fontFamily'))
     controller.set('fontColor', this.get('fontColor'))
+    controller.set('theme', this.get('theme'))
+    controller.set('heartSticker', true)
+    controller.set('starSticker', true)
+    controller.set('flowerSticker', true)
+    controller.set('pizzaSticker', true)
   }
 })

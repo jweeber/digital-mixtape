@@ -7,21 +7,27 @@
  {{#each mixtapes as |mixtape|}}
     {{#if mixtape.published}}
       <div class="card">
+      {{#link-to 'mixtape.shared' userId mixtape.id}}
         <div class="card-header">
         {{mixtape.title}}
         </div>
         <div class="card-image">
           <img src="/assets/images/mixtape-sketch.png" alt="">
         </div>
+      {{/link-to}}
+        <button {{action "deleteMixtape" mixtape mixtape.id}}>delete mixtape</button>
       </div>
     {{else}}
       <div class="card">
-        <div class="card-header">
-          {{mixtape.title}}
-        </div>
-        <div class="card-image">
-          {{#link-to 'mixtape.edit' userId mixtape.id}}<img src="/assets/images/mixtape-sketch.png" alt="">{{/link-to}}
-        </div>
+        {{#link-to 'mixtape.edit' userId mixtape.id}}
+          <div class="card-header">
+            {{mixtape.title}}
+          </div>
+            <div class="card-image">
+              <img src="/assets/images/mixtape-sketch.png" alt="">
+          </div>
+        {{/link-to}}
+        <button {{action "deleteMixtape" mixtape mixtape.id}}>delete mixtape</button>
       </div>
     {{/if}}
   {{/each}}

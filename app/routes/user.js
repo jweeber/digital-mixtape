@@ -44,13 +44,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       equalTo: this.get('userId')
     })
     .then((mixtapes) => {
-      console.log(mixtapes, mixtapes.content)
       for (var mixtape of mixtapes.content) {
         this.get('mixtapes').pushObject({
           id: mixtape.id,
           title: mixtape._data.title,
           url: mixtape._data.url,
-          published: mixtape.published
+          published: mixtape._data.published
         })
       }
       return this.get('mixtapes')

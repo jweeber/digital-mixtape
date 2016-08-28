@@ -40,6 +40,20 @@
   <div class="image-bar {{if imageIsOpen 'open'}}">
     <button class="reset" {{action 'selectImages'}}>upload your photos</button>
     <button class="reset" {{action 'reviewImages'}}>review &amp; remove photos</button>
+    AND
+    choose a sticker theme!
+    Hearts
+    <a href=""{{action "stickerTheme" 'hearts'}}>
+    <img src="/assets/images/heart-sticker.png" class="sticker-theme"></a>
+    Stars
+    <a href=""{{action "stickerTheme" 'stars'}}>
+    <img src="/assets/images/star-sticker.png" class="sticker-theme"></a>
+    Flowers
+    <a href=""{{action "stickerTheme" 'flowers'}}>
+    <img src="/assets/images/flower-sticker.png" class="sticker-theme"></a>
+    Pizza
+    <a href=""{{action "stickerTheme" 'pizza'}}>
+    <img src="/assets/images/pizza-sticker.png" class="sticker-theme"></a>
   </div>
 
   <div class="box">
@@ -58,6 +72,15 @@
   <div id="personal-message" class="mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{message}}</span></div>
 
   <div class="publish" style={{fontColor fontColor}}>Ready to share your mixtape?<button {{action "share" userId playlistId}}>publish it!</button></div>
+
+  <div class="stickers sticker1 {{theme}}"></div>
+  <div class="stickers sticker2 {{theme}}"></div>
+  <div class="stickers sticker3 {{theme}}"></div>
+  <div class="stickers sticker4 {{theme}}"></div>
+  <div class="stickers sticker5 {{theme}}"></div>
+  <div class="stickers sticker6 {{theme}}"></div>
+  <div class="stickers sticker7 {{theme}}"></div>
+  <div class="stickers sticker8 {{theme}}"></div>
 </div>
 
 

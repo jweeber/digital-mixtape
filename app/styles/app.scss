@@ -96,7 +96,7 @@ $mobile: new-breakpoint(max-width 500px 20);
   margin: 0;
   padding: 0;
   background: #f7f7f7;
-  z-index: 10;  
+  z-index: 100;  
   overflow: hidden;
   box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
 }
@@ -135,8 +135,6 @@ $mobile: new-breakpoint(max-width 500px 20);
 .menu li a.message:before { content: "\f044"; }
 
 .menu li a.images:before { content: "\f03e"; }
-
-.menu li a.stickers:before { content: "\f005"; }
 
 .color-bar a:hover,
 .text-bar a:hover,
@@ -335,7 +333,7 @@ $mobile: new-breakpoint(max-width 500px 20);
 .snow { @include button-bg(#FFFAFB); border: 1px solid #AAAAAA; }
 
 .mixtape-container {
-  opacity: 0.8;
+  // opacity: 0.8;
   left: 0;
   padding: 1%;
   margin: 0 auto;
@@ -607,3 +605,41 @@ box:hover {
   height: 200px;
   width: 200px;
 }
+
+.sticker-theme {
+  height: 50px;
+  width: 50px;
+}
+
+// .stickers {
+//   position: fixed;
+//   z-index: 1;
+// }
+
+// .sticker-img {
+//   height: 50px;
+//   width: 50px;
+// }
+
+.sticker1{ top: 10%; }
+.sticker2 { top: 67%; margin-left: 45%; }
+.sticker3 { top: 53%; margin-left: 35%;}
+.sticker4 { top: 80%; margin-left: 88%;  }
+.sticker5 { top: 18%; margin-left: 85%;}
+.sticker6 { top: 70%; margin-left: 5%; }
+.sticker7 { top: 20%; margin-left: 25%; }
+.sticker8 { top: 37%; margin-left: 92%; }
+
+@mixin sticker-content($image) {
+  content:url($image);
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  z-index: 1;
+}
+
+.hearts { @include sticker-content("/assets/images/heart-sticker.png"); }
+.stars { @include sticker-content("/assets/images/star-sticker.png"); }
+.flowers { @include sticker-content("/assets/images/flower-sticker.png"); height: 70px; width: 70px; }
+.pizza { @include sticker-content("/assets/images/pizza-sticker.png"); height: 70px; width: 70px; }
+

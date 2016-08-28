@@ -14,6 +14,7 @@ export default Ember.Route.extend({
   },
 
   queryPhotos: function () {
+    this.set('mixtapePhotos', [])
     let currentPhotos = this.get('mixtapePhotos')
     return this.get('store').query('image', { 
       orderBy: 'playlist',
@@ -35,6 +36,7 @@ export default Ember.Route.extend({
       this.set('fontFamily', mixtape._internalModel._data.font_style)
       this.set('message', mixtape._internalModel._data.message)
       this.set('fontColor', mixtape._internalModel._data.font_color)
+      this.set('theme', mixtape._internalModel._data.theme)
     })
   },
 
@@ -49,5 +51,6 @@ export default Ember.Route.extend({
     controller.set('message', this.get('message'))
     controller.set('fontFamily', this.get('fontFamily'))
     controller.set('fontColor', this.get('fontColor'))
+    controller.set('theme', this.get('theme'))
   }
 });

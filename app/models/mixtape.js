@@ -6,7 +6,7 @@ export default DS.Model.extend({
   message: DS.attr('string'),
   font_style: DS.attr('string'),
   font_color: DS.attr('string'),
-  // images: DS.hasMany('image'),
+  theme: DS.attr('string'),
   url: DS.attr('string'),
   published: DS.attr('boolean', { defaultValue: false }),
   user: DS.belongsTo('user')

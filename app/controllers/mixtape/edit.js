@@ -11,6 +11,9 @@ export default Ember.Controller.extend({
   textIsOpen: false,
   textColorIsOpen: false,
   imageIsOpen: false,
+  heartSticker: true,
+  starSticker: true,
+  pizzaSticker: true,
 
   actions: {
 
@@ -95,6 +98,44 @@ export default Ember.Controller.extend({
 
     userProfile: function () {
       return this.transitionToRoute('user', this.get('userId'))
+    },
+
+    stickerTheme: function (theme) {
+      this.set('paintIsOpen', false)
+      this.set('textIsOpen', false)
+      this.set('textColorIsOpen', false)
+      this.set('messageIsOpen', false)
+
+      if ((theme === "hearts") && (this.get('heartSticker'))) {
+        this.set('theme', theme)
+        $('.' + theme).prepend('<img src="/assets/images/heart-sticker.png" class="sticker-img">')
+        this.toggleProperty('heartSticker')
+        this.set('starSticker', true)
+      } else if ((theme === "stars") && (this.get('starSticker'))) {
+        this.set('theme', theme)
+        $('.' + theme).prepend('<img src="/assets/images/star-sticker.png" class="sticker-img">')
+        this.toggleProperty('starSticker')
+        this.set('heartSticker', true)
+      } else if ((theme === "flowers") && (this.get('flowerSticker'))) {
+        this.set('theme', theme)
+        $('.' + theme).prepend('<img src="/assets/images/flower-sticker.png" class="sticker-img">')
+        this.toggleProperty('flowerSticker')
+        this.set('heartSticker', true)
+        this.set('starSticker', true)
+      } else if ((theme === "pizza") && (this.get('pizzaSticker'))) {
+        this.set('theme', theme)
+        $('.' + theme).prepend('<img src="/assets/images/pizza-sticker.png" class="sticker-img">')
+        this.toggleProperty('pizzaSticker')
+        this.set('heartSticker', true)
+        this.set('starSticker', true)
+        this.set('flowerSticker', true)
+      }
+
+
+      return this.get('store').findRecord('mixtape', this.get('playlistId')).then( (mixtape) => {
+        mixtape.set('theme', theme)
+        return mixtape.save()
+      })
     }
 
   }
