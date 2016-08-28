@@ -20,6 +20,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function (params) {
     this.set('playlistId', params.playlist_id)
     this.set('userId', params.user_id)
+    this.set('genericPhoto', [{
+      url: '/assets/images/mixtape-sketch.png'
+    }])
 
     this.set('backgroundColor', '')
     this.set('title', '')
@@ -64,6 +67,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('playlistId', this.get('playlistId'))
     controller.set('userId', this.get('userId'))
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
+    controller.set('genericPhoto', this.get('genericPhoto'))
     controller.set('title', this.get('title'))
     controller.set('backgroundColor', this.get('backgroundColor'))
     controller.set('message', this.get('message'))

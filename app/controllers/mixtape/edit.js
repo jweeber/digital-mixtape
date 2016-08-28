@@ -96,10 +96,6 @@ export default Ember.Controller.extend({
       })
     },
 
-    userProfile: function () {
-      return this.transitionToRoute('user', this.get('userId'))
-    },
-
     stickerTheme: function (theme) {
       this.set('paintIsOpen', false)
       this.set('textIsOpen', false)

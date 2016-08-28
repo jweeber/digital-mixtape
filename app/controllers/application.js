@@ -8,12 +8,17 @@ export default Ember.Controller.extend({
 
   actions: {
     login () {
-      return this.get('session').authenticate('authenticator:torii', 'spotify-oauth2-bearer')
+      this.get('session').authenticate('authenticator:torii', 'spotify-oauth2-bearer')
+      return this.set('userId', this.get('session.data.authenticated.user_id'))
     },
 
     logout () { 
       return this.get('session').invalidate()
-    }
+    },
+
+    userProfile: function () {
+      return this.transitionToRoute('user', this.get('userId'))
+    },
   } 
 
 })

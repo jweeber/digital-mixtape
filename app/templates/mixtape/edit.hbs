@@ -1,12 +1,12 @@
 <body class="mixtape-container" style={{background-color backgroundColor}}>
-<button class="your-profile" {{action "userProfile"}}>your profile</button>
 {{#if mixtapePhotos}}
   {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
     <div class="box photos"><img src={{slide}} class="user-images"></div>
   {{/un-slider}}
   {{else}}
-  <div id="generic-photo"><img src="/assets/images/mixtape-sketch.png"></div>
-{{/if}}
+  {{#un-slider slides=genericPhoto nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+    <div id="box photos" id="generic-photo"><img src={{slide.url}} class="user-images"></div>
+  {{/un-slider}}{{/if}}
 
 <ul class="menu">     
   <li title="background-color"><a href="#" class="background-color" onclick={{action "togglePaint"}}>paint background</a></li>
@@ -16,17 +16,16 @@
   <li title="images"><a href="#" class="images" {{action "toggleImages"}}>upload images</a></li>
 </ul>
 
-
-{{!-- <div class="mixtape-container" style={{background-color backgroundColor}}> --}}
   <div class="title-container">
     <h2 class="mixtape-title mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{title}}</span></h2>
   </div>
+
+  <div id="personal-message" class="mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{message}}</span>
+  </div>
+
   <div class="playlist-player">
     <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true" class="spotify-player"></iframe>
   </div>
-  <div>
-  </div>
-
     
   <div class="color-bar {{if paintIsOpen 'open'}}">
     {{mixtape.background-color playlist=playlistId}}
@@ -72,9 +71,7 @@
     </div>
   </div>
 
-  <div id="personal-message" class="mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{message}}</span></div>
 
-  <div class="publish" style={{fontColor fontColor}}>Ready to share your mixtape?<button {{action "share" userId playlistId}}>publish it!</button></div>
 
   <div class="stickers sticker1 {{theme}}"></div>
   <div class="stickers sticker2 {{theme}}"></div>
@@ -84,8 +81,12 @@
   <div class="stickers sticker6 {{theme}}"></div>
   <div class="stickers sticker7 {{theme}}"></div>
   <div class="stickers sticker8 {{theme}}"></div>
-{{!-- </div> --}}
+  <div class="stickers sticker9 {{theme}}"></div>
+  <div class="stickers sticker10 {{theme}}"></div>
+  <div class="stickers sticker11 {{theme}}"></div>
+  <div class="stickers sticker12 {{theme}}"></div>
 
 </body>
+  <div class="publish" style={{fontColor fontColor}}>Ready to share your mixtape?<button {{action "share" userId playlistId}}>publish it!</button></div>
 
 

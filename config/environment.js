@@ -15,7 +15,7 @@ module.exports = function(environment) {
       providers: {
         'spotify': {
           apiKey: process.env.SPOTIFY_ID,
-          redirectUri: 'http://localhost:4200',
+          redirectUri: 'http://localhost:4200/',
           scope: 'playlist-read-private playlist-modify-private playlist-modify-public user-read-email'
         }
       }

@@ -14,6 +14,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   model: function(params) {
+    this.set('mixtapes', [])
     this.set('userId', params.user_id)
     console.log('params', params)
     return this.getMixtapes()

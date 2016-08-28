@@ -1,6 +1,7 @@
 <header>
   {{#if session.isAuthenticated}}
     <button {{action 'logout'}}>Logout</button>
+    <button class="your-profile" {{action "userProfile"}}>your profile</button>
   {{else}}
     <button{{action 'login'}}>Login</button>
   {{/if}}

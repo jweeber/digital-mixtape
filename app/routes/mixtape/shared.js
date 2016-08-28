@@ -11,6 +11,9 @@ export default Ember.Route.extend({
     this.set('userId', params.user_id)
     var share = 'https://www.digitalmixtape.com/mixtape/' + this.get('playlistId')
     this.set('shareURL', share)
+    this.set('genericPhoto', [{
+      url: '/assets/images/mixtape-sketch.png'
+    }])
  
     return this.queryPhotos()
   },
@@ -48,6 +51,7 @@ export default Ember.Route.extend({
     controller.set('playlistId', this.get('playlistId'));
     controller.set('userId', this.get('userId'))
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
+    controller.set('genericPhoto', this.get('genericPhoto'))
     controller.set('title', this.get('title'))
     controller.set('backgroundColor', this.get('backgroundColor'))
     controller.set('message', this.get('message'))
