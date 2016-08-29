@@ -755,9 +755,36 @@ input[type="textarea"]:focus {
   }
 }
 
+.review-container {
+  margin-top: 8%;
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.remove-wrapper {
+  margin-top: 2%;
+  margin-right: 3%;
+}
+
 .review-photos {
-  height: 200px;
+  height: 150px;
   width: 200px;
+}
+
+.delete-photo {
+ margin-top: 10%;
+ margin-left: 15%;
+}
+
+.finished-removing {
+  width: 100%;
+}
+
+.finished-removing > button {
+  margin-right: 5%;
+  float:right;
 }
 
 .sticker-theme {
@@ -791,5 +818,4 @@ input[type="textarea"]:focus {
 .flowers { @include sticker-content("/assets/images/flower-sticker.png"); }
 .pizza { @include sticker-content("/assets/images/pizza-sticker.png"); }
 .bestcat { @include sticker-content("/assets/images/best-cat-sticker.png"); height: 80px; width: 80px; }
-
 
