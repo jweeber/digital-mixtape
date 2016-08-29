@@ -1,19 +1,7 @@
-
-
 <body class="mixtape-container" style={{background-color backgroundColor}}>
-  {{#if mixtapePhotos}}
-    {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-    <div class="box photos"><img src={{slide}} class="user-images"></div>
-  {{/un-slider}}
-  {{else}}
-   {{#un-slider slides=genericPhoto nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-    <div id="box photos" id="generic-photo"><img src={{slide.url}} class="user-images"></div>
-  {{/un-slider}}
-  {{/if}}
-
   <div class="share-it" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>Share it!</span>
-    {{#fb-share-button title="digital mixtape: connect through music. again." text="I made and awesome mixtape!" image='/assets/images/mixtape-sketch.png'}}{{/fb-share-button}}
-    {{#twitter-share-button title="digital mixtape: connect through music. again." text="I made an awesome mixtape!" image="/assets/images/mixtape-sketch.png" hashtags="mixtape"}}{{/twitter-share-button}}
+    {{#fb-share-button title="digital mixtape: connect through music. again." text="I made an awesome mixtape!" image='http://www.officialpsds.com/images/thumbs/mixtape-psd63409.png'}}{{/fb-share-button}}
+    {{#twitter-share-button title="digital mixtape: connect through music. again." text="I made an awesome mixtape!" image="http://www.officialpsds.com/images/thumbs/mixtape-psd63409.png" hashtags="mixtape"}}{{/twitter-share-button}}
   </div><br>
 
   <div class="title-container">
@@ -22,8 +10,22 @@
 
   <div id="personal-message" class="mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{message}}</span></div>
 
-  <div class="playlist-player">
-    <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true" class="spotify-player"></iframe>
+  <div class="mixtape-outer-container">
+    <div class="photo-container">
+    {{#if mixtapePhotos}}
+      {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+      <div class="box photos"><img src={{slide}} class="user-images"></div>
+    {{/un-slider}}
+    {{else}}
+     {{#un-slider slides=genericPhoto nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+      <div id="box photos" id="generic-photo"><img src={{slide.url}} class="user-images"></div>
+    {{/un-slider}}
+    {{/if}}
+    </div>
+
+    <div class="playlist-player">
+      <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true" class="spotify-player"></iframe>
+    </div>
   </div>
 
   <div class="stickers sticker1 {{theme}}"></div>

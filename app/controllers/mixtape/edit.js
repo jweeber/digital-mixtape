@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
   heartSticker: true,
   starSticker: true,
   pizzaSticker: true,
+  bestCatSticker: true,
 
   actions: {
 
@@ -106,30 +107,59 @@ export default Ember.Controller.extend({
         this.set('theme', theme)
         $('.' + theme).prepend('<img src="/assets/images/heart-sticker.png" class="sticker-img">')
         this.toggleProperty('heartSticker')
+        this.set('flowerSticker', true)
         this.set('starSticker', true)
+        this.set('bestCatSticker', true)
+        this.set('pizzaSticker', true)
       } else if ((theme === "stars") && (this.get('starSticker'))) {
         this.set('theme', theme)
         $('.' + theme).prepend('<img src="/assets/images/star-sticker.png" class="sticker-img">')
         this.toggleProperty('starSticker')
-        this.set('heartSticker', true)
+        tthis.set('heartSticker', true)
+        this.set('flowerSticker', true)
+        this.set('bestCatSticker', true)
+        this.set('pizzaSticker', true)
       } else if ((theme === "flowers") && (this.get('flowerSticker'))) {
         this.set('theme', theme)
         $('.' + theme).prepend('<img src="/assets/images/flower-sticker.png" class="sticker-img">')
         this.toggleProperty('flowerSticker')
         this.set('heartSticker', true)
         this.set('starSticker', true)
+        this.set('bestCatSticker', true)
+        this.set('pizzaSticker', true)
       } else if ((theme === "pizza") && (this.get('pizzaSticker'))) {
         this.set('theme', theme)
         $('.' + theme).prepend('<img src="/assets/images/pizza-sticker.png" class="sticker-img">')
         this.toggleProperty('pizzaSticker')
+        this.set('bestCatSticker', true)
         this.set('heartSticker', true)
         this.set('starSticker', true)
         this.set('flowerSticker', true)
+      } else if ((theme === "bestcat") && (this.get('bestCatSticker'))) {
+        this.set('theme', theme)
+        $('.' + theme).prepend('<img src="/assets/images/best-cat-sticker.png" class="sticker-img">')
+        this.toggleProperty('bestCatSticker')
+        this.set('heartSticker', true)
+        this.set('starSticker', true)
+        this.set('flowerSticker', true)
+        this.set('pizzaSticker', true)
       }
-
 
       return this.get('store').findRecord('mixtape', this.get('playlistId')).then( (mixtape) => {
         mixtape.set('theme', theme)
+        return mixtape.save()
+      })
+    },
+
+    resetStickers: function () {
+      this.set('bestCatSticker', true)
+      this.set('heartSticker', true)
+      this.set('starSticker', true)
+      this.set('flowerSticker', true)
+      this.set('pizzaSticker', true)
+      this.set('theme', '')
+      return this.get('store').findRecord('mixtape', this.get('playlistId')).then( (mixtape) => {
+        mixtape.set('theme', '')
         return mixtape.save()
       })
     }

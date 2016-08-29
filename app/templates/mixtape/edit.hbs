@@ -1,20 +1,13 @@
-<body class="mixtape-container" style={{background-color backgroundColor}}>
-{{#if mixtapePhotos}}
-  {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-    <div class="box photos"><img src={{slide}} class="user-images"></div>
-  {{/un-slider}}
-  {{else}}
-  {{#un-slider slides=genericPhoto nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
-    <div id="box photos" id="generic-photo"><img src={{slide.url}} class="user-images"></div>
-  {{/un-slider}}{{/if}}
 
-<ul class="menu">     
-  <li title="background-color"><a href="#" class="background-color" onclick={{action "togglePaint"}}>paint background</a></li>
-  <li title="font"><a href="#" class="font" onclick={{action "toggleText"}}>change the font</a></li>
-  <li title="font-color"><a href="#" class="font-color" onclick={{action "toggleTextColor"}}>change the font color</a></li>
-    <li title="message"><a href="#popup1" class="message" onclick={{action "toggleMessage"}}>write a message</a></li>
-  <li title="images"><a href="#" class="images" {{action "toggleImages"}}>upload images</a></li>
-</ul>
+<body class="mixtape-container" style={{background-color backgroundColor}}>
+  <ul class="menu">     
+    <li title="background-color"><a href="#" class="menu-links background-color" onclick={{action "togglePaint"}}>paint background</a></li>
+    <li title="font"><a href="#" class="menu-links font" onclick={{action "toggleText"}}>change the font</a></li>
+    <li title="font-color"><a href="#" class="menu-links font-color" onclick={{action "toggleTextColor"}}>change the font color</a></li>
+      <li title="message"><a href="#popup1" class="menu-links message" onclick={{action "toggleMessage"}}>write a message</a></li>
+    <li title="images"><a href="#" class="menu-links images" {{action "toggleImages"}}>upload images</a></li>
+    <li title="publish"><a href="#" onclick={{action "share" userId playlistId}} class="menu-links publish">publish it!</a></li>
+  </ul>
 
   <div class="title-container">
     <h2 class="mixtape-title mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{title}}</span></h2>
@@ -22,10 +15,36 @@
 
   <div id="personal-message" class="mixtape-text" style={{fontStyle fontFamily}}><span style={{fontColor fontColor}}>{{message}}</span>
   </div>
+  <div class="mixtape-outer-container">
+    <div class="photo-container">
+    {{#if mixtapePhotos}}
+      {{#un-slider slides=mixtapePhotos nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+      <div class="box photos"><img src={{slide}} class="user-images"></div>
+    {{/un-slider}}
+    {{else}}
+     {{#un-slider slides=genericPhoto nav=false arrows=false animation='fade' autoplay=true speed=800 delay=4000 as |slide|}}
+      <div id="box photos" id="generic-photo"><img src={{slide.url}} class="user-images"></div>
+    {{/un-slider}}
+    {{/if}}
+  </div>
 
   <div class="playlist-player">
     <iframe src="https://embed.spotify.com/?uri=spotify:user:{{userId}}:playlist:{{playlistId}}&theme=white" width="300" height="380" frameborder="0" allowtransparency="true" class="spotify-player"></iframe>
   </div>
+  </div>
+
+  <div class="stickers sticker1 {{theme}}"></div>
+  <div class="stickers sticker2 {{theme}}"></div>
+  <div class="stickers sticker3 {{theme}}"></div>
+  <div class="stickers sticker4 {{theme}}"></div>
+  <div class="stickers sticker5 {{theme}}"></div>
+  <div class="stickers sticker6 {{theme}}"></div>
+  <div class="stickers sticker7 {{theme}}"></div>
+  <div class="stickers sticker8 {{theme}}"></div>
+  <div class="stickers sticker9 {{theme}}"></div>
+  <div class="stickers sticker10 {{theme}}"></div>
+  <div class="stickers sticker11 {{theme}}"></div>
+  <div class="stickers sticker12 {{theme}}"></div>
     
   <div class="color-bar {{if paintIsOpen 'open'}}">
     {{mixtape.background-color playlist=playlistId}}
@@ -40,22 +59,34 @@
   </div>
 
   <div class="image-bar {{if imageIsOpen 'open'}}">
-    <button class="reset" {{action 'selectImages'}}>upload your photos</button>
-    <button class="reset" {{action 'reviewImages'}}>review &amp; remove photos</button>
-    AND
-    choose a sticker theme!
-    Hearts
-    <a href=""{{action "stickerTheme" 'hearts'}}>
+    <button class="upload-images upload" {{action 'selectImages'}}>upload photos</button>
+    <br><span class="sticker-text">OR</span><br>
+    <button class="upload-images" {{action 'reviewImages'}}>review &amp; remove photos</button><br>
+    <span class="sticker-text">AND</span><br>
+
+    <span class="sticker-text">Choose a sticker theme!</span><br><br>
+
+    <a href=""{{action "stickerTheme" 'hearts'}} class="theme-links">
     <img src="/assets/images/heart-sticker.png" class="sticker-theme"></a>
-    Stars
-    <a href=""{{action "stickerTheme" 'stars'}}>
+    <span class="choose-sticker"> Hearts</span>
+    <br>
+    <a href=""{{action "stickerTheme" 'stars'}} class="theme-links">
     <img src="/assets/images/star-sticker.png" class="sticker-theme"></a>
-    Flowers
-    <a href=""{{action "stickerTheme" 'flowers'}}>
+    <span class="choose-sticker"> Stars</span>
+    <br>
+    <a href=""{{action "stickerTheme" 'flowers'}} class="theme-links">
     <img src="/assets/images/flower-sticker.png" class="sticker-theme"></a>
-    Pizza
-    <a href=""{{action "stickerTheme" 'pizza'}}>
+    <span class="choose-sticker"> Flowers</span>
+    <br>
+    <a href=""{{action "stickerTheme" 'pizza'}} class="theme-links">
     <img src="/assets/images/pizza-sticker.png" class="sticker-theme"></a>
+    <span class="choose-sticker"> Pizza</span>
+    <br>
+    <a href=""{{action "stickerTheme" 'bestcat'}} class="theme-links">
+    <img src="/assets/images/best-cat-sticker.png" class="sticker-theme"></a>
+    <span class="choose-sticker"> Best Cat</span>
+
+    <input type="button" class="reset" value="clear stickers" {{action "resetStickers"}}><br>
   </div>
 
   <div class="box">
@@ -63,30 +94,14 @@
       <div class="popup">
         <h2>Leave a special message!</h2>
         <a class="close" href="#" onclick={{action "closeMessage"}}>&times;</a>
-        <div class="content">
-          {{input type="textarea" value=message placeholder="leave some <3" maxlength="200"}}<br>
+        <div class="popup-content">
+          {{input type="textarea" value=message placeholder="leave some <3" maxlength="150" rows="5" cols="20" wrap="hard"}}<br>
           <button onclick={{action "saveMessage" message}}>save message</button>
         </div>
       </div>
     </div>
   </div>
 
-
-
-  <div class="stickers sticker1 {{theme}}"></div>
-  <div class="stickers sticker2 {{theme}}"></div>
-  <div class="stickers sticker3 {{theme}}"></div>
-  <div class="stickers sticker4 {{theme}}"></div>
-  <div class="stickers sticker5 {{theme}}"></div>
-  <div class="stickers sticker6 {{theme}}"></div>
-  <div class="stickers sticker7 {{theme}}"></div>
-  <div class="stickers sticker8 {{theme}}"></div>
-  <div class="stickers sticker9 {{theme}}"></div>
-  <div class="stickers sticker10 {{theme}}"></div>
-  <div class="stickers sticker11 {{theme}}"></div>
-  <div class="stickers sticker12 {{theme}}"></div>
-
 </body>
-  <div class="publish" style={{fontColor fontColor}}>Ready to share your mixtape?<button {{action "share" userId playlistId}}>publish it!</button></div>
 
 

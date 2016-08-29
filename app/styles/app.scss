@@ -2,19 +2,92 @@
 @import "neat";
 
 $mobile: new-breakpoint(max-width 500px 20);
+$cerulean: #118AB2;
+$blue: #073B4C;
+$pink: #EF476F;
 
 html {
-    height: 100%;
-    margin: 0px auto;
-    padding: 0;
+  height: 100%;
+  margin: 0px auto;
+  padding: 0;
+  font-family: 'Bubblegum Sans', cursive;
+  letter-spacing: 1.5px;
 }
 
 body {
-    height: 100vh;
-    margin: 0px auto;
-    max-width: 100%;
-    min-width: 100%;
-    padding: 0;
+  height: 100vh;
+  margin: 0px auto;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 0;
+}
+
+header {
+  // @include span-columns(12)
+  //  @include media($mobile) {
+  //     @include span-columns(6);
+  //   }
+  margin-bottom: 10%;
+  padding-top: 1%;
+  padding-left: 2%;
+  height: 70px;
+  width: 100%;
+  top: 0;
+  z-index: 5000;
+  background-color: $blue;
+  position: fixed;
+}
+
+.logo-header {
+  float:right; 
+  margin-right: 1%;
+}
+
+.logo-tape {
+  height: 40px;
+  width: 65px;
+}
+
+.header-text {
+  color: $pink;
+  display: inline;
+  float: right;
+  font-size: 40px;
+  margin-right: 2%; 
+}
+
+button {
+  background-color: Transparent;
+  border: 2px solid $cerulean;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 15px;
+  height: 4em;
+  width: 10em;
+  letter-spacing: 1.5px;
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+button:focus { outline: 0; }
+
+.header-btns {
+  color: white;
+  font-size: 15px;
+  // margin-top: 0.5%;
+  // background-color: Transparent;
+  // border: 2px solid $cerulean;
+  // cursor: pointer;
+  // border-radi2s: 15px;
+  margin-right: 1%;
+  height: 3em;
+  width: 10em;
+}
+
+button:hover {
+  background-color: $pink;
+  border-radius: 15px;
+  border: none;
+  transition: all 0.3s linear;
 }
 
 .container {
@@ -91,7 +164,7 @@ body {
 .image-bar {  
   text-align: center;
   position: fixed;
-  top: 0;
+  top: 10%;
   right: 0;
   height: 100%;
   list-style-type: none;
@@ -132,18 +205,20 @@ body {
 
 .menu li a.font:before { content: "\f031"; }
 
-.menu li a.font-color:before { content: "\f031"; color: #C73E1D; }
+.menu li a.font-color:before { content: "\f031  \f1fc"; color: #06D6A0; }
 
 .menu li a.message:before { content: "\f044"; }
 
 .menu li a.images:before { content: "\f03e"; }
 
+.menu li a.publish:before { content: "\f1e0"; }
+
+
 .color-bar a:hover,
 .text-bar a:hover,
 .text-color-bar a:hover,
-.image-bar a:hover,
-.menu a:hover {
-  background: #267fdd;
+.menu-links:hover {
+  background: $pink;
   color: #fff;
   transition: all 0.3s ease;
 }
@@ -281,20 +356,56 @@ body {
 
 .reset {
   @include media($mobile) { @include span-columns(18); }
+  margin-top: 0.5%;
   background-color: Transparent;
+  border: 2px solid $cerulean;
+  cursor: pointer;
+  border-radius: 15px;
+  height: 2em;
+  width: 10em;
   text-align: center;
-  border-radius: 25px;
-  border: 1px solid #000000;
-  width: 200px;
-  height: 30px;
   font-size: 15px;
   color: black;
   margin-top: 8%;
   margin-bottom: 5%;
   font-weight: normal;
-  cursor: pointer; 
-  &:hover { opacity: 0.6; transition: all 0.3s ease-in-out; }
+  &:hover { border: none; transition: all 0.3s ease-in-out; background-color: $pink}
   &:focus { outline: 0; }
+}
+
+.upload-images {
+  @include media($mobile) { @include span-columns(18); }
+  margin-top: 10%;
+  background-color: Transparent;
+  border: 2px solid $cerulean;
+  cursor: pointer;
+  border-radius: 15px;
+  height: 4em;
+  width: 14em;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+  margin-top: 8%;
+  margin-bottom: 10%;
+  font-weight: normal;
+  &:hover { border: none; transition: all 0.3s ease-in-out;}
+  &:focus { outline: 0; }
+}
+
+.upload {
+  margin-top: 10%;
+}
+
+.sticker-text {
+  font-size: 22px;
+}
+
+.choose-sticker {
+  font-size: 22px;
+  float:right;
+  margin-top: 5%;
+  margin-right: 15%;
+  transform: translateY(5%)
 }
 
 .color-options { margin-bottom: 6%; }
@@ -341,17 +452,17 @@ body {
   min-height: 100vh;
   height: 100vh;
   overflow: auto;
-  top:0;
+  top: 0;
   left: 0;
   padding: 1%;
   margin: 0 auto;
+  margin-top: 5%;
   z-index: 0;  
   min-width: 100%;
   letter-spacing: 1px;
 }
 
 .mixtape-title {
-  margin-top: 3%;
   text-align: center;
   font-size: 30px;
 }
@@ -371,12 +482,7 @@ body {
  padding: 0.5em;
 }
 
-.playlist-player {
-  @include span-columns(4 of 12);
-}
-
 .unslider, .unslider-fade  {
-  @include span-columns(8 of 12);
   overflow: visible !important;
 }
 
@@ -433,7 +539,7 @@ box:hover {
 
 .popup h2 {
   margin-top: 0;
-  color: purple;
+  color: $cerulean;
   font-size: 40px;
 }
 
@@ -448,12 +554,25 @@ box:hover {
   color: #333;
 }
 
-.popup .close:hover { color: purple; }
+.popup .close:hover { color: $cerulean; }
 
-.popup .content {
+.popup .popup-content {
   max-height: 30%;
   overflow: auto;
   font-size: 20px;
+}
+
+input[type="textarea"] {
+  height: 200px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid $pink;
+  margin-bottom: 5%;
+  font-size: 30px;
+}
+
+input[type="textarea"]:focus {  
+  outline: none;
 }
 
 @media screen and (max-width: 700px){
@@ -461,34 +580,30 @@ box:hover {
   .popup{ width: 80%; }
 }
 
-.publish {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  margin-left: 65%;
-  @include span-columns(4 of 12);
-}
-
 #personal-message {
   text-align: center;
   font-size: 25px;
   margin-top: 0%;
   margin-right: 60%; 
-  // margin-bottom: 10%;
   left: 0;
   padding: 2%;
   height: 50px;
   width: 100%;
   z-index: 1;
-  // position: fixed;
   word-wrap: break-word;   
 }
 
 .share-it {
-  float: right;
-  padding-left: 5%;
-  margin-bottom: 2%;
-  margin-right: 5%;
+  @include span-columns(12)
+  $mobile: new-breakpoint(max-width 900px 4);
+
+  @include media($mobile) {
+      @include span-columns(3);
+    }
+  float: left;
+  position: relative;
+  margin-top: 2%;
+  margin-left: 2%;
 }
 
 .share-button {
@@ -501,35 +616,48 @@ box:hover {
 }
 
 .spotify-player {
-  @include span-columns(12 of 12)
-  @include media($mobile) {
-      @include span-columns(6);
-    }
-    margin-top: 18%;
-  margin-left: 5%;
+  width: 500px; 
+  height: 490px;
 }
 
+.mixtape-outer-container {
+  @include outer-container;
+  // @include span-columns(12)
+}
+
+.photo-container {
+  @include span-columns(8 of 12)
+}
+
+.playlist-player {
+  @include span-columns(4 of 12);
+  margin-top: 5.5%;
+
+  z-index: 1000;
+  position: relative;
+}
+
+
 .photos {
-  @include span-columns(12 of 12)
+  @include span-columns(10 of 12)
   @include media($mobile) {
       @include span-columns(6);
     }
-  margin-left: 115%;
-  margin-top: 4%;
+  margin-left: 70%;
+  margin-top: 8%;
   height: auto;
 }
 
 
 #generic-photo > img {
-  width: 800px;
-  margin-top: 40%;
-  margin-left: 120%;
+  width: 600px;
+  margin-top: 10%;
+  margin-left: 70%;
   z-index: 1;
 }
 
 .user-images {
-  margin-top: 40%;
-  max-height: 50%;
+  max-height: 100%;
   max-width: 100%;
   border: none;
   border-radius: 25px;
@@ -637,18 +765,18 @@ box:hover {
   width: 50px;
 }
 
-.sticker1 { top: 10%; margin-left: 15%; }
-.sticker2 { top: 67%; margin-left: 42%; }
-.sticker3 { top: 70%; margin-left: 0%;}
-.sticker4 { top: 80%; margin-left: 92%;  }
-.sticker5 { top: 10%; margin-left: 85%;}
-.sticker6 { top: 30%; margin-left: 0%; }
-.sticker7 { top: 87%; margin-left: 15%; }
+.sticker1 { top: 15%; margin-left: 15%; }
+.sticker2 { top: 67%; margin-left: 32%; }
+.sticker3 { top: 18%; margin-left: 0%;}
+.sticker4 { top: 15%; margin-left: 92%;  }
+.sticker5 { top: 22%; margin-left: 85%;}
+.sticker6 { top: 36%; margin-left: 0%; }
+.sticker7 { top: 3%; margin-left: 95%; }
 .sticker8 { top: 37%; margin-left: 92%; }
-.sticker9 { top: 75%; margin-left: 30%; }
-.sticker10 { top: 85%; margin-left: 70%; }
-.sticker11 { top: 65%; margin-left: 65%; }
-.sticker12 { top: 6%; margin-left: 70%; }
+.sticker9 { top: 90%; margin-left: -2%; }
+.sticker10 { top: 85%; margin-left: 46%; }
+.sticker11 { top: 37%; margin-left: 14%; }
+.sticker12 { top: 10%; margin-left: 70%; }
 
 @mixin sticker-content($image) {
   content:url($image);
@@ -662,4 +790,6 @@ box:hover {
 .stars { @include sticker-content("/assets/images/star-sticker.png"); }
 .flowers { @include sticker-content("/assets/images/flower-sticker.png"); }
 .pizza { @include sticker-content("/assets/images/pizza-sticker.png"); }
+.bestcat { @include sticker-content("/assets/images/best-cat-sticker.png"); height: 80px; width: 80px; }
+
 

@@ -1,10 +1,17 @@
 <header>
   {{#if session.isAuthenticated}}
-    <button {{action 'logout'}}>Logout</button>
-    <button class="your-profile" {{action "userProfile"}}>your profile</button>
+    <button {{action 'logout'}} class="header-btns">Logout</button>
+    <button class="your-profile" {{action "userProfile" userId}} class="header-btns">your profile</button>
   {{else}}
-    <button{{action 'login'}}>Login</button>
+    <button{{action 'login'}} class="header-btns">Login</button>
   {{/if}}
+  {{#link-to 'index'}}
+  <div class="header-text">digital mixtape</div>
+  <div class="logo-header">
+    <img src="/assets/images/mixtape-pink.png" class="logo-tape">
+  </div>
+  {{/link-to}}
 </header>
+    {{userId}}
 
 {{outlet}}

@@ -78,5 +78,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('starSticker', true)
     controller.set('flowerSticker', true)
     controller.set('pizzaSticker', true)
+    controller.set('bestCatSticker', true)
   }
 })
