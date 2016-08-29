@@ -330,28 +330,7 @@ button:hover {
 
 .menu-text {
   text-align: center;
-  font-size: 20px;
-}
-
-
-@mixin button-bg($bg) {
-  @include media($mobile) {
-    @include span-columns(3);
-  }
-  background-color: $bg;
-  margin-top: 5%;
-  margin-left: 4%;
-  width: 50px;
-  height: 50px;
-  font-weight: normal;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer; 
-  &:hover {
-    opacity: 0.6;
-    transition: all 0.3s ease-in-out;
-  }
-  &:focus { outline: 0; }
+  // font-size: 10px;
 }
 
 .reset {
@@ -380,7 +359,7 @@ button:hover {
   border: 2px solid $cerulean;
   cursor: pointer;
   border-radius: 15px;
-  height: 4em;
+  height: 3em;
   width: 14em;
   text-align: center;
   font-size: 15px;
@@ -393,7 +372,7 @@ button:hover {
 }
 
 .upload {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .sticker-text {
@@ -406,6 +385,26 @@ button:hover {
   margin-top: 5%;
   margin-right: 15%;
   transform: translateY(5%)
+}
+
+@mixin button-bg($bg) {
+  @include media($mobile) {
+    @include span-columns(3);
+  }
+  background-color: $bg;
+  margin-top: 5%;
+  margin-left: 4%;
+  width: 50px;
+  height: 50px;
+  font-weight: normal;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer; 
+  &:hover {
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+  }
+  &:focus { outline: 0; }
 }
 
 .color-options { margin-bottom: 6%; }
@@ -441,7 +440,8 @@ button:hover {
 
 .lime { @include button-bg(#C2E812); }
 .cream { @include button-bg(#F4F0BB); }
-.dk-pink { @include button-bg(#EA526F); }
+.safety-orange { @include button-bg(#FF7700); }
+.bright-pink{ @include button-bg(#FF3366); }
 .neon-blue { @include button-bg(#0CAADC); }
 .slate { @include button-bg(#6F7D8C); }
 .brown { @include button-bg(#523A34); }
@@ -475,7 +475,7 @@ button:hover {
   @include media($mobile) { @include span-columns(18); margin: 1%; padding: 0;}
   text-decoration: none;
   color: #000000;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .font-link:hover {
@@ -565,10 +565,11 @@ box:hover {
 input[type="textarea"] {
   height: 200px;
   width: 100%;
-  border: none;
-  border-bottom: 2px solid $pink;
+  border: 2px solid $pink;
   margin-bottom: 5%;
   font-size: 30px;
+  padding: 2%;
+  text-align: center;
 }
 
 input[type="textarea"]:focus {  
@@ -798,10 +799,10 @@ input[type="textarea"]:focus {
 .sticker4 { top: 15%; margin-left: 92%;  }
 .sticker5 { top: 22%; margin-left: 85%;}
 .sticker6 { top: 36%; margin-left: 0%; }
-.sticker7 { top: 3%; margin-left: 95%; }
+.sticker7 { top: 90%; margin-left: 25%; }
 .sticker8 { top: 37%; margin-left: 92%; }
 .sticker9 { top: 90%; margin-left: -2%; }
-.sticker10 { top: 85%; margin-left: 46%; }
+.sticker10 { top: 70%; margin-left: 42%; }
 .sticker11 { top: 37%; margin-left: 14%; }
 .sticker12 { top: 10%; margin-left: 70%; }
 
