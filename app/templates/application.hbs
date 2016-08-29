@@ -1,9 +1,9 @@
 <header>
   {{#if session.isAuthenticated}}
-    <button {{action 'logout'}} class="header-btns">Logout</button>
+    <button {{action 'logout'}} class="header-btns">logout</button>
     <button class="your-profile" {{action "userProfile" userId}} class="header-btns">your profile</button>
   {{else}}
-    <button{{action 'login'}} class="header-btns">Login</button>
+    <button{{action 'login'}} class="header-btns">login</button>
   {{/if}}
   {{#link-to 'index'}}
   <div class="header-text">digital mixtape</div>

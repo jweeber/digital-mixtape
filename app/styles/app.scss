@@ -5,6 +5,7 @@ $mobile: new-breakpoint(max-width 500px 20);
 $cerulean: #118AB2;
 $blue: #073B4C;
 $pink: #EF476F;
+$green: #06D6A0;
 
 html {
   height: 100%;
@@ -15,11 +16,13 @@ html {
 }
 
 body {
+  @include animation(fadein 1.0s);
   height: 100vh;
   margin: 0px auto;
   max-width: 100%;
   min-width: 100%;
   padding: 0;
+
 }
 
 .other-body:after {
@@ -37,61 +40,19 @@ body {
 
 .main-app {
   text-align: center;
-  margin-top: 25%;
+  margin-top: 22%;
   margin-bottom: 0;
   font-size: 125px;
-  // color: $cerulean;
 }
 
 .connect-music {
   text-align: center;
   font-size: 60px;
-
 }
 
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+.connect { @include animation(fadein 5.0s); }
 
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-.connect {
-  -webkit-animation: fadein 2s; 
-  -moz-animation: fadein 2s; 
-  -ms-animation: fadein 2s;
-  -o-animation: fadein 2s; 
-  animation: fadein 2s;
-  }
-
-.again {
- -webkit-animation: fadein 6s; 
- -moz-animation: fadein 6s; 
- -ms-animation: fadein 6s; 
- -o-animation: fadein 6s; 
- animation: fadein 6s;
-}
+.again { @include animation(fadein 9.0s); }
 
 .main-app, .again, .connect { color: $blue; }
 
@@ -194,8 +155,7 @@ button:hover {
 
 .track-info {
   @include span-columns(4.5 of 6);
-  transform: translateY(16%);
-
+  @include transform(translateY(16%));
     // @include media($mobile) {
     //   @include span-columns(3);
     // }
@@ -218,7 +178,7 @@ button:hover {
 
   .added-info {
     @include span-columns(4.5 of 6);
-      transform: translateY(-16%);
+    @include transform(translateY(16%));
 
       // @include media($mobile) {
       //   @include span-columns(3);
@@ -278,13 +238,13 @@ button:hover {
 
 .menu li a.font:before { content: "\f031"; }
 
-.menu li a.font-color:before { content: "\f031  \f1fc"; color: #06D6A0; }
+.menu li a.font-color:before { content: "\f031  \f1fc"; color: $green; }
 
 .menu li a.message:before { content: "\f044"; }
 
 .menu li a.images:before { content: "\f03e"; }
 
-.menu li a.publish:before { content: "\f1e0"; }
+.menu li a.publish:before { content: "\f1e0"; color: #72739f; }
 
 
 .color-bar a:hover,
@@ -457,14 +417,14 @@ button:hover {
   float:right;
   margin-top: 5%;
   margin-right: 15%;
-  transform: translateY(5%)
+  @include transform(translateY(16%));
 }
 
 @mixin button-bg($bg) {
   @include media($mobile) {
     @include span-columns(3);
   }
-  background-color: $bg;
+  background-color: tint($bg, 30%);
   margin-top: 5%;
   margin-left: 4%;
   width: 50px;
@@ -748,9 +708,9 @@ input[type="textarea"]:focus {
 }
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  @include flex-wrap(wrap);
+  @include display(flex);
+  @include justify-content(flex-start);
 }
 
 .card {
@@ -767,15 +727,13 @@ input[type="textarea"]:focus {
   $card-header-background: $card-background;
   $card-margin: 1em;
   $card-image-hover-opacity: 0.7;
-  $card-image-hover-color: #F8F2B4;
 
   background-color: $card-background;
   border: $card-border;
   border-radius: $base-border-radius;
   box-shadow: 0 2px 4px darken($base-background-color, 10%);
   cursor: pointer;
-  flex-basis: 20em;
-  // flex-grow: 0.5;
+  flex-basis: 22em;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
   transition: all 0.2s ease-in-out;
@@ -785,7 +743,7 @@ input[type="textarea"]:focus {
     border-bottom: $card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
     font-weight: bold;
-    line-height: 1.5em;
+    line-height: 2em;
     padding: ($base-spacing / 2) ($base-spacing / 2);
     transition: all 0.2s ease-in-out;
   }
@@ -801,7 +759,7 @@ input[type="textarea"]:focus {
   }
 
   .card-image {
-    background-color: $card-image-hover-color;
+    background-color: $cerulean;
     height: 150px;
     max-height: 150px;
     overflow: hidden;
@@ -832,12 +790,59 @@ input[type="textarea"]:focus {
   }
 }
 
+.card > a {
+  text-decoration: none;
+  color: $cerulean;
+  font-size: 15px;
+  text-align: center;
+}
+
+.profile-container {
+  margin: 5%;
+  margin-top: 8%;
+}
+
+.profile-image { float: left; }
+.profile-image > a { height: 300px; }
+.greeting {
+  margin-right:30%;
+}
+
+.profile-name {
+  margin-bottom: 5%;
+  margin-right: 20%;
+  padding-left: 10%;
+  @include transform(translateY(50%));
+}
+
+.new-mixtape { 
+  float: right; 
+  margin-right: 3%;
+}
+
+.new-mixtape-btn {
+  padding: 2%;
+  height: 3em;
+  width: 10em;
+  font-size: 25px;
+}
+
+.published-progress { margin-left: 20%; }
+.is-published { color: $cerulean; }
+.in-progress { color: $pink; }
+
+.delete-mixtape { 
+  height: 1.8em;
+  width: 9em; 
+  margin: 2%;
+}
+
 .review-container {
   margin-top: 8%;
   margin-left: 5%;
-  display: flex;
-  flex-wrap: wrap;
-
+  @include flex-wrap(wrap);
+  @include display(flex);
+  @include justify-content(flex-start);
 }
 
 .remove-wrapper {
@@ -847,12 +852,12 @@ input[type="textarea"]:focus {
 
 .review-photos {
   height: 150px;
-  width: 200px;
+  width: 180px;
 }
 
 .delete-photo {
  margin-top: 10%;
- margin-left: 15%;
+ margin-left: 5%;
 }
 
 .finished-removing {

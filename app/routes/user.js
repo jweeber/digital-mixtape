@@ -7,11 +7,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service(),
   mixtapes: [],
 
- beforeModel: function(transition) {
-    if (!this.get('session.data.authenticated.user_id')) {
-      return this.transitionTo('login');
-    }
-  },
+ // beforeModel: function(transition) {
+ //    if (!this.get('session.data.authenticated.user_id')) {
+ //      return this.transitionTo('login');
+ //    }
+ //  },
 
   model: function(params) {
     this.set('mixtapes', [])

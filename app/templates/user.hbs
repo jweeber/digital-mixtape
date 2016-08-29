@@ -1,34 +1,44 @@
-<a href={{profileURL}} target="_blank"><img src={{userImage}} class="spotify-image"></a>
-<h1>Hi, {{name}}!</h1>
+<div class="profile-container">
+  <div class="new-mixtape"><button {{action 'newMixtape'}} class="new-mixtape-btn">create a new mixtape</button></div>
 
-<button {{action 'newMixtape'}}>create a new mixtape</button>
-<div class="cards">
+  <div class="profile-image">
+    <a href={{profileURL}} target="_blank"><img src={{userImage}} class="spotify-image"></a>
+  </div>
+  <div class="profile-name">
+    <h1 class="greeting">Hi, {{name}}!</h1>
+  </div>
 
- {{#each mixtapes as |mixtape|}}
-    {{#if mixtape.published}}
-      <div class="card">
-      {{#link-to 'mixtape.shared' userId mixtape.id}}
-        <div class="card-header">
-        {{mixtape.title}}
-        </div>
-        <div class="card-image">
-          <img src="/assets/images/mixtape-sketch.png" alt="">
-        </div>
-      {{/link-to}}
-        <button {{action "deleteMixtape" mixtape mixtape.id}}>delete mixtape</button>
-      </div>
-    {{else}}
-      <div class="card">
-        {{#link-to 'mixtape.edit' userId mixtape.id}}
+
+  <div class="cards">
+   {{#each mixtapes as |mixtape|}}
+      {{#if mixtape.published}}
+        <div class="card">
+        {{#link-to 'mixtape.shared' userId mixtape.id}}
           <div class="card-header">
-            {{mixtape.title}}
+          {{mixtape.title}}
           </div>
-            <div class="card-image">
-              <img src="/assets/images/mixtape-sketch.png" alt="">
+          <div class="card-image">
+            <img src="/assets/images/mixtape-sketch.png" alt="">
           </div>
         {{/link-to}}
-        <button {{action "deleteMixtape" mixtape mixtape.id}}>delete mixtape</button>
-      </div>
-    {{/if}}
-  {{/each}}
+          <button {{action "deleteMixtape" mixtape mixtape.id}} class="delete-mixtape">delete mixtape</button>
+        <span class="published-progress is-published">published</span>
+        </div>
+      {{else}}
+        <div class="card">
+          {{#link-to 'mixtape.edit' userId mixtape.id}}
+            <div class="card-header">
+              {{mixtape.title}}
+            </div>
+              <div class="card-image">
+                <img src="/assets/images/mixtape-sketch.png" alt="">
+            </div>
+          {{/link-to}}
+          <button {{action "deleteMixtape" mixtape mixtape.id}} class="delete-mixtape">delete mixtape</button>
+          <span class="published-progress in-progress">in-progress</span>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+
 </div>
