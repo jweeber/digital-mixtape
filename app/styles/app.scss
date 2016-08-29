@@ -22,6 +22,79 @@ body {
   padding: 0;
 }
 
+.other-body:after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("/assets/images/mixtape-background.jpg");
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-app {
+  text-align: center;
+  margin-top: 25%;
+  margin-bottom: 0;
+  font-size: 125px;
+  // color: $cerulean;
+}
+
+.connect-music {
+  text-align: center;
+  font-size: 60px;
+
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.connect {
+  -webkit-animation: fadein 2s; 
+  -moz-animation: fadein 2s; 
+  -ms-animation: fadein 2s;
+  -o-animation: fadein 2s; 
+  animation: fadein 2s;
+  }
+
+.again {
+ -webkit-animation: fadein 6s; 
+ -moz-animation: fadein 6s; 
+ -ms-animation: fadein 6s; 
+ -o-animation: fadein 6s; 
+ animation: fadein 6s;
+}
+
+.main-app, .again, .connect { color: $blue; }
+
 header {
   // @include span-columns(12)
   //  @include media($mobile) {
@@ -644,9 +717,12 @@ input[type="textarea"]:focus {
   @include media($mobile) {
       @include span-columns(6);
     }
-  margin-left: 70%;
-  margin-top: 8%;
-  height: auto;
+    position:absolute;
+    width:100%;
+    height:100%;
+    text-align: center;
+    margin-left: 60%;
+    margin-top: 8%;
 }
 
 
@@ -658,7 +734,7 @@ input[type="textarea"]:focus {
 }
 
 .user-images {
-  max-height: 100%;
+  max-height: 500px;
   max-width: 100%;
   border: none;
   border-radius: 25px;
@@ -797,10 +873,10 @@ input[type="textarea"]:focus {
 .sticker2 { top: 67%; margin-left: 32%; }
 .sticker3 { top: 18%; margin-left: 0%;}
 .sticker4 { top: 15%; margin-left: 92%;  }
-.sticker5 { top: 22%; margin-left: 85%;}
-.sticker6 { top: 36%; margin-left: 0%; }
+.sticker5 { top: 86%; margin-left: 85%;}
+.sticker6 { top: 37%; margin-left: 80%; }
 .sticker7 { top: 90%; margin-left: 25%; }
-.sticker8 { top: 37%; margin-left: 92%; }
+.sticker8 { top: 65%; margin-left: 92%; }
 .sticker9 { top: 90%; margin-left: -2%; }
 .sticker10 { top: 70%; margin-left: 42%; }
 .sticker11 { top: 37%; margin-left: 14%; }
