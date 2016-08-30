@@ -1,7 +1,37 @@
 <body class="other-body">
+<div class="parallax">
+  <div class="bg__app-title">
+    <h1 class="main-app">digital mixtape</h1>
+    <p class="connect-music"><span class="connect">connect through music.   </span><span class="again">again.</span></p>
+  </div>
+  <div class="bg__home-links">
+    <div class="scroll1">
+    {{#scroll-to href='#description1' duration=1000 offset=-60 easing='linear'}}
+      <span class="what-is-mixtape">what is a mixtape?</span>
+    {{/scroll-to}}
+    </div>
+    <div class="scroll2">
+    {{#scroll-to href='#description2' duration=1000 offset=-60 easing='linear'}}
+      <span class="what-is-mixtape">how do i make one?</span>
+    {{/scroll-to}}
+    </div>
+  </div>
+  <div class="bg__description1" id="description1">
+    <img src="assets/images/mixtape-heart.png" class="home-mix-sketch">
+    <div class="mixtape-description">
+      <h2>What is a mixtape?</h2>
 
-<h1 class="main-app">digital mixtape</h1>
+      <p></p>
+    </div>
+  </div>
+  <div class="bg__description2" id="description2">
+    <img src="assets/images/mixtape-heart.png" class="retro-mixtape">
+    <div class="make-one">
+      <h2>How do I make one?</h2>
 
-<p class="connect-music"><span class="connect">connect through music.   </span><span class="again">again.</span></p>
+      <p></p>
+    </div>
+  </div>
+</div>
 
 </body>

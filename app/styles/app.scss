@@ -39,9 +39,9 @@ body {
   background-repeat: no-repeat;
 }
 
-.other-body:after {
-  @include background-images("/assets/images/mixtape-background.jpg");
-}
+// .other-body:after {
+//   @include background-images("/assets/images/mixtape-background.jpg");
+// }
 
 .login-container:after {
   @include background-images("/assets/images/cassette-tapes-spread-out.jpg");
@@ -90,7 +90,8 @@ body {
 
 .main-app {
   text-align: center;
-  margin-top: 22%;
+  padding-top: 10%;
+  // margin-top: 22%;
   margin-bottom: 0;
   font-size: 125px;
 }
@@ -112,9 +113,9 @@ header {
   //     @include span-columns(6);
   //   }
   margin-bottom: 10%;
-  padding-top: 1%;
+  padding-top: 2%;
   padding-left: 2%;
-  height: 70px;
+  height: 90px;
   width: 100%;
   top: 0;
   z-index: 5000;
@@ -994,7 +995,7 @@ input[type="textarea"]:focus {
   width: 50px;
 }
 
-.sticker1 { top: 15%; margin-left: 15%; }
+.sticker1 { top: 20%; margin-left: 15%; }
 .sticker2 { top: 67%; margin-left: 32%; }
 .sticker3 { top: 18%; margin-left: 0%;}
 .sticker4 { top: 15%; margin-left: 92%;  }
@@ -1021,3 +1022,90 @@ input[type="textarea"]:focus {
 .pizza { @include sticker-content("/assets/images/pizza-sticker.png"); }
 .bestcat { @include sticker-content("/assets/images/best-cat-sticker.png"); height: 80px; width: 80px; }
 
+
+[class*="bg__"] {
+  height: 50vh;
+
+  // text-indent: -9999px;
+
+  /* fix background */
+  background-attachment: fixed;
+
+  /* center it */
+  background-position: center center;
+
+  /* Scale it nicely to the element */
+  background-size: cover;
+
+  /* just make it look a bit better ;) */
+  &:nth-child(2n) {
+    box-shadow: inset 0 0 1em #111;
+  }
+}
+
+.bg__app-title {
+  height: 70vh;
+  background-image: url(
+    "/assets/images/mixtape-background.jpg"
+  );
+}
+
+.scroll1 {
+  float: left;
+  margin-left: 20%;
+}
+
+.scroll1 > a, .scroll2 > a { 
+  color: $pink;
+  text-decoration: none; 
+}
+
+.scroll2 {
+  float: right;
+  margin-right: 20%;
+}
+
+.bg__home-links {
+  height: 20vh;
+  font-size: 30px;
+  padding: 2%;
+  background-color: $blue;
+}
+
+.bg__description1 {
+  height: 100vh;
+  background-color: $pink;
+  opacity: 0.7;
+}
+
+.bg__description2 {
+  height: 100vh;
+  background-color: $green;
+  opacity: 0.7;
+}
+
+.home-mix-sketch {
+  float: left;
+  margin-top: 5%;
+  height: 500px;
+  width: 450px;
+}
+
+.retro-mixtape {
+  float: right;
+  margin-top: 5%;
+  height: 500px;
+  width: 450px;
+}
+
+.mixtape-description,
+.make-one {
+  padding: 5%;
+}
+.mixtape-description > h2,
+.make-one > h2 {
+  color: $blue;
+  margin-top: 0;
+  padding-left: 5%;
+  font-size: 60px;
+}
