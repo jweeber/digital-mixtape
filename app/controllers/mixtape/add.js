@@ -24,7 +24,6 @@ export default Ember.Controller.extend({
         .then( (data) => {
           return this.addToCurrentTracks(trackId)
         }).catch (function (err) {
-          console.error(err)
       })
     },
 
@@ -40,7 +39,6 @@ export default Ember.Controller.extend({
         .then( (data) => {
           return this.removeFromCurrentTracks(trackId)
         }).catch (function (err) {
-          console.error(err)
       })
     },
 
@@ -66,7 +64,6 @@ export default Ember.Controller.extend({
           track_name: data.body.name
         })
       }).catch( function (err) {
-        console.log(err)
     })
   },
 

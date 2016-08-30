@@ -29,7 +29,6 @@ export default Ember.Controller.extend({
             return this.transitionToRoute('mixtape.add', this.get('userId'), playlist.body.id)
           })
         }).catch(function (err) {
-            console.error(err);
       });
     }
   }

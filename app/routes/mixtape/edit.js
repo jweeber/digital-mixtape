@@ -11,11 +11,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     query: { refreshModel: true }
   },
 
-  // beforeModel: function(transition) {
-  //   if (!this.get('session.data.authenticated.user_id')) {
-  //     return this.transitionTo('login');
-  //   }
-  // },
+  beforeModel: function(transition) {
+    if (!this.get('session.data.authenticated.user_id')) {
+      return this.transitionTo('login');
+    }
+  },
 
   model: function (params) {
     this.set('playlistId', params.playlist_id)

@@ -1,7 +1,4 @@
-<h2>Log in to make some awesome mixtapes!</h2>
-
-{{#if session.isAuthenticated}}
-  <button {{action 'logout'}}>Logout</button>
-{{else}}
-  <button {{action 'login'}}>Login</button>
-{{/if}}
+<div class="login-container">
+    <h2>You are logged out! <br>Awesome mixtapes are waiting... </h2>
+    <button {{action 'login'}} class="login-page-btn"><span class="with-spotify">login with Spotify  <img src="assets/images/spotify-logo.png" class="spotify-login"></span></button><br>
+</div>

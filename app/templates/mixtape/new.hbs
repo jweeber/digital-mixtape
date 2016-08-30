@@ -1,10 +1,14 @@
-<h2>The art of creating a mixtape starts with the title.</h2>
-<p>Think about who the mixtape is for, when and where they'll listen to it, and the overall theme you want. Inside jokes are good, too.</p>
+<div class="new-title-container">
+  <div class="new-title-descrption">
+    <h2>The art of creating a mixtape starts with the title.</h2>
+    <p>Who is the mixtape for?</p>
+    <p>When and where will they listen to it?</p>
+    <p>Do you have an overall theme in mind?</p>
+    <p>Inside jokes are good, too.</p>
+  </div>
 
-<div class="container">
-  <h2>Give your mixtape a title:</h2>
-  {{input type="text" value=title placeholder="title" maxlength="30"}}
+  <div class="title-bar">{{input type="text" value=title placeholder="give your mixtape a title" maxlength="30" class="new-title-input"}}</div>
  
-  <button {{action "createMixtape" title}}>Create</button>
+  <div><button {{action "createMixtape" title}} class="create-mixtape-btn">Create</button></div>
 </div>
 

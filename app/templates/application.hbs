@@ -1,9 +1,9 @@
 <header>
   {{#if session.isAuthenticated}}
     <button {{action 'logout'}} class="header-btns">logout</button>
-    <button class="your-profile" {{action "userProfile" userId}} class="header-btns">your profile</button>
+    <button class="your-profile" {{action "userProfile" session.user_id}} class="header-btns">your profile</button>
   {{else}}
-    <button{{action 'login'}} class="header-btns">login</button>
+    <button{{action 'login'}} class="header-btns"><span class="header-with-spotify">login with Spotify  <img src="assets/images/spotify-logo.png" class="header-spotify-login"></span></button>
   {{/if}}
   {{#link-to 'index'}}
   <div class="header-text">digital mixtape</div>
@@ -12,6 +12,5 @@
   </div>
   {{/link-to}}
 </header>
-    {{userId}}
 
 {{outlet}}

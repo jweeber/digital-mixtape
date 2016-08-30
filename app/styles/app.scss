@@ -4,6 +4,7 @@
 $mobile: new-breakpoint(max-width 500px 20);
 $cerulean: #118AB2;
 $blue: #073B4C;
+$blue-opacity: rgba(7, 59, 76, 0.9);
 $pink: #EF476F;
 $green: #06D6A0;
 
@@ -25,17 +26,66 @@ body {
 
 }
 
-.other-body:after {
+@mixin background-images($image) {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
-  background-image: url("/assets/images/mixtape-background.jpg");
+  background-image: url($image);
   width: 100%;
   height: 100vh;
   z-index: -1;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.other-body:after {
+  @include background-images("/assets/images/mixtape-background.jpg");
+}
+
+.login-container:after {
+  @include background-images("/assets/images/cassette-tapes-spread-out.jpg");
+}
+
+.login-container {
+  background-color: $blue-opacity;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  border-radius: 1.5em;
+  padding-bottom: 3%;
+  margin-top: 15%;
+  color: $green;
+  overflow: hidden;
+  text-align: center;
+}
+
+.login-page-btn {
+  height: 3em;
+  width: 15em;
+  margin-bottom: 2%;
+  font-size: 25px;
+  color: white;
+}
+
+.with-spotify {
+  font-size: 30px;
+}
+
+.header-with-spotify {
+  font-size: 20px;
+}
+
+.header-spotify-login {
+  @include transform(translateY(25%));
+  height: 25px;
+  width: 25px;
+}
+
+.spotify-login {
+  @include transform(translateY(25%));
+  height: 35px;
+  width: 35px;
 }
 
 .main-app {
@@ -52,7 +102,7 @@ body {
 
 .connect { @include animation(fadein 5.0s); }
 
-.again { @include animation(fadein 9.0s); }
+.again { @include animation(fadein 7.0s); }
 
 .main-app, .again, .connect { color: $blue; }
 
@@ -106,15 +156,10 @@ button:focus { outline: 0; }
 
 .header-btns {
   color: white;
-  font-size: 15px;
-  // margin-top: 0.5%;
-  // background-color: Transparent;
-  // border: 2px solid $cerulean;
-  // cursor: pointer;
-  // border-radi2s: 15px;
+  font-size: 20px;
   margin-right: 1%;
-  height: 3em;
-  width: 10em;
+  height: 2em;
+  width: 12em;
 }
 
 button:hover {
@@ -124,71 +169,123 @@ button:hover {
   transition: all 0.3s linear;
 }
 
-.container {
-  @include outer-container;
-  @include row();
-  display: inline;
+.new-title-container {
+  background-color: $blue-opacity;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  border-radius: 1.5em;
+  padding-bottom: 3%;
+  margin-top: 10%;
+  color: $cerulean;
+  overflow: hidden;
 }
 
-.top-row {
-  @include row();
-  @include span-columns(12);
+.new-title-container:after {
+  @include background-images("/assets/images/mixtape-headphones.jpg");
+}
+
+.new-title-input {
+  height: 2em;
+  width: 25em;
+  border: none;
+  border-bottom: 2px solid $pink;
   margin-bottom: 2%;
+  font-size: 35px;
+  font-family: 'Bubblegum Sans', cursive;
+  padding-top: 2%;
+  text-align: center;
+  color: $pink;
+  background-color: Transparent;
+  vertical-align: bottom;
+  @include placeholder {
+    color: $green;
+    opacity: 0.4;
+  }
 }
 
-.tracks-container {
-  @include span-columns(6);
-      // $mobile: new-breakpoint(max-width 900px);
+.create-mixtape-btn, .finished-adding {
+  height: 3em;
+  width: 10em;
+  font-size: 25px;
+  color: white;
+}
+
+.new-title-input:focus { outline: none; }
+
+.add-tracks-container {
+  background-color: $blue-opacity;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  border-radius: 1.5em;
+  padding-bottom: 3%;
+  margin-top: 10%;
+  color: $cerulean;
+  overflow: hidden;
+}
+
+.add-tracks-container:after {
+  @include background-images("/assets/images/cassette-tape-stack.jpg");
+}
+
+.search:focus{ outline: none; }
+
+.search {
+  height: 2em;
+  width: 25em;
+  border: none;
+  border-bottom: 2px solid $pink;
+  margin-bottom: 2%;
+  font-size: 35px;
+  font-family: 'Bubblegum Sans', cursive;
+  padding-top: 2%;
+  text-align: center;
+  color: $pink;
+  background-color: Transparent;
+  vertical-align: bottom;
+  @include placeholder {
+    color: $green;
+    opacity: 0.4;
+  }
+}
+
+.track-text { color: $green; }
+
+.tracks-container, .added-tracks {
+  position: relative;
+  @include span-columns(12)
+  margin-bottom: 4%;
+  margin-left: 5%;
+  @include flex-wrap(wrap);
+  @include display(flex);
+  @include justify-content(flex-start);
 }
 
 .inner-row {
-  @include row();
-  margin-bottom: 1%;
+  position: relative;
+  width: 15%;
+  height: 300px;
 }
 
-.player {
-  @include span-columns(1.5 of 6);
-    // @include media($mobile) {
-    //   @include span-columns(3);
-    // }
+.add-remove-btn {
+  position: absolute;
+  bottom:0;
+  margin-left: 20%;  
 }
 
-.track-info {
-  @include span-columns(4.5 of 6);
-  @include transform(translateY(16%));
-    // @include media($mobile) {
-    //   @include span-columns(3);
-    // }
+.add-remove-track { 
+  color: white; 
+  height: 3em;
+  width: 8em;
 }
-
-
-.added-tracks {
-  @include span-columns(6);
-  float: right;
-  // margin-top: 0%;
-    // $mobile: new-breakpoint(max-width 900px 4);
-}
-
-  .added-img {
-    @include span-columns(1.5 of 6);
-      // @include media($mobile) {
-      //   @include span-columns(3);
-      // }
-  }
-
-  .added-info {
-    @include span-columns(4.5 of 6);
-    @include transform(translateY(16%));
-
-      // @include media($mobile) {
-      //   @include span-columns(3);
-      // }
-  }
 
 .track-img {
   height: 80px;
   width: 80px;
 }
+
+.added-tracks > .inner-row { margin: 3% 3% 3% 0%; }
 
 .menu,
 .color-bar,
@@ -559,20 +656,20 @@ box:hover {
 
 
 .popup {
-  -webkit-animation:pop-in 0.5s;
-  -moz-animation:pop-in 0.5s;
-  -ms-animation:pop-in 0.5s;
+  @include animation(pop-in 0.5s);
   margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 50%;
+  margin-top: 10%;
+  padding: 5%;
+  background: $blue-opacity;
+  border-radius: 15px;
+  width: 80%;
   position: relative;
 }
 
 .popup h2 {
   margin-top: 0;
-  color: $cerulean;
+  text-align: center;
+  color: $green;
   font-size: 40px;
 }
 
@@ -580,14 +677,14 @@ box:hover {
   position: absolute;
   top: 0;
   right: 15px;
+  color: $green;
   transition: all 200ms;
   font-size: 60px;
   font-weight: bold;
   text-decoration: none;
-  color: #333;
 }
 
-.popup .close:hover { color: $cerulean; }
+.popup .close:hover { color: $pink; }
 
 .popup .popup-content {
   max-height: 30%;
@@ -596,13 +693,23 @@ box:hover {
 }
 
 input[type="textarea"] {
-  height: 200px;
-  width: 100%;
-  border: 2px solid $pink;
-  margin-bottom: 5%;
-  font-size: 30px;
-  padding: 2%;
+  height: 2em;
+  width: 30em;
+  border: none;
+  border-bottom: 2px solid $pink;
+  margin-bottom: 2%;
+  font-size: 35px;
+  font-family: 'Bubblegum Sans', cursive;
+  padding-top: 2%;
+  padding-right: 15%;
   text-align: center;
+  color: $pink;
+  background-color: Transparent;
+  vertical-align: bottom;
+  @include placeholder {
+    color: $green;
+    opacity: 0.4;
+  }
 }
 
 input[type="textarea"]:focus {  
@@ -627,6 +734,14 @@ input[type="textarea"]:focus {
   word-wrap: break-word;   
 }
 
+.save-message {
+  height: 2.5em;
+  width: 8em;
+  font-size: 25px;
+  color: white;
+  margin-left: 40%;
+}
+
 .share-it {
   @include span-columns(12)
   $mobile: new-breakpoint(max-width 900px 4);
@@ -641,13 +756,18 @@ input[type="textarea"]:focus {
 }
 
 .share-button {
-  height: 30px !important;
-  width: 30px !important;
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 25px;
 }
+
+.share-button:hover { border-radius: 25px; }
 
 .fb-share-button {
   padding-left: 6px !important;
 }
+
+.share-text { font-size: 20px; }
 
 .spotify-player {
   width: 500px; 

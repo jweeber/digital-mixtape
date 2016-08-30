@@ -24,7 +24,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     sessionAuthenticationSucceeded: function() {
       var currentUser = this.get('session.data.authenticated.user_id')
-      this.set('userId', currentUser)
       return this.transitionTo('user', currentUser);
     },
 
@@ -34,6 +33,8 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     setupController: function (controller, model) {
       this._super(controller, model)
+      this.set('userId', this.get('session.data.authenticated.user_id'))
+      console.log(this.get('userId'))
       controller.set('userId', this.get('userId'))
     }
 })

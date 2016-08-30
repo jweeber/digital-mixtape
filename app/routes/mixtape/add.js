@@ -24,7 +24,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.set('userId', params.user_id)
     let spotifyApi = new SpotifyWebApi()
     if ((params.query === undefined) || (params.query.length >= 3)) {
-      return spotifyApi.searchTracks(params.query, { limit: 5 })
+      return spotifyApi.searchTracks(params.query, { limit: 6 })
         .then( (data) => {
           return data.body.tracks.items;
         }).catch (function (err) {

@@ -1,36 +1,35 @@
-<div class="top-row">
-  <h2>Search for Tracks, Artists, and Albums on Spotify</h2>
-  {{input type="text" value=query placeholder="search for tracks, artists, or albums" class="search"}}
-  <button class="finished-adding" {{action "finished"}}>done adding tracks</button>
-</div>
-<div class="container">
-  <div class="tracks-container">
-    {{#each model as |track|}}
-      <div class="inner-row">
-        <div class="player">
-          <iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe>
-        </div>
-        <div class="track-info">
-          <span>Track: {{track.name}}</span><br>
-          <span>Artist: {{track.artists.0.name}}</span><br>
-          <button {{action "addToPlaylist" track.uri track.id}}>add to mixtape</button>
-        </div>
-      </div>
-    {{/each}}
+<div class="add-tracks-container">
+  <div class="top-row">
+    <h2>Add some tunes! <br> Tracks are added to your Spotify playlist.</h2>
+    {{input type="text" value=query placeholder="search for tracks, artists, or albums" class="search"}}<br>
+    <button class="finished-adding" {{action "finished"}}>finished adding tracks</button>
   </div>
-
-  <div class="added-tracks">
-    {{#each playlist as |track|}}
-      <div class="inner-row">
-        <div class="added-img">
-          <img src={{track.image}} class="track-img">
-        </div>  
-        <div class="added-info">
-          <span>Track: {{track.track_name}}</span><br>
-          <span> Artist: {{track.artist_name}}</span><br>
-          <button class="remove-track" {{action "removeFromPlaylist" track.uri track.id}}>remove track</button>
+  <div class="all-tracks-container">
+    <div class="track-text"><h3>search results</h3></div><br>
+    <div class="tracks-container">
+      {{#each model as |track|}}
+        <div class="inner-row">
+          <div class="player">
+            <iframe src="https://embed.spotify.com/?uri={{track.uri}}" width="80" height="80" frameborder="0" allowtransparency="true"></iframe>
+          </div>
+            <div class="track-name">Track: <br>{{track.name}}</div><br>
+            <div class="artist-name">Artist: <br>{{track.artists.0.name}}</div><br>
+            <div class="add-remove-btn"><button {{action "addToPlaylist" track.uri track.id}} class="add-remove-track">add to mixtape</button></div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    </div>
+    <div class="track-text"><h3>current tracks</h3></div><br>
+    <div class="added-tracks">
+      {{#each playlist as |track|}}
+        <div class="inner-row">
+          <div class="added-img">
+            <img src={{track.image}} class="track-img">
+          </div>  
+            <div class="track-name">Track: <br>{{track.track_name}}</div><br>
+            <div class="artist-name"> Artist: <br>{{track.artist_name}}</div><br>
+            <div class="add-remove-btn"><button class="add-remove-track" {{action "removeFromPlaylist" track.uri track.id}}>remove track</button></div>
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>
