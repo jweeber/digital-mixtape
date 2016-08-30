@@ -143,7 +143,7 @@ header {
 
 button {
   background-color: Transparent;
-  border: 2px solid $cerulean;
+  border: 0.5px solid $cerulean;
   cursor: pointer;
   font-size: 15px;
   border-radius: 15px;
@@ -1003,17 +1003,17 @@ input[type="textarea"]:focus {
   width: 50px;
 }
 
-.sticker1 { top: 20%; margin-left: 15%; }
+.sticker1 { top: 12%; margin-left: 30%; }
 .sticker2 { top: 67%; margin-left: 32%; }
-.sticker3 { top: 18%; margin-left: 0%;}
+.sticker3 { top: 22%; margin-left: 0%;}
 .sticker4 { top: 15%; margin-left: 92%;  }
 .sticker5 { top: 86%; margin-left: 85%;}
-.sticker6 { top: 37%; margin-left: 80%; }
+.sticker6 { top: 37%; margin-left: 88%; }
 .sticker7 { top: 90%; margin-left: 25%; }
 .sticker8 { top: 65%; margin-left: 92%; }
 .sticker9 { top: 90%; margin-left: -2%; }
 .sticker10 { top: 70%; margin-left: 42%; }
-.sticker11 { top: 37%; margin-left: 14%; }
+.sticker11 { top: 37%; margin-left: 6%; }
 .sticker12 { top: 10%; margin-left: 70%; }
 
 @mixin sticker-content($image) {
@@ -1033,22 +1033,9 @@ input[type="textarea"]:focus {
 
 [class*="bg__"] {
   height: 50vh;
-
-  // text-indent: -9999px;
-
-  /* fix background */
   background-attachment: fixed;
-
-  /* center it */
   background-position: center center;
-
-  /* Scale it nicely to the element */
   background-size: cover;
-
-  /* just make it look a bit better ;) */
-  &:nth-child(2n) {
-    box-shadow: inset 0 0 1em #111;
-  }
 }
 
 .bg__app-title {
@@ -1074,6 +1061,7 @@ input[type="textarea"]:focus {
 }
 
 .bg__home-links {
+  @include span-columns(12)
   height: 20vh;
   font-size: 30px;
   padding: 2%;
@@ -1082,14 +1070,12 @@ input[type="textarea"]:focus {
 
 .bg__description1 {
   height: 100vh;
-  background-color: $pink;
-  opacity: 0.7;
+  background-color: $blue;
 }
 
 .bg__description2 {
   height: 100vh;
-  background-color: $green;
-  opacity: 0.7;
+  background-color: $blue;
 }
 
 .home-mix-sketch {
@@ -1112,13 +1098,23 @@ input[type="textarea"]:focus {
 }
 
 .mixtape-description,
-.make-one {
+.make-one { 
   padding: 5%;
 }
+
 .mixtape-description > h2,
 .make-one > h2 {
-  color: $blue;
+  color: $pink;
   margin-top: 0;
   padding-left: 5%;
   font-size: 60px;
+}
+
+.make-one > h2 { margin-bottom: 10%; }
+
+.mixtape-description > p,
+.make-one > p {
+  font-size: 20px;
+  color: $green;
+  letter-spacing: 2px;
 }
