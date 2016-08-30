@@ -113,9 +113,9 @@ header {
   //     @include span-columns(6);
   //   }
   margin-bottom: 10%;
-  padding-top: 2%;
+  padding-top: 1%;
   padding-left: 2%;
-  height: 90px;
+  height: 70px;
   width: 100%;
   top: 0;
   z-index: 5000;
@@ -124,7 +124,7 @@ header {
 }
 
 .logo-header {
-  float:right; 
+  float:left; 
   margin-right: 1%;
 }
 
@@ -136,7 +136,7 @@ header {
 .header-text {
   color: $pink;
   display: inline;
-  float: right;
+  float: left;
   font-size: 40px;
   margin-right: 2%; 
 }
@@ -155,10 +155,15 @@ button {
 
 button:focus { outline: 0; }
 
+.header {
+  display: inline-flex;
+  float: right;
+  margin-right: 2%;
+}
 .header-btns {
   color: white;
   font-size: 20px;
-  margin-right: 1%;
+  margin-right: 2%;
   height: 2em;
   width: 12em;
 }
@@ -1096,6 +1101,11 @@ input[type="textarea"]:focus {
   margin-top: 5%;
   height: 500px;
   width: 450px;
+}
+
+.bg__app-title {
+  height: 80vh;
+  padding-top: 1%;
 }
 
 .mixtape-description,
