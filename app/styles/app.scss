@@ -600,7 +600,7 @@ button:hover {
 
 .mixtape-title {
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .title-container {
@@ -729,7 +729,7 @@ input[type="textarea"]:focus {
 
 #personal-message {
   text-align: center;
-  font-size: 25px;
+  font-size: 22px;
   margin-top: 0%;
   margin-right: 60%; 
   left: 0;
@@ -993,6 +993,9 @@ input[type="textarea"]:focus {
 .finished-removing > button {
   margin-right: 5%;
   float:right;
+  height: 3em;
+  font-size: 20px;
+  width: 15em;
 }
 
 .sticker-theme {
