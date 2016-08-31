@@ -1,5 +1,4 @@
 # digital mixtape
-###*connect through music. again*
 
 ##Concept
 
