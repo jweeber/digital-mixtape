@@ -39,10 +39,6 @@ body {
   background-repeat: no-repeat;
 }
 
-// .other-body:after {
-//   @include background-images("/assets/images/mixtape-background.jpg");
-// }
-
 .login-container:after {
   @include background-images("/assets/images/cassette-tapes-spread-out.jpg");
 }
@@ -112,7 +108,6 @@ header {
   //  @include media($mobile) {
   //     @include span-columns(6);
   //   }
-  margin-bottom: 10%;
   padding-top: 1%;
   padding-left: 2%;
   height: 70px;
@@ -224,9 +219,7 @@ button:hover {
   font-size: 20px;
   text-align: center;
   position: relative;
-  border-radius: 1.5em;
-  padding-bottom: 3%;
-  margin-top: 10%;
+  padding: 5%;
   color: $cerulean;
   overflow: hidden;
 }
@@ -300,7 +293,7 @@ button:hover {
 .image-bar {  
   text-align: center;
   position: fixed;
-  top: 10%;
+  top: 70px;
   right: 0;
   height: 100%;
   list-style-type: none;
@@ -466,7 +459,6 @@ button:hover {
 
 .menu-text {
   text-align: center;
-  // font-size: 10px;
 }
 
 .reset {
@@ -592,7 +584,7 @@ button:hover {
   left: 0;
   padding: 1%;
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 4.35em;
   z-index: 0;  
   min-width: 100%;
   letter-spacing: 1px;
@@ -782,7 +774,6 @@ input[type="textarea"]:focus {
 
 .mixtape-outer-container {
   @include outer-container;
-  // @include span-columns(12)
 }
 
 .photo-container {
@@ -792,7 +783,7 @@ input[type="textarea"]:focus {
 .playlist-player {
   @include span-columns(4 of 12);
   margin-top: 5.5%;
-
+  margin-right: 5%;
   z-index: 1000;
   position: relative;
 }
@@ -807,7 +798,7 @@ input[type="textarea"]:focus {
     width:100%;
     height:100%;
     text-align: center;
-    margin-left: 60%;
+    margin-left: 70%;
     margin-top: 8%;
 }
 
@@ -823,7 +814,6 @@ input[type="textarea"]:focus {
   max-height: 500px;
   max-width: 100%;
   border: none;
-  border-radius: 25px;
   z-index: 1;
 }
 
@@ -1064,7 +1054,7 @@ input[type="textarea"]:focus {
   @include span-columns(12)
   height: 20vh;
   font-size: 30px;
-  padding: 2%;
+  padding: 3%;
   background-color: $blue;
 }
 
@@ -1080,14 +1070,12 @@ input[type="textarea"]:focus {
 
 .home-mix-sketch {
   float: left;
-  margin-top: 5%;
   height: 500px;
   width: 450px;
 }
 
 .retro-mixtape {
   float: right;
-  margin-top: 5%;
   height: 500px;
   width: 450px;
 }
@@ -1109,8 +1097,6 @@ input[type="textarea"]:focus {
   padding-left: 5%;
   font-size: 60px;
 }
-
-.make-one > h2 { margin-bottom: 10%; }
 
 .mixtape-description > p,
 .make-one > p {

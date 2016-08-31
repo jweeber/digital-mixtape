@@ -4,7 +4,7 @@ export default Ember.Component.extend({
 
   session: Ember.inject.service(),
 
-  userId: Ember.computed( function () {
+  userId: Ember.computed(function () {
     return this.get('session.data.authenticated.user_id')
    }),
 
