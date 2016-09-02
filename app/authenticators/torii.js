@@ -19,7 +19,7 @@ export default ToriiAuthenticator.extend({
           Authorization: 'Bearer ' + data.authorizationToken.access_token  
         },
         data: {
-          scope: 'playlist-read-private playlist-modify-private playlist-modify-public'
+          scope: 'user-read-email playlist-modify-public'
         }
       })
       .then((response) => {
