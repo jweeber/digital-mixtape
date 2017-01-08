@@ -1,5 +1,7 @@
 # digital mixtape
 
+Final project can be viewed here: https://www.digitalmixtape.com/
+
 ##Concept
 
 As cassette tapes became more popular and accessible in the 1980s, mixtapes were born. A symbol of youth culture at the time, the mixtape became not just a recorded set of songs, but a way to connect with others using music and art. Whether your friend was going through a breakup or you needed a way to express your feelings to your high school crush, mixtapes gave you that outlet.
