@@ -23,7 +23,6 @@ body {
   max-width: 100%;
   min-width: 100%;
   padding: 0;
-
 }
 
 @mixin background-images($image) {
@@ -75,7 +74,6 @@ body {
 .main-app {
   text-align: center;
   padding-top: 10%;
-  // margin-top: 22%;
   margin-bottom: 0;
   font-size: 125px;
 }
@@ -92,10 +90,6 @@ body {
 .main-app, .again, .connect { color: $blue; }
 
 header {
-  // @include span-columns(12)
-  //  @include media($mobile) {
-  //     @include span-columns(6);
-  //   }
   padding-top: 1%;
   padding-left: 2%;
   height: 70px;
@@ -330,7 +324,6 @@ button:hover {
 
 .menu li a.publish:before { content: "\f1e0"; color: #72739f; }
 
-
 .color-bar a:hover,
 .text-bar a:hover,
 .text-color-bar a:hover,
@@ -389,18 +382,16 @@ button:hover {
 }
 
 @media all and (max-width: 500px) {
-    .container {
-        margin-top:100px;
-    }
+    .container { margin-top:100px; }
 
     .menu {
-        height:4em;
-        width:100%;
+      height:4em;
+      width:100%;
     }
 
     .menu li{
-        display:inline-block;
-        float:left;
+      display:inline-block;
+      float:left;
     }
 
     .color-bar li a,
@@ -424,9 +415,7 @@ button:hover {
         height:auto;
     }
 
-    .para {
-      padding-left:5px;
-    }  
+    .para { padding-left:5px; }  
 }
 
 @media screen and (max-height: 34em){
@@ -439,15 +428,11 @@ button:hover {
   }
 }
 
-@media screen and (max-height: 34em) and (max-width: 500px){
-  .menu {
-      height:3.5em;
-    }
+@media screen and (max-height: 34em) and (max-width: 500px) {
+  .menu { height:3.5em; }
 }
 
-.menu-text {
-  text-align: center;
-}
+.menu-text { text-align: center; }
 
 .reset {
   @include media($mobile) { @include span-columns(18); }
@@ -487,13 +472,9 @@ button:hover {
   &:focus { outline: 0; }
 }
 
-.upload {
-  margin-top: 5%;
-}
+.upload { margin-top: 5%; }
 
-.sticker-text {
-  font-size: 22px;
-}
+.sticker-text { font-size: 22px; }
 
 .choose-sticker {
   font-size: 22px;
@@ -583,9 +564,7 @@ button:hover {
   font-size: 40px;
 }
 
-.title-container {
-  height: 60px;
-}
+.title-container { height: 60px; }
 
 .font-link {
   @include media($mobile) { @include span-columns(18); margin: 1%; padding: 0;}
@@ -594,17 +573,11 @@ button:hover {
   font-size: 16px;
 }
 
-.font-link:hover {
- padding: 0.5em;
-}
+.font-link:hover { padding: 0.5em; }
 
-.unslider, .unslider-fade  {
-  overflow: visible !important;
-}
+.unslider, .unslider-fade  { overflow: visible !important; }
 
-ul {
-  list-style: none !important;
-}
+ul { list-style: none !important; }
 
 box:hover {
   transition: all .2s ease-in-out;
@@ -639,7 +612,6 @@ box:hover {
 }
 
 .overlay:target { visibility: visible; opacity: 1; }
-
 
 .popup {
   @include animation(pop-in 0.5s);
@@ -749,9 +721,7 @@ input[type="textarea"]:focus {
 
 .share-button:hover { border-radius: 25px; }
 
-.fb-share-button {
-  padding-left: 6px !important;
-}
+.fb-share-button { padding-left: 6px !important; }
 
 .share-text { font-size: 20px; }
 
@@ -760,13 +730,9 @@ input[type="textarea"]:focus {
   height: 490px;
 }
 
-.mixtape-outer-container {
-  @include outer-container;
-}
+.mixtape-outer-container { @include outer-container; }
 
-.photo-container {
-  @include span-columns(8 of 12)
-}
+.photo-container { @include span-columns(8 of 12) }
 
 .playlist-player {
   @include span-columns(4 of 12);
@@ -775,7 +741,6 @@ input[type="textarea"]:focus {
   z-index: 1000;
   position: relative;
 }
-
 
 .photos {
   @include span-columns(10 of 12)
@@ -789,7 +754,6 @@ input[type="textarea"]:focus {
     margin-left: 60%;
     margin-top: 8%;
 }
-
 
 #generic-photo > img {
   width: 600px;
@@ -879,10 +843,7 @@ input[type="textarea"]:focus {
   &:focus,
   &:hover {
     cursor: pointer;
-
-    img {
-      opacity: $card-image-hover-opacity;
-    }
+    img { opacity: $card-image-hover-opacity; }
   }
 
   &:active {

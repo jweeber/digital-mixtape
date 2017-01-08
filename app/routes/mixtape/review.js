@@ -1,3 +1,4 @@
+// Route for reviewing all photos uploaded for the mixtape.
 import Ember from 'ember'
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'
 
@@ -9,14 +10,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   beforeModel: function(transition) {
     if (!this.get('session.data.authenticated.user_id')) {
-      return this.transitionTo('login');
+      return this.transitionTo('login')
     }
   },
 
   model(params) {
     this.set('playlistId', params.playlist_id)
     this.set('userId', params.user_id)
- 
     return this.queryPhotos()
   },
 
@@ -40,4 +40,4 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('userId', this.get('userId'))
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
   }
-});
+})

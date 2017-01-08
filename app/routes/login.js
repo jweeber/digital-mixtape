@@ -1,5 +1,6 @@
-import Ember from 'ember';
-import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
+// Route for login page
+import Ember from 'ember'
+import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin'
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
 
@@ -10,4 +11,4 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       return this.get('session').authenticate('authenticator:torii', 'spotify-oauth2-bearer')
     }
   }
-});
+})

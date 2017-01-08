@@ -1,4 +1,6 @@
-import Ember from 'ember';
+// User profile management page.
+// Users can add or remove playlists.
+import Ember from 'ember'
 
 export default Ember.Controller.extend({
 
@@ -12,11 +14,10 @@ export default Ember.Controller.extend({
     deleteMixtape: function (mixtape, id) {
       return this.get('store').findRecord('mixtape', id)
       .then((record) => {
-       this.get('mixtapes').removeObject(mixtape)
+        this.get('mixtapes').removeObject(mixtape)
         record.destroyRecord()
         return record.save()
       })
     }
   }
-
-});
+})

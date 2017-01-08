@@ -1,5 +1,6 @@
-import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+// Route for the upload photos page
+import Ember from 'ember'
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
@@ -7,7 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   beforeModel: function(transition) {
     if (!this.get('session.data.authenticated.user_id')) {
-      return this.transitionTo('login');
+      return this.transitionTo('login')
     }
   },
 
@@ -16,8 +17,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   setupController: function (controller, model) {
-    this._super(controller, model);
+    this._super(controller, model)
     controller.set('playlistId', this.get('playlistId'))
     controller.set('userId', this.get('userId'))
   }
-});
+})

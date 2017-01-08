@@ -1,5 +1,7 @@
  <input type="button" class="reset" value="reset font" {{action "text" "sans-serif"}}><br>
 
 {{#each fonts as |font|}}
-  <p><a href="#" style={{fontStyle font}} class="font-link" {{action "text" font}}>{{font}}</a></p>
+  <p>
+    <a href="#" style={{fontStyle font}} class="font-link" {{action "text" font}}>{{font}}</a>
+  </p>
 {{/each}}

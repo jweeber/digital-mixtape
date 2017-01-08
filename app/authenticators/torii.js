@@ -1,3 +1,5 @@
+// Spotify Authentication.
+// Extends default Torii Authenticator.
 import Ember from 'ember'
 import ToriiAuthenticator from 'ember-simple-auth/authenticators/torii'
 

@@ -1,3 +1,5 @@
+// Manages user login/logout function.
+// On login, take user to their profile.
 import Ember from 'ember'
 
 const services = Ember.inject.service()

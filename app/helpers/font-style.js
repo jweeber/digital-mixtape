@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
 export function fontStyle (font) {
-  return Ember.String.htmlSafe("font-family:" + font);
+  return Ember.String.htmlSafe("font-family:" + font)
 }
 
-export default Ember.Helper.helper(fontStyle);
+export default Ember.Helper.helper(fontStyle)

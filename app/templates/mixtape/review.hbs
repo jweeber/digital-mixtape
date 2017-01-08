@@ -1,11 +1,15 @@
-<div class="finished-removing"><button {{action "finishedRemoving"}}>finished removing photos</button></div>
+<div class="finished-removing">
+  <button {{action "finishedRemoving"}}>finished removing photos</button>
+</div>
 <div class="review-container">
   {{#each mixtapePhotos as |photo|}}
-  <div class="remove-wrapper">
-    <div class="remove-photo">
-      <img src={{photo}} class="review-photos"><br>
+    <div class="remove-wrapper">
+      <div class="remove-photo">
+        <img src={{photo}} class="review-photos"><br>
+      </div>
+        <div class="delete-photo">
+          <button {{action "deletePhoto" photo}}>delete photo</button>
+        </div> 
     </div>
-      <div class="delete-photo"><button {{action "deletePhoto" photo}}>delete photo</button></div> 
-  </div>
   {{/each}}
 </div>

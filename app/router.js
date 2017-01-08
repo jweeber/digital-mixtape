@@ -13,7 +13,7 @@ Router.map(function() {
     this.route('add', { path: '/:user_id/:playlist_id/add' })
     this.route('edit', { path: '/:user_id/:playlist_id/edit' })
     this.route('upload', { path: '/:user_id/:playlist_id/edit/upload' })
-    this.route('review', { path: '/:user_id/:playlist_id/edit/review' });
+    this.route('review', { path: '/:user_id/:playlist_id/edit/review' })
     this.route('shared', { path: '/:user_id/:playlist_id' })
   })
   this.route('login')

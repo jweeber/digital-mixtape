@@ -1,3 +1,7 @@
+// Playlist track management page.
+// Users can add tracks and view them on the same page. 
+// If user decides they don't want a track, they can remove it.
+// @TODO: error handling
 import Ember from 'ember'
 import SpotifyWebApi from 'npm:spotify-web-api-node'
 
@@ -23,8 +27,7 @@ export default Ember.Controller.extend({
       return spotifyApi.addTracksToPlaylist(user, playlist, [trackURI])
         .then( (data) => {
           return this.addToCurrentTracks(trackId)
-        }).catch (function (err) {
-      })
+        }).catch (function (err) {})
     },
 
     removeFromPlaylist: function (trackURI, trackId) {
@@ -38,8 +41,7 @@ export default Ember.Controller.extend({
       return spotifyApi.removeTracksFromPlaylist(user, playlist, [{"uri": trackURI}])
         .then( (data) => {
           return this.removeFromCurrentTracks(trackId)
-        }).catch (function (err) {
-      })
+        }).catch (function (err) {})
     },
 
     finished: function () {
@@ -63,8 +65,7 @@ export default Ember.Controller.extend({
           artist_name: data.body.artists[0].name,
           track_name: data.body.name
         })
-      }).catch( function (err) {
-    })
+      }).catch( function (err) {})
   },
 
   removeFromCurrentTracks: function (trackId) {

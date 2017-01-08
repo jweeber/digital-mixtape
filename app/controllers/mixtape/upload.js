@@ -1,4 +1,5 @@
-import Ember from 'ember';
+// Upload images to the mixtape using the filepicker service.
+import Ember from 'ember'
 
 export default Ember.Controller.extend({
   needs: 'mixtape.edit',
@@ -33,7 +34,7 @@ export default Ember.Controller.extend({
             })
             newImage.save()
             .then ( (image) => {
-            return this.transitionToRoute('mixtape.edit', this.get('userId'), this.get('playlistId'))
+              return this.transitionToRoute('mixtape.edit', this.get('userId'), this.get('playlistId'))
             }) 
       }) 
     },
@@ -42,4 +43,4 @@ export default Ember.Controller.extend({
       return this.transitionToRoute('mixtape.edit', this.get('userId'), this.get('playlistId'))
     }
   }
-});
+})

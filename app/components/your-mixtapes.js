@@ -1,4 +1,5 @@
-import Ember from 'ember';
+// Takes user to profile with list of mixtapes.
+import Ember from 'ember'
 
 export default Ember.Component.extend({
 
@@ -13,4 +14,4 @@ export default Ember.Component.extend({
       return this.transitionToRoute('user', this.get('userId'))
     } 
   }
-});
+})

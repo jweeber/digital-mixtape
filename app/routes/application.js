@@ -1,3 +1,4 @@
+// Route for managing user authentication (login/logout)
 import Ember from 'ember'
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin'
 
@@ -24,11 +25,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     sessionAuthenticationSucceeded: function() {
       var currentUser = this.get('session.data.authenticated.user_id')
-      return this.transitionTo('user', currentUser);
+      return this.transitionTo('user', currentUser)
     },
 
     sessionInvalidationSucceeded: function(){
-      return this.transitionTo('login'); 
+      return this.transitionTo('login') 
     },
 
     setupController: function (controller, model) {

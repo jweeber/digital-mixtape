@@ -1,5 +1,6 @@
-import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+// Route for user profile page
+import Ember from 'ember'
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'
   
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
@@ -9,7 +10,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
  beforeModel: function(transition) {
     if (!this.get('session.data.authenticated.user_id')) {
-      return this.transitionTo('login');
+      return this.transitionTo('login')
     }
   },
 
@@ -57,12 +58,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   setupController: function (controller, model) {
-    this._super(controller, model);
+    this._super(controller, model)
     controller.set('userId', this.get('userId'))
     controller.set('name', this.get('name'))
     controller.set('userImage', this.get('userImage'))
     controller.set('profileURL', this.get('profileURL'))
     controller.set('mixtapes', this.get('mixtapes'))
   }
-
-});
+})

@@ -1,3 +1,5 @@
+// Route for the edit mixtape page. 
+// Users select colors, font styles, upload images, etc.
 import Ember from 'ember'
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'
 
@@ -13,7 +15,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   beforeModel: function(transition) {
     if (!this.get('session.data.authenticated.user_id')) {
-      return this.transitionTo('login');
+      return this.transitionTo('login')
     }
   },
 

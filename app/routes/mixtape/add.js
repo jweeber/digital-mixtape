@@ -1,5 +1,7 @@
-import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+// Route for adding tracks to a mixtape.
+// @TODO: error handling.
+import Ember from 'ember'
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'
 import SpotifyWebApi from 'npm:spotify-web-api-node'
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
@@ -15,7 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   beforeModel: function(transition) {
     if (!this.get('session.data.authenticated.user_id')) {
-      return this.transitionTo('login');
+      return this.transitionTo('login')
     }
   },
   
@@ -26,17 +28,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     if ((params.query === undefined) || (params.query.length >= 3)) {
       return spotifyApi.searchTracks(params.query, { limit: 6 })
         .then( (data) => {
-          return data.body.tracks.items;
-        }).catch (function (err) {
-          
-      })
+          return data.body.tracks.items
+        }).catch (function (err) {})
     } else { return null }
-
   },
 
   setupController: function (controller, model) {
-    this._super(controller, model);
-    controller.set('playlistId', this.get('playlistId'));
+    this._super(controller, model)
+    controller.set('playlistId', this.get('playlistId'))
     controller.set('userId', this.get('userId'))
   }
-});
+})

@@ -1,3 +1,6 @@
+// Functionality for the side-bar menu while editing a mixtape.
+// When user selects a menu, others are closed. 
+// When user selects sticker theme, others are removed.
 import Ember from 'ember'
 
 const services = Ember.inject.service()
@@ -5,7 +8,6 @@ const services = Ember.inject.service()
 export default Ember.Controller.extend({
 
   store: Ember.inject.service(),
-  filepicker: Ember.inject.service(),
 
   paintIsOpen: false,
   textIsOpen: false,
@@ -63,9 +65,8 @@ export default Ember.Controller.extend({
       this.set('textColorIsOpen', false)
       this.set('imageIsOpen', false)
 
-      var popup = document.getElementById('popup1');
+      var popup = document.getElementById('popup1')
       popup.style.display = "block"
-
     }, 
 
     saveMessage: function (message) {
@@ -75,14 +76,14 @@ export default Ember.Controller.extend({
         mixtape.set('message', message)
         mixtape.save().then( () => { 
           this.set('message', message)
-          var popup = document.getElementById('popup1');
+          var popup = document.getElementById('popup1')
           popup.style.display = "none" 
         })
       })
     },
 
     closeMessage: function () {
-      var popup = document.getElementById('popup1');
+      var popup = document.getElementById('popup1')
       popup.style.display = "none"
     },
 
@@ -165,4 +166,4 @@ export default Ember.Controller.extend({
     }
 
   }
-});
+})

@@ -1,4 +1,5 @@
-import Ember from 'ember';
+// Public route that gets the mixtape and all personalization based on id in url
+import Ember from 'ember'
 import SpotifyWebApi from 'npm:spotify-web-api-node'
 
 export default Ember.Route.extend({
@@ -44,9 +45,9 @@ export default Ember.Route.extend({
   },
 
   setupController: function (controller, model) {
-    this._super(controller, model);
+    this._super(controller, model)
     controller.set('title', this.get('title'))
-    controller.set('playlistId', this.get('playlistId'));
+    controller.set('playlistId', this.get('playlistId'))
     controller.set('userId', this.get('userId'))
     controller.set('mixtapePhotos', this.get('mixtapePhotos'))
     controller.set('genericPhoto', this.get('genericPhoto'))
@@ -58,4 +59,4 @@ export default Ember.Route.extend({
     controller.set('theme', this.get('theme'))
     controller.set('shareURL', this.get('shareURL'))
   }
-});
+})

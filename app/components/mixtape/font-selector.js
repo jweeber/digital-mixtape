@@ -1,5 +1,6 @@
-import Ember from 'ember';
-import ENV from '../../config/environment';
+// Saves & sets font style of mixtape based on user selection.
+import Ember from 'ember'
+import ENV from '../../config/environment'
 
 export default Ember.Component.extend({
 
@@ -18,4 +19,4 @@ export default Ember.Component.extend({
       })
     }
   }
-});
+})

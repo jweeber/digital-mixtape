@@ -1,16 +1,16 @@
 <header>
     {{#link-to 'index'}}
-    <div class="logo-header">
-      <img src="/assets/images/mixtape-pink.png" class="logo-tape">
-    </div>
-    <div class="header-text">digital mixtape</div>
+      <div class="logo-header">
+        <img src="/assets/images/mixtape-pink.png" class="logo-tape">
+      </div>
+      <div class="header-text">digital mixtape</div>
     {{/link-to}}
   <div class="header">
-  {{#if session.isAuthenticated}}
-    <button {{action 'logout'}} class="header-btns">logout</button>
-    {{your-mixtapes}}
+    {{#if session.isAuthenticated}}
+      <button {{action 'logout'}} class="header-btns">logout</button>
+      {{your-mixtapes}}
     {{else}}
-      <button{{action 'login'}} class="header-btns"><span class="header-with-spotify">login with Spotify</span></button>
+        <button{{action 'login'}} class="header-btns"><span class="header-with-spotify">login with Spotify</span></button>
     {{/if}}
   </div>
 </header>

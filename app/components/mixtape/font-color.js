@@ -1,4 +1,5 @@
-import Ember from 'ember';
+// Saves & sets font color of mixtape based on user selection.
+import Ember from 'ember'
 
 export default Ember.Component.extend({
 
@@ -17,4 +18,4 @@ export default Ember.Component.extend({
       })
     }
   }
-});
+})
